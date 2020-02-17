@@ -10,11 +10,11 @@
       <meta name="viewport" content="width=device-width,initial-scale=1">
       <meta http-equiv="x-ua-compatible" content="ie=edge">
       
-        <meta name="description" content="A collection of information about the PagerDuty incident response process. Not only how to prepare new employees for on-call responsibilities, but also how to handle major incidents, both in preparation and after-work.">
+        <meta name="description" content="A collection of information about the Elimu Informatics incident response process. Not only how to prepare new employees for on-call responsibilities, but also how to handle major incidents, both in preparation and after-work.">
       
       
       
-        <meta name="author" content="PagerDuty, Inc.">
+        <meta name="author" content="Elimu Informatics">
       
       
         <meta name="lang:clipboard.copy" content="Copy to clipboard">
@@ -35,21 +35,21 @@
       
         <meta name="lang:search.tokenizer" content="[\s\-]+">
       
-      <link rel="shortcut icon" href="assets/images/favicon.png">
+      <link rel="shortcut icon" href="/incident-response-docs/assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.0.4, mkdocs-material-4.6.3">
     
     
       
-        <title>PagerDuty Incident Response Documentation</title>
+        <title>Elimu Informatics Incident Response Documentation</title>
       
     
     
-      <link rel="stylesheet" href="assets/stylesheets/application.adb8469c.css">
+      <link rel="stylesheet" href="/incident-response-docs/assets/stylesheets/application.adb8469c.css">
       
       
     
     
-      <script src="assets/javascripts/modernizr.86422ebf.js"></script>
+      <script src="/incident-response-docs/assets/javascripts/modernizr.86422ebf.js"></script>
     
     
       
@@ -58,39 +58,14 @@
         <style>body,input{font-family:"Roboto","Helvetica Neue",Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono","Courier New",Courier,monospace}</style>
       
     
-    <link rel="stylesheet" href="assets/fonts/material-icons.css">
+    <link rel="stylesheet" href="/incident-response-docs/assets/fonts/material-icons.css">
     
     
-      <link rel="stylesheet" href="assets/css/pagerduty.css">
+      <link rel="stylesheet" href="/incident-response-docs/assets/css/pagerduty.css">
     
-      <link rel="stylesheet" href="assets/css/custom.css">
+      <link rel="stylesheet" href="/incident-response-docs/assets/css/custom.css">
     
     
-      
-        
-<script>
-  window.ga = window.ga || function() {
-    (ga.q = ga.q || []).push(arguments)
-  }
-  ga.l = +new Date
-  /* Setup integration and send page view */
-  ga("create", "UA-8759953-1", "auto")
-  ga("set", "anonymizeIp", true)
-  ga("send", "pageview")
-  /* Register handler to log search on blur */
-  document.addEventListener("DOMContentLoaded", () => {
-    if (document.forms.search) {
-      var query = document.forms.search.query
-      query.addEventListener("blur", function() {
-        if (this.value) {
-          var path = document.location.pathname;
-          ga("send", "pageview", path + "?q=" + this.value)
-        }
-      })
-    }
-  })
-</script>
-<script async src="https://www.google-analytics.com/analytics.js"></script>
       
     
     
@@ -115,7 +90,7 @@
   <nav class="md-header-nav md-grid">
     <div class="md-flex">
       <div class="md-flex__cell md-flex__cell--shrink">
-        <a href="https://response.pagerduty.com" title="PagerDuty Incident Response Documentation" aria-label="PagerDuty Incident Response Documentation" class="md-header-nav__button md-logo">
+        <a href="https://elimuinformatics.github.io/incident-response-docs/" title="Elimu Informatics Incident Response Documentation" aria-label="Elimu Informatics Incident Response Documentation" class="md-header-nav__button md-logo">
           
             <i class="md-icon"></i>
           
@@ -128,7 +103,7 @@
         <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
           
             <span class="md-header-nav__topic">
-              PagerDuty Incident Response Documentation
+              Elimu Informatics Incident Response Documentation
             </span>
             <span class="md-header-nav__topic">
               
@@ -174,7 +149,7 @@
 
   
 
-<a href="https://github.com/pagerduty/incident-response-docs/" title="Go to repository" class="md-source" data-md-source="github">
+<a href="https://github.com/elimuinformatics/incident-response-docs/" title="Go to repository" class="md-source" data-md-source="github">
   
     <div class="md-source__icon">
       <svg viewBox="0 0 24 24" width="24" height="24">
@@ -207,12 +182,12 @@
                   <div class="md-sidebar__inner">
                     <nav class="md-nav md-nav--primary" data-md-level="0">
   <label class="md-nav__title md-nav__title--site" for="__drawer">
-    <a href="https://response.pagerduty.com" title="PagerDuty Incident Response Documentation" class="md-nav__button md-logo">
+    <a href="https://elimuinformatics.github.io/incident-response-docs/" title="Elimu Informatics Incident Response Documentation" class="md-nav__button md-logo">
       
         <i class="md-icon"></i>
       
     </a>
-    PagerDuty Incident Response Documentation
+    Elimu Informatics Incident Response Documentation
   </label>
   
     <div class="md-nav__source">
@@ -221,7 +196,7 @@
 
   
 
-<a href="https://github.com/pagerduty/incident-response-docs/" title="Go to repository" class="md-source" data-md-source="github">
+<a href="https://github.com/elimuinformatics/incident-response-docs/" title="Go to repository" class="md-source" data-md-source="github">
   
     <div class="md-source__icon">
       <svg viewBox="0 0 24 24" width="24" height="24">
@@ -243,7 +218,7 @@
 
 
   <li class="md-nav__item">
-    <a href="." title="Home" class="md-nav__link">
+    <a href="/incident-response-docs/." title="Home" class="md-nav__link">
       Home
     </a>
   </li>
@@ -255,7 +230,7 @@
 
 
   <li class="md-nav__item">
-    <a href="getting_started/" title="Getting Started" class="md-nav__link">
+    <a href="/incident-response-docs/getting_started/" title="Getting Started" class="md-nav__link">
       Getting Started
     </a>
   </li>
@@ -286,7 +261,7 @@
 
 
   <li class="md-nav__item">
-    <a href="oncall/being_oncall/" title="Being On-Call" class="md-nav__link">
+    <a href="/incident-response-docs/oncall/being_oncall/" title="Being On-Call" class="md-nav__link">
       Being On-Call
     </a>
   </li>
@@ -298,7 +273,7 @@
 
 
   <li class="md-nav__item">
-    <a href="oncall/whos_oncall/" title="Who's On-Call?" class="md-nav__link">
+    <a href="/incident-response-docs/oncall/whos_oncall/" title="Who's On-Call?" class="md-nav__link">
       Who's On-Call?
     </a>
   </li>
@@ -310,7 +285,7 @@
 
 
   <li class="md-nav__item">
-    <a href="oncall/alerting_principles/" title="Alerting Principles" class="md-nav__link">
+    <a href="/incident-response-docs/oncall/alerting_principles/" title="Alerting Principles" class="md-nav__link">
       Alerting Principles
     </a>
   </li>
@@ -346,7 +321,7 @@
 
 
   <li class="md-nav__item">
-    <a href="before/what_is_an_incident/" title="What is an Incident?" class="md-nav__link">
+    <a href="/incident-response-docs/before/what_is_an_incident/" title="What is an Incident?" class="md-nav__link">
       What is an Incident?
     </a>
   </li>
@@ -358,7 +333,7 @@
 
 
   <li class="md-nav__item">
-    <a href="before/severity_levels/" title="Severity Levels" class="md-nav__link">
+    <a href="/incident-response-docs/before/severity_levels/" title="Severity Levels" class="md-nav__link">
       Severity Levels
     </a>
   </li>
@@ -370,7 +345,7 @@
 
 
   <li class="md-nav__item">
-    <a href="before/different_roles/" title="Different Roles" class="md-nav__link">
+    <a href="/incident-response-docs/before/different_roles/" title="Different Roles" class="md-nav__link">
       Different Roles
     </a>
   </li>
@@ -382,7 +357,7 @@
 
 
   <li class="md-nav__item">
-    <a href="before/call_etiquette/" title="Call Etiquette" class="md-nav__link">
+    <a href="/incident-response-docs/before/call_etiquette/" title="Call Etiquette" class="md-nav__link">
       Call Etiquette
     </a>
   </li>
@@ -394,7 +369,7 @@
 
 
   <li class="md-nav__item">
-    <a href="before/complex_incidents/" title="Complex Incidents" class="md-nav__link">
+    <a href="/incident-response-docs/before/complex_incidents/" title="Complex Incidents" class="md-nav__link">
       Complex Incidents
     </a>
   </li>
@@ -430,7 +405,7 @@
 
 
   <li class="md-nav__item">
-    <a href="during/during_an_incident/" title="During an Incident" class="md-nav__link">
+    <a href="/incident-response-docs/during/during_an_incident/" title="During an Incident" class="md-nav__link">
       During an Incident
     </a>
   </li>
@@ -442,7 +417,7 @@
 
 
   <li class="md-nav__item">
-    <a href="during/security_incident_response/" title="Security Incident" class="md-nav__link">
+    <a href="/incident-response-docs/during/security_incident_response/" title="Security Incident" class="md-nav__link">
       Security Incident
     </a>
   </li>
@@ -478,7 +453,7 @@
 
 
   <li class="md-nav__item">
-    <a href="after/after_an_incident/" title="After an Incident" class="md-nav__link">
+    <a href="/incident-response-docs/after/after_an_incident/" title="After an Incident" class="md-nav__link">
       After an Incident
     </a>
   </li>
@@ -490,7 +465,7 @@
 
 
   <li class="md-nav__item">
-    <a href="after/post_mortem_process/" title="Post-Mortem Process" class="md-nav__link">
+    <a href="/incident-response-docs/after/post_mortem_process/" title="Post-Mortem Process" class="md-nav__link">
       Post-Mortem Process
     </a>
   </li>
@@ -502,7 +477,7 @@
 
 
   <li class="md-nav__item">
-    <a href="after/post_mortem_template/" title="Post-Mortem Template" class="md-nav__link">
+    <a href="/incident-response-docs/after/post_mortem_template/" title="Post-Mortem Template" class="md-nav__link">
       Post-Mortem Template
     </a>
   </li>
@@ -514,7 +489,7 @@
 
 
   <li class="md-nav__item">
-    <a href="after/effective_post_mortems/" title="Effective Post-Mortems" class="md-nav__link">
+    <a href="/incident-response-docs/after/effective_post_mortems/" title="Effective Post-Mortems" class="md-nav__link">
       Effective Post-Mortems
     </a>
   </li>
@@ -550,7 +525,7 @@
 
 
   <li class="md-nav__item">
-    <a href="training/overview/" title="Overview" class="md-nav__link">
+    <a href="/incident-response-docs/training/overview/" title="Overview" class="md-nav__link">
       Overview
     </a>
   </li>
@@ -562,7 +537,7 @@
 
 
   <li class="md-nav__item">
-    <a href="training/incident_commander/" title="Incident Commander" class="md-nav__link">
+    <a href="/incident-response-docs/training/incident_commander/" title="Incident Commander" class="md-nav__link">
       Incident Commander
     </a>
   </li>
@@ -574,7 +549,7 @@
 
 
   <li class="md-nav__item">
-    <a href="training/deputy/" title="Deputy" class="md-nav__link">
+    <a href="/incident-response-docs/training/deputy/" title="Deputy" class="md-nav__link">
       Deputy
     </a>
   </li>
@@ -586,7 +561,7 @@
 
 
   <li class="md-nav__item">
-    <a href="training/scribe/" title="Scribe" class="md-nav__link">
+    <a href="/incident-response-docs/training/scribe/" title="Scribe" class="md-nav__link">
       Scribe
     </a>
   </li>
@@ -598,7 +573,7 @@
 
 
   <li class="md-nav__item">
-    <a href="training/subject_matter_expert/" title="Subject Matter Expert" class="md-nav__link">
+    <a href="/incident-response-docs/training/subject_matter_expert/" title="Subject Matter Expert" class="md-nav__link">
       Subject Matter Expert
     </a>
   </li>
@@ -610,7 +585,7 @@
 
 
   <li class="md-nav__item">
-    <a href="training/customer_liaison/" title="Customer Liaison" class="md-nav__link">
+    <a href="/incident-response-docs/training/customer_liaison/" title="Customer Liaison" class="md-nav__link">
       Customer Liaison
     </a>
   </li>
@@ -622,7 +597,7 @@
 
 
   <li class="md-nav__item">
-    <a href="training/internal_liaison/" title="Internal Liaison" class="md-nav__link">
+    <a href="/incident-response-docs/training/internal_liaison/" title="Internal Liaison" class="md-nav__link">
       Internal Liaison
     </a>
   </li>
@@ -634,7 +609,7 @@
 
 
   <li class="md-nav__item">
-    <a href="training/glossary/" title="Glossary" class="md-nav__link">
+    <a href="/incident-response-docs/training/glossary/" title="Glossary" class="md-nav__link">
       Glossary
     </a>
   </li>
@@ -670,7 +645,7 @@
 
 
   <li class="md-nav__item">
-    <a href="training/courses/incident_response/" title="Incident Response" class="md-nav__link">
+    <a href="/incident-response-docs/training/courses/incident_response/" title="Incident Response" class="md-nav__link">
       Incident Response
     </a>
   </li>
@@ -706,7 +681,7 @@
 
 
   <li class="md-nav__item">
-    <a href="resources/reading/" title="Reading" class="md-nav__link">
+    <a href="/incident-response-docs/resources/reading/" title="Reading" class="md-nav__link">
       Reading
     </a>
   </li>
@@ -718,7 +693,7 @@
 
 
   <li class="md-nav__item">
-    <a href="resources/chatops/" title="ChatOps" class="md-nav__link">
+    <a href="/incident-response-docs/resources/chatops/" title="ChatOps" class="md-nav__link">
       ChatOps
     </a>
   </li>
@@ -730,7 +705,7 @@
 
 
   <li class="md-nav__item">
-    <a href="resources/anti_patterns/" title="Anti-Patterns" class="md-nav__link">
+    <a href="/incident-response-docs/resources/anti_patterns/" title="Anti-Patterns" class="md-nav__link">
       Anti-Patterns
     </a>
   </li>
@@ -747,7 +722,7 @@
 
 
   <li class="md-nav__item">
-    <a href="about/" title="About" class="md-nav__link">
+    <a href="/incident-response-docs/about/" title="About" class="md-nav__link">
       About
     </a>
   </li>
@@ -783,10 +758,6 @@
     <div class="md-footer-meta__inner md-grid">
       <div class="md-footer-copyright">
         
-          <div class="md-footer-copyright__highlight">
-            Copyright &copy; PagerDuty, Inc.
-          </div>
-        
         powered by
         <a href="https://www.mkdocs.org" target="_blank" rel="noopener">MkDocs</a>
         and
@@ -800,11 +771,11 @@
       
     </div>
     
-      <script src="assets/javascripts/application.c33a9706.js"></script>
+      <script src="/incident-response-docs/assets/javascripts/application.c33a9706.js"></script>
       
-      <script>app.initialize({version:"1.0.4",url:{base:""}})</script>
+      <script>app.initialize({version:"1.0.4",url:{base:"/incident-response-docs/"}})</script>
       
-        <script src="js/github_forks.js"></script>
+        <script src="/incident-response-docs/js/github_forks.js"></script>
       
     
   </body>

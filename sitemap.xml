@@ -1,147 +1,147 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
-     <loc>https://response.pagerduty.com/</loc>
+     <loc>https://elimuinformatics.github.io/incident-response-docs/</loc>
      <lastmod>2020-02-16</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
-     <loc>https://response.pagerduty.com/getting_started/</loc>
+     <loc>https://elimuinformatics.github.io/incident-response-docs/getting_started/</loc>
      <lastmod>2020-02-16</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
-     <loc>https://response.pagerduty.com/oncall/being_oncall/</loc>
+     <loc>https://elimuinformatics.github.io/incident-response-docs/oncall/being_oncall/</loc>
      <lastmod>2020-02-16</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
-     <loc>https://response.pagerduty.com/oncall/whos_oncall/</loc>
+     <loc>https://elimuinformatics.github.io/incident-response-docs/oncall/whos_oncall/</loc>
      <lastmod>2020-02-16</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
-     <loc>https://response.pagerduty.com/oncall/alerting_principles/</loc>
+     <loc>https://elimuinformatics.github.io/incident-response-docs/oncall/alerting_principles/</loc>
      <lastmod>2020-02-16</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
-     <loc>https://response.pagerduty.com/before/what_is_an_incident/</loc>
+     <loc>https://elimuinformatics.github.io/incident-response-docs/before/what_is_an_incident/</loc>
      <lastmod>2020-02-16</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
-     <loc>https://response.pagerduty.com/before/severity_levels/</loc>
+     <loc>https://elimuinformatics.github.io/incident-response-docs/before/severity_levels/</loc>
      <lastmod>2020-02-16</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
-     <loc>https://response.pagerduty.com/before/different_roles/</loc>
+     <loc>https://elimuinformatics.github.io/incident-response-docs/before/different_roles/</loc>
      <lastmod>2020-02-16</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
-     <loc>https://response.pagerduty.com/before/call_etiquette/</loc>
+     <loc>https://elimuinformatics.github.io/incident-response-docs/before/call_etiquette/</loc>
      <lastmod>2020-02-16</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
-     <loc>https://response.pagerduty.com/before/complex_incidents/</loc>
+     <loc>https://elimuinformatics.github.io/incident-response-docs/before/complex_incidents/</loc>
      <lastmod>2020-02-16</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
-     <loc>https://response.pagerduty.com/during/during_an_incident/</loc>
+     <loc>https://elimuinformatics.github.io/incident-response-docs/during/during_an_incident/</loc>
      <lastmod>2020-02-16</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
-     <loc>https://response.pagerduty.com/during/security_incident_response/</loc>
+     <loc>https://elimuinformatics.github.io/incident-response-docs/during/security_incident_response/</loc>
      <lastmod>2020-02-16</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
-     <loc>https://response.pagerduty.com/after/after_an_incident/</loc>
+     <loc>https://elimuinformatics.github.io/incident-response-docs/after/after_an_incident/</loc>
      <lastmod>2020-02-16</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
-     <loc>https://response.pagerduty.com/after/post_mortem_process/</loc>
+     <loc>https://elimuinformatics.github.io/incident-response-docs/after/post_mortem_process/</loc>
      <lastmod>2020-02-16</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
-     <loc>https://response.pagerduty.com/after/post_mortem_template/</loc>
+     <loc>https://elimuinformatics.github.io/incident-response-docs/after/post_mortem_template/</loc>
      <lastmod>2020-02-16</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
-     <loc>https://response.pagerduty.com/after/effective_post_mortems/</loc>
+     <loc>https://elimuinformatics.github.io/incident-response-docs/after/effective_post_mortems/</loc>
      <lastmod>2020-02-16</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
-     <loc>https://response.pagerduty.com/training/overview/</loc>
+     <loc>https://elimuinformatics.github.io/incident-response-docs/training/overview/</loc>
      <lastmod>2020-02-16</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
-     <loc>https://response.pagerduty.com/training/incident_commander/</loc>
+     <loc>https://elimuinformatics.github.io/incident-response-docs/training/incident_commander/</loc>
      <lastmod>2020-02-16</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
-     <loc>https://response.pagerduty.com/training/deputy/</loc>
+     <loc>https://elimuinformatics.github.io/incident-response-docs/training/deputy/</loc>
      <lastmod>2020-02-16</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
-     <loc>https://response.pagerduty.com/training/scribe/</loc>
+     <loc>https://elimuinformatics.github.io/incident-response-docs/training/scribe/</loc>
      <lastmod>2020-02-16</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
-     <loc>https://response.pagerduty.com/training/subject_matter_expert/</loc>
+     <loc>https://elimuinformatics.github.io/incident-response-docs/training/subject_matter_expert/</loc>
      <lastmod>2020-02-16</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
-     <loc>https://response.pagerduty.com/training/customer_liaison/</loc>
+     <loc>https://elimuinformatics.github.io/incident-response-docs/training/customer_liaison/</loc>
      <lastmod>2020-02-16</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
-     <loc>https://response.pagerduty.com/training/internal_liaison/</loc>
+     <loc>https://elimuinformatics.github.io/incident-response-docs/training/internal_liaison/</loc>
      <lastmod>2020-02-16</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
-     <loc>https://response.pagerduty.com/training/glossary/</loc>
+     <loc>https://elimuinformatics.github.io/incident-response-docs/training/glossary/</loc>
      <lastmod>2020-02-16</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
-     <loc>https://response.pagerduty.com/training/courses/incident_response/</loc>
+     <loc>https://elimuinformatics.github.io/incident-response-docs/training/courses/incident_response/</loc>
      <lastmod>2020-02-16</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
-     <loc>https://response.pagerduty.com/resources/reading/</loc>
+     <loc>https://elimuinformatics.github.io/incident-response-docs/resources/reading/</loc>
      <lastmod>2020-02-16</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
-     <loc>https://response.pagerduty.com/resources/chatops/</loc>
+     <loc>https://elimuinformatics.github.io/incident-response-docs/resources/chatops/</loc>
      <lastmod>2020-02-16</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
-     <loc>https://response.pagerduty.com/resources/anti_patterns/</loc>
+     <loc>https://elimuinformatics.github.io/incident-response-docs/resources/anti_patterns/</loc>
      <lastmod>2020-02-16</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
-     <loc>https://response.pagerduty.com/about/</loc>
+     <loc>https://elimuinformatics.github.io/incident-response-docs/about/</loc>
      <lastmod>2020-02-16</lastmod>
      <changefreq>daily</changefreq>
     </url>
