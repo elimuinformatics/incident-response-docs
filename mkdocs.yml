@@ -1,15 +1,12 @@
 # Project Information
-site_name: PagerDuty Incident Response Documentation
-site_description: A collection of information about the PagerDuty incident response process. Not only how to prepare new employees for on-call responsibilities, but also how to handle major incidents, both in preparation and after-work.
-site_author: PagerDuty, Inc.
+site_name: Elimu Informatics Incident Response Documentation
+site_description: A collection of information about the Elimu Informatics incident response process. Not only how to prepare new employees for on-call responsibilities, but also how to handle major incidents, both in preparation and after-work.
+site_author: Elimu Informatics
 site_favicon: 'assets/img/favicon.png'
 site_url: https://response.pagerduty.com
 
 # Repository
-repo_url: https://github.com/pagerduty/incident-response-docs
-
-# Copyright
-copyright: 'Copyright &copy; PagerDuty, Inc.'
+repo_url: https://github.com/elimuinformatics/incident-response-docs
 
 # Theme
 theme: 'material'
