@@ -967,10 +967,6 @@
                   <h1>ChatOps</h1>
                 
                 <p>Throughout this documentation, references are made to various chat commands, all starting with an exclamation (e.g. <code>!ic page</code>). We have bots running in our Slack rooms which watch for these commands and execute various actions for us when they're detected. This page gives an overview of the commands we've referenced in this documentation, and what they do behind the scenes.</p>
-<div class="admonition question">
-<p class="admonition-title">Are these bots open-source?</p>
-<p>The chat plugins and bots we use are unfortunately not currently open-sourced, however we would like to eventually get them open-sourced so that you can all benefit from them. In the meantime, the hope is that the descriptions on this page can help you to reproduce similar functionality with your own  tooling.</p>
-</div>
 <h2 id="incident-response">Incident Response<a class="headerlink" href="#incident-response" title="Permanent link">#</a></h2>
 <p>Our <code>!ic</code> commands poll the PagerDuty API behind the scenes for various on-call schedules we specify. It caches the names and contact details for the current on-call users, so that if there's any issue in making API requests, the funtionality isn't impacted.</p>
 <h3 id="ic"><code>!ic</code><a class="headerlink" href="#ic" title="Permanent link">#</a></h3>
