@@ -1,0 +1,1295 @@
+
+
+
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      <meta http-equiv="x-ua-compatible" content="ie=edge">
+      
+        <meta name="description" content="Checklist of actions for responding to a security incident at PagerDuty.">
+      
+      
+        <link rel="canonical" href="https://response.pagerduty.com/during/security_incident_response/">
+      
+      
+        <meta name="author" content="PagerDuty, Inc.">
+      
+      
+        <meta name="lang:clipboard.copy" content="Copy to clipboard">
+      
+        <meta name="lang:clipboard.copied" content="Copied to clipboard">
+      
+        <meta name="lang:search.language" content="en">
+      
+        <meta name="lang:search.pipeline.stopwords" content="True">
+      
+        <meta name="lang:search.pipeline.trimmer" content="True">
+      
+        <meta name="lang:search.result.none" content="No matching documents">
+      
+        <meta name="lang:search.result.one" content="1 matching document">
+      
+        <meta name="lang:search.result.other" content="# matching documents">
+      
+        <meta name="lang:search.tokenizer" content="[\s\-]+">
+      
+      <link rel="shortcut icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.0.4, mkdocs-material-4.6.3">
+    
+    
+      
+        <title>Security Incident - PagerDuty Incident Response Documentation</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/application.adb8469c.css">
+      
+      
+    
+    
+      <script src="../../assets/javascripts/modernizr.86422ebf.js"></script>
+    
+    
+      
+        <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>body,input{font-family:"Roboto","Helvetica Neue",Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono","Courier New",Courier,monospace}</style>
+      
+    
+    <link rel="stylesheet" href="../../assets/fonts/material-icons.css">
+    
+    
+      <link rel="stylesheet" href="../../assets/css/pagerduty.css">
+    
+      <link rel="stylesheet" href="../../assets/css/custom.css">
+    
+    
+      
+        
+<script>
+  window.ga = window.ga || function() {
+    (ga.q = ga.q || []).push(arguments)
+  }
+  ga.l = +new Date
+  /* Setup integration and send page view */
+  ga("create", "UA-8759953-1", "auto")
+  ga("set", "anonymizeIp", true)
+  ga("send", "pageview")
+  /* Register handler to log search on blur */
+  document.addEventListener("DOMContentLoaded", () => {
+    if (document.forms.search) {
+      var query = document.forms.search.query
+      query.addEventListener("blur", function() {
+        if (this.value) {
+          var path = document.location.pathname;
+          ga("send", "pageview", path + "?q=" + this.value)
+        }
+      })
+    }
+  })
+</script>
+<script async src="https://www.google-analytics.com/analytics.js"></script>
+      
+    
+    
+  </head>
+  
+    <body dir="ltr">
+  
+    <svg class="md-svg">
+      <defs>
+        
+        
+          <svg xmlns="http://www.w3.org/2000/svg" width="416" height="448" viewBox="0 0 416 448" id="__github"><path fill="currentColor" d="M160 304q0 10-3.125 20.5t-10.75 19T128 352t-18.125-8.5-10.75-19T96 304t3.125-20.5 10.75-19T128 256t18.125 8.5 10.75 19T160 304zm160 0q0 10-3.125 20.5t-10.75 19T288 352t-18.125-8.5-10.75-19T256 304t3.125-20.5 10.75-19T288 256t18.125 8.5 10.75 19T320 304zm40 0q0-30-17.25-51T296 232q-10.25 0-48.75 5.25Q229.5 240 208 240t-39.25-2.75Q130.75 232 120 232q-29.5 0-46.75 21T56 304q0 22 8 38.375t20.25 25.75 30.5 15 35 7.375 37.25 1.75h42q20.5 0 37.25-1.75t35-7.375 30.5-15 20.25-25.75T360 304zm56-44q0 51.75-15.25 82.75-9.5 19.25-26.375 33.25t-35.25 21.5-42.5 11.875-42.875 5.5T212 416q-19.5 0-35.5-.75t-36.875-3.125-38.125-7.5-34.25-12.875T37 371.5t-21.5-28.75Q0 312 0 260q0-59.25 34-99-6.75-20.5-6.75-42.5 0-29 12.75-54.5 27 0 47.5 9.875t47.25 30.875Q171.5 96 212 96q37 0 70 8 26.25-20.5 46.75-30.25T376 64q12.75 25.5 12.75 54.5 0 21.75-6.75 42 34 40 34 99.5z"/></svg>
+        
+      </defs>
+    </svg>
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
+    
+      <a href="#checklist" tabindex="0" class="md-skip">
+        Skip to content
+      </a>
+    
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid">
+    <div class="md-flex">
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <a href="https://response.pagerduty.com" title="PagerDuty Incident Response Documentation" aria-label="PagerDuty Incident Response Documentation" class="md-header-nav__button md-logo">
+          
+            <i class="md-icon"></i>
+          
+        </a>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <label class="md-icon md-icon--menu md-header-nav__button" for="__drawer"></label>
+      </div>
+      <div class="md-flex__cell md-flex__cell--stretch">
+        <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
+          
+            <span class="md-header-nav__topic">
+              PagerDuty Incident Response Documentation
+            </span>
+            <span class="md-header-nav__topic">
+              
+                Security Incident
+              
+            </span>
+          
+        </div>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        
+          <label class="md-icon md-icon--search md-header-nav__button" for="__search"></label>
+          
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" aria-label="search" name="query" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="query" data-md-state="active">
+      <label class="md-icon md-search__icon" for="__search"></label>
+      <button type="reset" class="md-icon md-search__icon" data-md-component="reset" tabindex="-1">
+        &#xE5CD;
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="result">
+          <div class="md-search-result__meta">
+            Type to start searching
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+        
+      </div>
+      
+        <div class="md-flex__cell md-flex__cell--shrink">
+          <div class="md-header-nav__source">
+            
+
+
+  
+
+<a href="https://github.com/pagerduty/incident-response-docs/" title="Go to repository" class="md-source" data-md-source="github">
+  
+    <div class="md-source__icon">
+      <svg viewBox="0 0 24 24" width="24" height="24">
+        <use xlink:href="#__github" width="24" height="24"></use>
+      </svg>
+    </div>
+  
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+          </div>
+        </div>
+      
+    </div>
+  </nav>
+</header>
+    
+    <div class="md-container">
+      
+        
+      
+      
+      <main class="md-main" role="main">
+        <div class="md-main__inner md-grid" data-md-component="container">
+          
+            
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    <nav class="md-nav md-nav--primary" data-md-level="0">
+  <label class="md-nav__title md-nav__title--site" for="__drawer">
+    <a href="https://response.pagerduty.com" title="PagerDuty Incident Response Documentation" class="md-nav__button md-logo">
+      
+        <i class="md-icon"></i>
+      
+    </a>
+    PagerDuty Incident Response Documentation
+  </label>
+  
+    <div class="md-nav__source">
+      
+
+
+  
+
+<a href="https://github.com/pagerduty/incident-response-docs/" title="Go to repository" class="md-source" data-md-source="github">
+  
+    <div class="md-source__icon">
+      <svg viewBox="0 0 24 24" width="24" height="24">
+        <use xlink:href="#__github" width="24" height="24"></use>
+      </svg>
+    </div>
+  
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../.." title="Home" class="md-nav__link">
+      Home
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../getting_started/" title="Getting Started" class="md-nav__link">
+      Getting Started
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3">
+    
+    <label class="md-nav__link" for="nav-3">
+      On-Call
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-3">
+        On-Call
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../oncall/being_oncall/" title="Being On-Call" class="md-nav__link">
+      Being On-Call
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../oncall/whos_oncall/" title="Who's On-Call?" class="md-nav__link">
+      Who's On-Call?
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../oncall/alerting_principles/" title="Alerting Principles" class="md-nav__link">
+      Alerting Principles
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-4" type="checkbox" id="nav-4">
+    
+    <label class="md-nav__link" for="nav-4">
+      Before an Incident
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-4">
+        Before an Incident
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../before/what_is_an_incident/" title="What is an Incident?" class="md-nav__link">
+      What is an Incident?
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../before/severity_levels/" title="Severity Levels" class="md-nav__link">
+      Severity Levels
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../before/different_roles/" title="Different Roles" class="md-nav__link">
+      Different Roles
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../before/call_etiquette/" title="Call Etiquette" class="md-nav__link">
+      Call Etiquette
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../before/complex_incidents/" title="Complex Incidents" class="md-nav__link">
+      Complex Incidents
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-5" type="checkbox" id="nav-5" checked>
+    
+    <label class="md-nav__link" for="nav-5">
+      During an Incident
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-5">
+        During an Incident
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../during_an_incident/" title="During an Incident" class="md-nav__link">
+      During an Incident
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        Security Incident
+      </label>
+    
+    <a href="./" title="Security Incident" class="md-nav__link md-nav__link--active">
+      Security Incident
+    </a>
+    
+      
+<nav class="md-nav md-nav--secondary">
+  
+  
+  
+    <label class="md-nav__title" for="__toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#checklist" class="md-nav__link">
+    Checklist
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#attack-mitigation" class="md-nav__link">
+    Attack Mitigation
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cut-off-attack-vector" class="md-nav__link">
+    Cut Off Attack Vector
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#assemble-response-team" class="md-nav__link">
+    Assemble Response Team
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#isolate-affected-instances" class="md-nav__link">
+    Isolate Affected Instances
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#identify-timeline-of-attack" class="md-nav__link">
+    Identify Timeline of Attack
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#compromised-data" class="md-nav__link">
+    Compromised Data
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#assess-risk" class="md-nav__link">
+    Assess Risk
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#apply-additional-mitigations" class="md-nav__link">
+    Apply Additional Mitigations
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#forensic-analysis" class="md-nav__link">
+    Forensic Analysis
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#internal-communication" class="md-nav__link">
+    Internal Communication
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#liaise-with-law-enforcement-external-actors" class="md-nav__link">
+    Liaise With Law Enforcement / External Actors
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#external-communication" class="md-nav__link">
+    External Communication
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#communicating-during-an-incident" class="md-nav__link">
+    Communicating During an Incident
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#additional-reading" class="md-nav__link">
+    Additional Reading
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+    
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-6" type="checkbox" id="nav-6">
+    
+    <label class="md-nav__link" for="nav-6">
+      After an Incident
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-6">
+        After an Incident
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../after/after_an_incident/" title="After an Incident" class="md-nav__link">
+      After an Incident
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../after/post_mortem_process/" title="Post-Mortem Process" class="md-nav__link">
+      Post-Mortem Process
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../after/post_mortem_template/" title="Post-Mortem Template" class="md-nav__link">
+      Post-Mortem Template
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../after/effective_post_mortems/" title="Effective Post-Mortems" class="md-nav__link">
+      Effective Post-Mortems
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-7" type="checkbox" id="nav-7">
+    
+    <label class="md-nav__link" for="nav-7">
+      Training
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-7">
+        Training
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../training/overview/" title="Overview" class="md-nav__link">
+      Overview
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../training/incident_commander/" title="Incident Commander" class="md-nav__link">
+      Incident Commander
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../training/deputy/" title="Deputy" class="md-nav__link">
+      Deputy
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../training/scribe/" title="Scribe" class="md-nav__link">
+      Scribe
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../training/subject_matter_expert/" title="Subject Matter Expert" class="md-nav__link">
+      Subject Matter Expert
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../training/customer_liaison/" title="Customer Liaison" class="md-nav__link">
+      Customer Liaison
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../training/internal_liaison/" title="Internal Liaison" class="md-nav__link">
+      Internal Liaison
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../training/glossary/" title="Glossary" class="md-nav__link">
+      Glossary
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-8" type="checkbox" id="nav-8">
+    
+    <label class="md-nav__link" for="nav-8">
+      Training Courses
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-8">
+        Training Courses
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../training/courses/incident_response/" title="Incident Response" class="md-nav__link">
+      Incident Response
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-9" type="checkbox" id="nav-9">
+    
+    <label class="md-nav__link" for="nav-9">
+      Additional Resources
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-9">
+        Additional Resources
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../resources/reading/" title="Reading" class="md-nav__link">
+      Reading
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../resources/chatops/" title="ChatOps" class="md-nav__link">
+      ChatOps
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../resources/anti_patterns/" title="Anti-Patterns" class="md-nav__link">
+      Anti-Patterns
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../about/" title="About" class="md-nav__link">
+      About
+    </a>
+  </li>
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary">
+  
+  
+  
+    <label class="md-nav__title" for="__toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#checklist" class="md-nav__link">
+    Checklist
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#attack-mitigation" class="md-nav__link">
+    Attack Mitigation
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cut-off-attack-vector" class="md-nav__link">
+    Cut Off Attack Vector
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#assemble-response-team" class="md-nav__link">
+    Assemble Response Team
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#isolate-affected-instances" class="md-nav__link">
+    Isolate Affected Instances
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#identify-timeline-of-attack" class="md-nav__link">
+    Identify Timeline of Attack
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#compromised-data" class="md-nav__link">
+    Compromised Data
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#assess-risk" class="md-nav__link">
+    Assess Risk
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#apply-additional-mitigations" class="md-nav__link">
+    Apply Additional Mitigations
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#forensic-analysis" class="md-nav__link">
+    Forensic Analysis
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#internal-communication" class="md-nav__link">
+    Internal Communication
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#liaise-with-law-enforcement-external-actors" class="md-nav__link">
+    Liaise With Law Enforcement / External Actors
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#external-communication" class="md-nav__link">
+    External Communication
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#communicating-during-an-incident" class="md-nav__link">
+    Communicating During an Incident
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#additional-reading" class="md-nav__link">
+    Additional Reading
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                  <a href="https://github.com/pagerduty/incident-response-docs/edit/master/docs/during/security_incident_response.md" title="Edit this page" class="md-icon md-content__icon">&#xE3C9;</a>
+                
+                
+                  <h1>Security Incident</h1>
+                
+                <div id="reviewed-dates">
+  <span><strong>Last Reviewed:</strong> <abbr title="We recommend you include with this document the date you last reviewed your process.">YYYY-MM-DD</abbr></span>
+  <span><strong>Last Tested:</strong> <abbr title="We recommend you include with this document the date you last tested your process.">YYYY-MM-DD</abbr></span>
+</div>
+
+<div class="admonition warning">
+<p class="admonition-title">Incident Commander Required</p>
+<p>As with all major incidents at PagerDuty, security ones will also involve an Incident Commander, who will delegate the tasks to relevant resolvers. Tasks may be performed in parallel as assigned by the IC. Page one at the earliest possible opportunity <code>!ic page</code>.</p>
+</div>
+<div class="admonition question">
+<p class="admonition-title">Not Sure it's a Security Incident?</p>
+<p>Trigger the process anyway. It's better to be safe than sorry. The Incident Commander will make a determination on if response is needed.</p>
+</div>
+<h2 id="checklist">Checklist<a class="headerlink" href="#checklist" title="Permanent link">#</a></h2>
+<p>Details for each of these items are available in the next section.</p>
+<ol>
+<li>Stop the attack in progress.</li>
+<li>Cut off the attack vector.</li>
+<li>Assemble the response team.</li>
+<li>Isolate affected instances.</li>
+<li>Identify timeline of attack.</li>
+<li>Identify compromised data.</li>
+<li>Assess risk to other systems.</li>
+<li>Assess risk of re-attack.</li>
+<li>Apply additional mitigations, additions to monitoring, etc.</li>
+<li>Forensic analysis of compromised systems.</li>
+<li>Internal communication.</li>
+<li>Involve law enforcement.</li>
+<li>Reach out to external parties that may have been used as vector for attack.</li>
+<li>External communication.</li>
+</ol>
+<hr />
+<h2 id="attack-mitigation">Attack Mitigation<a class="headerlink" href="#attack-mitigation" title="Permanent link">#</a></h2>
+<p>Stop the attack as quickly as you can, via any means necessary. Shut down servers, network isolate them, turn off a data center if you have to. Some common things to try,</p>
+<ul>
+<li>Shutdown the instance from the provider console (do not delete or terminate if you can help it, as we'll need to do forensics).</li>
+<li>If you happen to be logged into the box you can try to,<ul>
+<li>Re-instate our default iptables rules to restrict traffic.</li>
+<li><code>kill -9</code> any active session you think is an attacker.</li>
+<li>Change root password, and update /etc/shadow to lock out all other users.</li>
+<li><code>sudo shutdown now</code></li>
+</ul>
+</li>
+</ul>
+<h2 id="cut-off-attack-vector">Cut Off Attack Vector<a class="headerlink" href="#cut-off-attack-vector" title="Permanent link">#</a></h2>
+<p>Identify the likely attack vectors and path/fix them so they cannot be re-exploited immediately after stopping the attack.</p>
+<ul>
+<li>If you suspect a third-party provider is compromised, delete all accounts except your own (and those of others who are physically present) and immediately rotate your password and MFA tokens.</li>
+<li>If you suspect a service application was an attack vector, disable any relevant code paths, or shut down the service entirely.</li>
+</ul>
+<h2 id="assemble-response-team">Assemble Response Team<a class="headerlink" href="#assemble-response-team" title="Permanent link">#</a></h2>
+<p>Identify the key responders for the security incident, and keep them all in the loop. Set up a secure method of communicating all information associated with the incident. Details on the incident (or even the fact that an incident has occurred) should be kept private to the responders until you are confident the attack is not being triggered internally.</p>
+<ul>
+<li>Page an Incident Commander if not already done so. They will also appoint the usual incident command roles. The incident command team will be responsible for keeping documentation of actions taken, and for notifying internal stakeholders as appropriate.</li>
+<li>Give the project an innocuous codename that can be used for chats/documents so if anyone overhears they don't realize it's a security incident. (e.g. sapphire-unicorn).</li>
+<li>Start the voice call if not already in progress.</li>
+<li>Setup chat room using the codename of the incident.</li>
+<li>Invite all responders to the voice call and chat room.<ol>
+<li>The <strong>security team should always be included</strong>.</li>
+<li>A representative for any affected services should be included.</li>
+<li>Executive stakeholders and legal counsel should be invited at earliest possible opportunity, but prioritize operational responders first.</li>
+</ol>
+</li>
+<li>Do not communicate with anyone not on the response team about the incident until forensics has been performed. The attack could be happening internally.</li>
+<li>Prefix all emails, and chat topics with "Attorney Work Project".</li>
+</ul>
+<h2 id="isolate-affected-instances">Isolate Affected Instances<a class="headerlink" href="#isolate-affected-instances" title="Permanent link">#</a></h2>
+<p>Any instances which were affected by the attack should be immediately isolated from any other instances. As soon as possible, an image of the system should be taken and put into a read-only cold storage for later forensic analysis.</p>
+<ul>
+<li>Blacklist the IP addresses for any affected instances from all other hosts.</li>
+<li>Turn off and shutdown the instances immediately if you didn't do that to stop the attack.</li>
+<li>Take a disk image for any disks attached to the instances, and ship them to an off-site cold storage location. You should make sure these images are read-only and cannot be tampered with.</li>
+</ul>
+<h2 id="identify-timeline-of-attack">Identify Timeline of Attack<a class="headerlink" href="#identify-timeline-of-attack" title="Permanent link">#</a></h2>
+<p>Work with all tools at your disposal to identify the timeline of the attack, along with exactly what the attacker did.</p>
+<ul>
+<li>Any reconnaissance the attacker performed on the system before the attack started.</li>
+<li>When the attacker gained access to the system.</li>
+<li>What actions the attacker performed on the system, and when.</li>
+<li>Identify how long the attacker had access to the system before they were detected, and before they were kicked out.</li>
+<li>Identify any queries the attacker ran on databases.</li>
+<li>Try to identify if the attacker still has access to the system via another back door. Monitor logs for unusual activity, etc.</li>
+</ul>
+<h2 id="compromised-data">Compromised Data<a class="headerlink" href="#compromised-data" title="Permanent link">#</a></h2>
+<p>Using forensic analysis of log files, time-series graphs, and any other information/tools at your disposal, attempt to identify what information was compromised (if any),</p>
+<ul>
+<li>Identify any data that was compromised during the attack.<ul>
+<li>Was any data exfiltrated from a database?</li>
+<li>What keys were on the system that are now considering compromised?</li>
+<li>Was the attacker able to identify other components of the system (map out the network, etc).</li>
+</ul>
+</li>
+<li>Find exactly what customer data has been compromised, if any.</li>
+</ul>
+<h2 id="assess-risk">Assess Risk<a class="headerlink" href="#assess-risk" title="Permanent link">#</a></h2>
+<p>Based on the data that was compromised, assess the risk to other systems.</p>
+<ul>
+<li>Does the attacker have enough information to find another way in?</li>
+<li>Were any passwords or keys stored on the host? If so, they should be considered compromised, regardless of how they were stored.</li>
+<li>Any user accounts that were used in the initial attack should rotate all of their keys and passwords on every other system they have an account.</li>
+</ul>
+<h2 id="apply-additional-mitigations">Apply Additional Mitigations<a class="headerlink" href="#apply-additional-mitigations" title="Permanent link">#</a></h2>
+<p>Start applying mitigations to other parts of your system.</p>
+<ul>
+<li>Rotate any compromised data.</li>
+<li>Identify any new alerting which is needed to notify of a similar breach.</li>
+<li>Block any IP addresses associated with the attack.</li>
+<li>Identify any keys/credentials that are compromised and revoke their access immediately.</li>
+</ul>
+<h2 id="forensic-analysis">Forensic Analysis<a class="headerlink" href="#forensic-analysis" title="Permanent link">#</a></h2>
+<p>Once you are confident the systems are secured, and enough monitoring is in place to detect another attack, you can move onto the forensic analysis stage.</p>
+<ul>
+<li>Take any read-only images you created, any access logs you have, and comb through them for more information about the attack.</li>
+<li>Identify exactly what happened, how it happened, and how to prevent it in future.</li>
+<li>Keep track of all IP addresses involved in the attack.</li>
+<li>Monitor logs for any attempt to regain access to the system by the attacker.</li>
+</ul>
+<h2 id="internal-communication">Internal Communication<a class="headerlink" href="#internal-communication" title="Permanent link">#</a></h2>
+<p><strong>Delegate to:</strong> VP or Director of Engineering</p>
+<p>Communicate internally only once you are confident (via forensic analysis) that the attack was not sourced internally.</p>
+<ul>
+<li>Don't go into too much detail.</li>
+<li>Overview the timeline.</li>
+<li>Discuss mitigation steps taken.</li>
+<li>Follow up with more information once it is known.</li>
+</ul>
+<h2 id="liaise-with-law-enforcement-external-actors">Liaise With Law Enforcement / External Actors<a class="headerlink" href="#liaise-with-law-enforcement-external-actors" title="Permanent link">#</a></h2>
+<p><strong>Delegate to:</strong> VP or Director of Engineering</p>
+<p>Work with law enforcement to identify the source of the attack, letting any system owners know that systems under their control may be compromised, etc.</p>
+<ul>
+<li>Contact local law enforcement.</li>
+<li>Contact FBI.</li>
+<li>Contact operators for any systems used in the attack, their systems may also have been compromised.</li>
+<li>Contact security companies to help in assessing risk and any PR next steps.</li>
+<li>Contact cyber insurance provider.</li>
+</ul>
+<h2 id="external-communication">External Communication<a class="headerlink" href="#external-communication" title="Permanent link">#</a></h2>
+<p><strong>Delegate to:</strong> Marketing Team</p>
+<p>Once you have validated all of the information you have is accurate, have a timeline of events, and know exactly what information was compromised, how it was compromised, and sure that it won't happen again. Only then should you prepare and release a public statement to customers informing them of the compromised information and any steps they need to take.</p>
+<ul>
+<li>Include the date in the title of any announcement, so that it's never confused for a potential new breach.</li>
+<li>Don't say "We take security very seriously". It makes everyone cringe when they read it.</li>
+<li>Be honest, accept responsibility, and present the facts, along with exactly how we plan to prevent such things in future.</li>
+<li>Be as detailed as possible with the timeline.</li>
+<li>Be as detailed as possible in what information was compromised, and how it affects customers. If we were storing something we shouldn't have been, be honest about it. It'll come out later and it'll be much worse.</li>
+<li>Don't name and shame any external parties that might have caused the compromise. It's bad form. (Unless they've already publicly disclosed, in which case we can link to their disclosure).</li>
+<li>Release the external communication as soon as possible, preferably within a few days of the compromise. The longer we wait, the worse it will be.</li>
+<li>If possible, get in touch with customers' internal security teams before the general public notice is sent.</li>
+</ul>
+<hr />
+<h2 id="communicating-during-an-incident">Communicating During an Incident<a class="headerlink" href="#communicating-during-an-incident" title="Permanent link">#</a></h2>
+<ul>
+<li>Prefer voice call and Slack over any other methods.</li>
+<li>Avoid email, but if you absolutely need to for some reason,<ul>
+<li>Subject of emails should be "Attorney Work Project" and nothing else.</li>
+<li>If email chain has <strong>ANY</strong> contacts <strong>not with the @pagerduty.com domain</strong>, make sure your emails are encrypted.</li>
+</ul>
+</li>
+<li>Do not use SMS to communicate about the incident.<ul>
+<li>The only exception is to tell someone to move to a more secure channel. e.g. "Please join Slack ASAP".</li>
+</ul>
+</li>
+<li>Do not disseminate anything about the incident to those outside the response team until you have approval to do so.</li>
+</ul>
+<hr />
+<h2 id="additional-reading">Additional Reading<a class="headerlink" href="#additional-reading" title="Permanent link">#</a></h2>
+<ul>
+<li><a href="http://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-61r2.pdf">Computer Security Incident Handling Guide</a> (NIST)</li>
+<li><a href="https://www.sans.org/reading-room/whitepapers/incident/incident-handlers-handbook-33901">Incident Handler's Handbook</a> (SANS)</li>
+<li><a href="https://technet.microsoft.com/en-us/library/cc700825.aspx">Responding to IT Security Incidents</a> (Microsoft)</li>
+<li><a href="http://resources.sei.cmu.edu/library/asset-view.cfm?assetid=7153">Defining Incident Management Processes for CSIRTs: A Work in Progress</a> (CMU)</li>
+<li><a href="https://www.first.org/conference/2008/papers/killcrece-georgia-slides.pdf">Creating and Managing Computer Security Incident Handling Teams (CSIRTS)</a> (CERT)</li>
+</ul>
+                
+                  
+                
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <div class="md-footer-nav">
+      <nav class="md-footer-nav__inner md-grid">
+        
+          <a href="../during_an_incident/" title="During an Incident" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
+            </div>
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  Previous
+                </span>
+                During an Incident
+              </span>
+            </div>
+          </a>
+        
+        
+          <a href="../../after/after_an_incident/" title="After an Incident" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  Next
+                </span>
+                After an Incident
+              </span>
+            </div>
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-forward md-footer-nav__button"></i>
+            </div>
+          </a>
+        
+      </nav>
+    </div>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+          <div class="md-footer-copyright__highlight">
+            Copyright &copy; PagerDuty, Inc.
+          </div>
+        
+        powered by
+        <a href="https://www.mkdocs.org" target="_blank" rel="noopener">MkDocs</a>
+        and
+        <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+          Material for MkDocs</a>
+      </div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    
+      <script src="../../assets/javascripts/application.c33a9706.js"></script>
+      
+      <script>app.initialize({version:"1.0.4",url:{base:"../.."}})</script>
+      
+        <script src="../../js/github_forks.js"></script>
+      
+    
+  </body>
+</html>

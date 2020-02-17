@@ -1,0 +1,1185 @@
+
+
+
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      <meta http-equiv="x-ua-compatible" content="ie=edge">
+      
+        <meta name="description" content="For every major incident (SEV-2/1), we need to follow up with a post-mortem. A blame-free, detailed description, of exactly what went wrong in order to cause the incident, along with a list of steps to take in order to prevent a similar incident from occurring again in the future.">
+      
+      
+        <link rel="canonical" href="https://response.pagerduty.com/after/post_mortem_process/">
+      
+      
+        <meta name="author" content="PagerDuty, Inc.">
+      
+      
+        <meta name="lang:clipboard.copy" content="Copy to clipboard">
+      
+        <meta name="lang:clipboard.copied" content="Copied to clipboard">
+      
+        <meta name="lang:search.language" content="en">
+      
+        <meta name="lang:search.pipeline.stopwords" content="True">
+      
+        <meta name="lang:search.pipeline.trimmer" content="True">
+      
+        <meta name="lang:search.result.none" content="No matching documents">
+      
+        <meta name="lang:search.result.one" content="1 matching document">
+      
+        <meta name="lang:search.result.other" content="# matching documents">
+      
+        <meta name="lang:search.tokenizer" content="[\s\-]+">
+      
+      <link rel="shortcut icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.0.4, mkdocs-material-4.6.3">
+    
+    
+      
+        <title>Post-Mortem Process - PagerDuty Incident Response Documentation</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/application.adb8469c.css">
+      
+      
+    
+    
+      <script src="../../assets/javascripts/modernizr.86422ebf.js"></script>
+    
+    
+      
+        <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>body,input{font-family:"Roboto","Helvetica Neue",Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono","Courier New",Courier,monospace}</style>
+      
+    
+    <link rel="stylesheet" href="../../assets/fonts/material-icons.css">
+    
+    
+      <link rel="stylesheet" href="../../assets/css/pagerduty.css">
+    
+      <link rel="stylesheet" href="../../assets/css/custom.css">
+    
+    
+      
+        
+<script>
+  window.ga = window.ga || function() {
+    (ga.q = ga.q || []).push(arguments)
+  }
+  ga.l = +new Date
+  /* Setup integration and send page view */
+  ga("create", "UA-8759953-1", "auto")
+  ga("set", "anonymizeIp", true)
+  ga("send", "pageview")
+  /* Register handler to log search on blur */
+  document.addEventListener("DOMContentLoaded", () => {
+    if (document.forms.search) {
+      var query = document.forms.search.query
+      query.addEventListener("blur", function() {
+        if (this.value) {
+          var path = document.location.pathname;
+          ga("send", "pageview", path + "?q=" + this.value)
+        }
+      })
+    }
+  })
+</script>
+<script async src="https://www.google-analytics.com/analytics.js"></script>
+      
+    
+    
+  </head>
+  
+    <body dir="ltr">
+  
+    <svg class="md-svg">
+      <defs>
+        
+        
+          <svg xmlns="http://www.w3.org/2000/svg" width="416" height="448" viewBox="0 0 416 448" id="__github"><path fill="currentColor" d="M160 304q0 10-3.125 20.5t-10.75 19T128 352t-18.125-8.5-10.75-19T96 304t3.125-20.5 10.75-19T128 256t18.125 8.5 10.75 19T160 304zm160 0q0 10-3.125 20.5t-10.75 19T288 352t-18.125-8.5-10.75-19T256 304t3.125-20.5 10.75-19T288 256t18.125 8.5 10.75 19T320 304zm40 0q0-30-17.25-51T296 232q-10.25 0-48.75 5.25Q229.5 240 208 240t-39.25-2.75Q130.75 232 120 232q-29.5 0-46.75 21T56 304q0 22 8 38.375t20.25 25.75 30.5 15 35 7.375 37.25 1.75h42q20.5 0 37.25-1.75t35-7.375 30.5-15 20.25-25.75T360 304zm56-44q0 51.75-15.25 82.75-9.5 19.25-26.375 33.25t-35.25 21.5-42.5 11.875-42.875 5.5T212 416q-19.5 0-35.5-.75t-36.875-3.125-38.125-7.5-34.25-12.875T37 371.5t-21.5-28.75Q0 312 0 260q0-59.25 34-99-6.75-20.5-6.75-42.5 0-29 12.75-54.5 27 0 47.5 9.875t47.25 30.875Q171.5 96 212 96q37 0 70 8 26.25-20.5 46.75-30.25T376 64q12.75 25.5 12.75 54.5 0 21.75-6.75 42 34 40 34 99.5z"/></svg>
+        
+      </defs>
+    </svg>
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
+    
+      <a href="#owner-designation" tabindex="0" class="md-skip">
+        Skip to content
+      </a>
+    
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid">
+    <div class="md-flex">
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <a href="https://response.pagerduty.com" title="PagerDuty Incident Response Documentation" aria-label="PagerDuty Incident Response Documentation" class="md-header-nav__button md-logo">
+          
+            <i class="md-icon"></i>
+          
+        </a>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <label class="md-icon md-icon--menu md-header-nav__button" for="__drawer"></label>
+      </div>
+      <div class="md-flex__cell md-flex__cell--stretch">
+        <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
+          
+            <span class="md-header-nav__topic">
+              PagerDuty Incident Response Documentation
+            </span>
+            <span class="md-header-nav__topic">
+              
+                Post-Mortem Process
+              
+            </span>
+          
+        </div>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        
+          <label class="md-icon md-icon--search md-header-nav__button" for="__search"></label>
+          
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" aria-label="search" name="query" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="query" data-md-state="active">
+      <label class="md-icon md-search__icon" for="__search"></label>
+      <button type="reset" class="md-icon md-search__icon" data-md-component="reset" tabindex="-1">
+        &#xE5CD;
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="result">
+          <div class="md-search-result__meta">
+            Type to start searching
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+        
+      </div>
+      
+        <div class="md-flex__cell md-flex__cell--shrink">
+          <div class="md-header-nav__source">
+            
+
+
+  
+
+<a href="https://github.com/pagerduty/incident-response-docs/" title="Go to repository" class="md-source" data-md-source="github">
+  
+    <div class="md-source__icon">
+      <svg viewBox="0 0 24 24" width="24" height="24">
+        <use xlink:href="#__github" width="24" height="24"></use>
+      </svg>
+    </div>
+  
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+          </div>
+        </div>
+      
+    </div>
+  </nav>
+</header>
+    
+    <div class="md-container">
+      
+        
+      
+      
+      <main class="md-main" role="main">
+        <div class="md-main__inner md-grid" data-md-component="container">
+          
+            
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    <nav class="md-nav md-nav--primary" data-md-level="0">
+  <label class="md-nav__title md-nav__title--site" for="__drawer">
+    <a href="https://response.pagerduty.com" title="PagerDuty Incident Response Documentation" class="md-nav__button md-logo">
+      
+        <i class="md-icon"></i>
+      
+    </a>
+    PagerDuty Incident Response Documentation
+  </label>
+  
+    <div class="md-nav__source">
+      
+
+
+  
+
+<a href="https://github.com/pagerduty/incident-response-docs/" title="Go to repository" class="md-source" data-md-source="github">
+  
+    <div class="md-source__icon">
+      <svg viewBox="0 0 24 24" width="24" height="24">
+        <use xlink:href="#__github" width="24" height="24"></use>
+      </svg>
+    </div>
+  
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../.." title="Home" class="md-nav__link">
+      Home
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../getting_started/" title="Getting Started" class="md-nav__link">
+      Getting Started
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3">
+    
+    <label class="md-nav__link" for="nav-3">
+      On-Call
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-3">
+        On-Call
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../oncall/being_oncall/" title="Being On-Call" class="md-nav__link">
+      Being On-Call
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../oncall/whos_oncall/" title="Who's On-Call?" class="md-nav__link">
+      Who's On-Call?
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../oncall/alerting_principles/" title="Alerting Principles" class="md-nav__link">
+      Alerting Principles
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-4" type="checkbox" id="nav-4">
+    
+    <label class="md-nav__link" for="nav-4">
+      Before an Incident
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-4">
+        Before an Incident
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../before/what_is_an_incident/" title="What is an Incident?" class="md-nav__link">
+      What is an Incident?
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../before/severity_levels/" title="Severity Levels" class="md-nav__link">
+      Severity Levels
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../before/different_roles/" title="Different Roles" class="md-nav__link">
+      Different Roles
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../before/call_etiquette/" title="Call Etiquette" class="md-nav__link">
+      Call Etiquette
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../before/complex_incidents/" title="Complex Incidents" class="md-nav__link">
+      Complex Incidents
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-5" type="checkbox" id="nav-5">
+    
+    <label class="md-nav__link" for="nav-5">
+      During an Incident
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-5">
+        During an Incident
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../during/during_an_incident/" title="During an Incident" class="md-nav__link">
+      During an Incident
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../during/security_incident_response/" title="Security Incident" class="md-nav__link">
+      Security Incident
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-6" type="checkbox" id="nav-6" checked>
+    
+    <label class="md-nav__link" for="nav-6">
+      After an Incident
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-6">
+        After an Incident
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../after_an_incident/" title="After an Incident" class="md-nav__link">
+      After an Incident
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        Post-Mortem Process
+      </label>
+    
+    <a href="./" title="Post-Mortem Process" class="md-nav__link md-nav__link--active">
+      Post-Mortem Process
+    </a>
+    
+      
+<nav class="md-nav md-nav--secondary">
+  
+  
+  
+    <label class="md-nav__title" for="__toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#owner-designation" class="md-nav__link">
+    Owner Designation
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#owner-responsibilities" class="md-nav__link">
+    Owner Responsibilities
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#status-descriptions" class="md-nav__link">
+    Status Descriptions
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#post-mortem" class="md-nav__link">
+    Post-Mortem
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#post-mortem-meeting" class="md-nav__link">
+    Post-Mortem Meeting
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#examples" class="md-nav__link">
+    Examples
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#useful-resources" class="md-nav__link">
+    Useful Resources
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+    
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../post_mortem_template/" title="Post-Mortem Template" class="md-nav__link">
+      Post-Mortem Template
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../effective_post_mortems/" title="Effective Post-Mortems" class="md-nav__link">
+      Effective Post-Mortems
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-7" type="checkbox" id="nav-7">
+    
+    <label class="md-nav__link" for="nav-7">
+      Training
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-7">
+        Training
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../training/overview/" title="Overview" class="md-nav__link">
+      Overview
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../training/incident_commander/" title="Incident Commander" class="md-nav__link">
+      Incident Commander
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../training/deputy/" title="Deputy" class="md-nav__link">
+      Deputy
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../training/scribe/" title="Scribe" class="md-nav__link">
+      Scribe
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../training/subject_matter_expert/" title="Subject Matter Expert" class="md-nav__link">
+      Subject Matter Expert
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../training/customer_liaison/" title="Customer Liaison" class="md-nav__link">
+      Customer Liaison
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../training/internal_liaison/" title="Internal Liaison" class="md-nav__link">
+      Internal Liaison
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../training/glossary/" title="Glossary" class="md-nav__link">
+      Glossary
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-8" type="checkbox" id="nav-8">
+    
+    <label class="md-nav__link" for="nav-8">
+      Training Courses
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-8">
+        Training Courses
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../training/courses/incident_response/" title="Incident Response" class="md-nav__link">
+      Incident Response
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-9" type="checkbox" id="nav-9">
+    
+    <label class="md-nav__link" for="nav-9">
+      Additional Resources
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-9">
+        Additional Resources
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../resources/reading/" title="Reading" class="md-nav__link">
+      Reading
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../resources/chatops/" title="ChatOps" class="md-nav__link">
+      ChatOps
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../resources/anti_patterns/" title="Anti-Patterns" class="md-nav__link">
+      Anti-Patterns
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../about/" title="About" class="md-nav__link">
+      About
+    </a>
+  </li>
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary">
+  
+  
+  
+    <label class="md-nav__title" for="__toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#owner-designation" class="md-nav__link">
+    Owner Designation
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#owner-responsibilities" class="md-nav__link">
+    Owner Responsibilities
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#status-descriptions" class="md-nav__link">
+    Status Descriptions
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#post-mortem" class="md-nav__link">
+    Post-Mortem
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#post-mortem-meeting" class="md-nav__link">
+    Post-Mortem Meeting
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#examples" class="md-nav__link">
+    Examples
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#useful-resources" class="md-nav__link">
+    Useful Resources
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                  <a href="https://github.com/pagerduty/incident-response-docs/edit/master/docs/after/post_mortem_process.md" title="Edit this page" class="md-icon md-content__icon">&#xE3C9;</a>
+                
+                
+                  <h1>Post-Mortem Process</h1>
+                
+                <p><img alt="Post-Mortem" src="../../assets/img/headers/pagerduty_post_mortem.jpg" /></p>
+<p>For every major incident (SEV-2/1), we need to follow up with a post-mortem. A blame-free, detailed description, of exactly what went wrong in order to cause the incident, along with a list of steps to take in order to prevent a similar incident from occurring again in the future. The incident response process itself should also be included.</p>
+<div class="admonition warning">
+<p class="admonition-title">Don't Neglect the Post-Mortem</p>
+<p>Don't make the mistake of neglecting a post-mortem after an incident. Without a post-mortem you fail to recognize what you're doing right, where you could improve, and most importantly, how to avoid making the same exact mistakes next time around. A well-designed, blameless post-mortem allows teams to continuously learn, and serves as a way to iteratively improve your infrastructure and incident response process.</p>
+</div>
+<h2 id="owner-designation">Owner Designation<a class="headerlink" href="#owner-designation" title="Permanent link">#</a></h2>
+<p>The first step is that a post-mortem owner will be designated. This is done by the IC either at the end of a major incident call, or very shortly after. You will be notified directly by the IC if you are the owner for the post-mortem. The owner is responsible for populating the post-mortem, looking up logs, managing the followup investigation, and keeping all interested parties in the loop. Please use Slack for coordinating followup. A detailed list of the steps is available below,</p>
+<h2 id="owner-responsibilities">Owner Responsibilities<a class="headerlink" href="#owner-responsibilities" title="Permanent link">#</a></h2>
+<p>As owner of a post-mortem, you are responsible for the following,</p>
+<ul>
+<li>Scheduling the post-mortem meeting (on the shared calendar) and inviting the relevant people (this should be <strong>scheduled within 3 calendar days</strong> for a SEV-1 and <strong>5 business days</strong> for a SEV-2).</li>
+<li>Investigating the incident, pulling in whomever you need from other teams to assist in the investigation.</li>
+<li>Updating the page with all of the necessary content.</li>
+<li>Creating follow-up JIRA tickets (<em>You are only responsible for creating the tickets, not following them up to resolution</em>).</li>
+<li>Reviewing the post-mortem content with appropriate parties before the meeting.</li>
+<li>Running through the topics at the post-mortem meeting (the IC will "run" the meeting and keep the discussion on track, but you will likely be doing most of the talking).</li>
+<li>Communicating the results of the post-mortem internally.</li>
+</ul>
+<h2 id="status-descriptions">Status Descriptions<a class="headerlink" href="#status-descriptions" title="Permanent link">#</a></h2>
+<p>Our post-mortems have a "Status" field which indicates where in our process the post-mortem currently is. Here's a description of the values and how we use them.</p>
+<table>
+<thead>
+<tr>
+<th>Status</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Draft</strong></td>
+<td>Indicates that the content of the post-mortem is still being worked on.</td>
+</tr>
+<tr>
+<td><strong>In Review</strong></td>
+<td>The content of the post-mortem has been completed, and is ready to be reviewed during the post-mortem meeting.</td>
+</tr>
+<tr>
+<td><strong>Reviewed</strong></td>
+<td>The meeting is over and the content has been reviewed and agreed upon.<br/>If there is an "External Message", the Customer Support team will take the message and update our status page as appropriate.</td>
+</tr>
+<tr>
+<td><strong>Closed</strong></td>
+<td>No further actions are needed on the post-mortem (outstanding issues are tracked in JIRA).<br/>If no "External Message", you can skip straight to this once the meeting is over.<br/>If there's an "External Message", then the Support team will update it to this status once the message is posted.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="post-mortem">Post-Mortem<a class="headerlink" href="#post-mortem" title="Permanent link">#</a></h2>
+<p>Once you've been designated as the owner of a post-mortem, you should start creating one and updating it with all the relevant information.</p>
+<ol>
+<li>
+<p>(If not already done by the IC) Create a new post-mortem for the incident.</p>
+</li>
+<li>
+<p>Schedule a post-mortem meeting for within <strong>3 calendar days</strong> for a SEV-1 and <strong>5 business days</strong> for a SEV-2. You should schedule this before filling in the post-mortem, just so it's on the calendar.</p>
+<ul>
+<li>Create the meeting on the "Incident Post-Mortem Meetings" shared calendar.</li>
+</ul>
+</li>
+<li>
+<p>Begin populating the page with all of the information you have.</p>
+<ul>
+<li>The timeline should be the main focus to begin with.<ul>
+<li>The timeline should include important changes in status/impact, and also key actions taken by responders.</li>
+</ul>
+</li>
+<li>Go through the history in Slack to identify the responders, and add them to the page.<ul>
+<li>Identify the Incident Commander and Scribe in this list.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>Populate the post-mortem with more detailed information.</p>
+<ul>
+<li>For each item in the timeline, identify a metric, or some third-party page where the data came from. This could be a link to a Datadog graph, a SumoLogic search, a Tweet, etc. Anything which shows the data point you're trying to illustrate in the timeline.</li>
+<li>Add a link to the incident call recording.</li>
+</ul>
+</li>
+<li>
+<p>Perform an analysis of the incident.</p>
+<ul>
+<li>Capture all available data regarding the incident. What caused it, how many customers were affected, etc.<ul>
+<li>Any commands or queries you use to look up data should be posted in the page so others can see how the data was gathered.</li>
+</ul>
+</li>
+<li>Capture the impact to customers (generally in terms of event submission, delayed processing, and slow notification delivery)</li>
+<li>Identify the underlying cause of the incident (What happened, and <em>why</em> did it happen).</li>
+</ul>
+</li>
+<li>
+<p>Write the external message that will be sent to customers. This will be reviewed during the post-mortem meeting before it is sent out.</p>
+<ul>
+<li>Avoid using the word "outage" unless it really was a full outage, use the word "incident" or "service degradation" instead. Customers generally see "outage" and assume the worst.</li>
+<li>Look at other examples of previous post-mortems to see the kind of thing you should send.</li>
+</ul>
+</li>
+<li>
+<p>Post a link to the post-mortem into Slack to be reviewed for style and content by internal parties, you should try to do this about <strong>24 hours before</strong> the meeting is scheduled.</p>
+<ul>
+<li>Experienced post-mortem writers will give you feedback on the level of detail and content of the post-mortem. This avoids wasted time during the meeting.</li>
+</ul>
+</li>
+<li>
+<p>Attend the post-mortem meeting (see below section for more information).</p>
+</li>
+<li>
+<p>Create any followup action JIRA tickets (or note down topics for discussion if we need to decide on a direction to go before creating tickets),</p>
+<ul>
+<li>Go through the history in Slack to identify any TODO items.</li>
+<li>Label all tickets with their severity level and date tags.</li>
+<li>Any actions which can reduce re-occurrence of the incident.<ul>
+<li>(There may be some trade-off here, and that's fine. Sometimes the ROI isn't worth the effort that would go into it).</li>
+</ul>
+</li>
+<li>Identify any actions which can make our incident response process better.</li>
+<li>Be careful with creating too many tickets. Generally we only want to create things that are P0/P1's. Things that absolutely should be dealt with.</li>
+</ul>
+</li>
+<li>
+<p>Communicate internally so we can learn from the incident.</p>
+<ul>
+<li>Send out an internal email to the relevant stakeholders describing the results and key learnings.</li>
+<li>Include a link to the post-mortem.</li>
+</ul>
+</li>
+</ol>
+<h2 id="post-mortem-meeting">Post-Mortem Meeting<a class="headerlink" href="#post-mortem-meeting" title="Permanent link">#</a></h2>
+<p>These meetings should generally last 15-30 minutes, and are intended to be a wrap up of the post-mortem process. We should discuss what happened, what we could've done better, and any followup actions we need to take. The goal is to suss out any disagreement on the facts, analysis, or recommended actions, and to get some wider awareness of the problems that are causing reliability issues for us.</p>
+<p>You should invite the following people to the post-mortem meeting,</p>
+<ul>
+<li>Always<ul>
+<li>The incident commander.</li>
+<li>The incident commander shadowee (if there was one).</li>
+<li>Service owners involved in the incident.</li>
+<li>Key engineer(s)/responders involved in the incident.</li>
+<li>Engineering manager for impacted systems.</li>
+<li>Product manager for impacted systems. </li>
+</ul>
+</li>
+<li>Optional<ul>
+<li>Customer liaison. (Only SEV-1 incidents)</li>
+</ul>
+</li>
+</ul>
+<p>The incident commander will run the meeting, keeping the discussion focused and on track. However the post-mortem owner will likely be doing most of the talking as they walk through the post-mortem report.</p>
+<p>A general agenda for the meeting would be something like,</p>
+<ol>
+<li>Recap the timeline, to make sure everyone agrees and is on the same page.</li>
+<li>Recap important points, and any unusual items.</li>
+<li>Discuss how the problem could've been caught.<ul>
+<li>Did it show up in <a href="https://www.pagerduty.com/blog/continuous-build-break-fix-fast#canary-releases">canary</a>?</li>
+<li>Could it have been caught in tests, or loadtest environment?</li>
+</ul>
+</li>
+<li>Discuss customer impact. Any comments from customers, etc.</li>
+<li>Review action items that have been created, discuss if appropriate, or if more are needed, etc.</li>
+</ol>
+<h2 id="examples">Examples<a class="headerlink" href="#examples" title="Permanent link">#</a></h2>
+<p>Here are some examples of post-mortems from other companies as a reference,</p>
+<ul>
+<li><a href="https://support.stripe.com/questions/outage-postmortem-2015-10-08-utc">Stripe</a></li>
+<li><a href="https://blog.lastpass.com/2015/06/lastpass-security-notice.html/comment-page-2/">LastPass</a></li>
+<li><a href="https://aws.amazon.com/message/5467D2/">AWS</a></li>
+<li><a href="https://www.twilio.com/blog/2013/07/billing-incident-post-mortem-breakdown-analysis-and-root-cause.html">Twilio</a></li>
+<li><a href="https://status.heroku.com/incidents/151">Heroku</a></li>
+<li><a href="http://techblog.netflix.com/2012/10/post-mortem-of-october-222012-aws.html">Netflix</a></li>
+<li><a href="https://www.gov.uk/government/publications/kyle-beck-safety-digest/near-miss-at-kyle-beck-3-august-2016">GOV.UK Rail Accident Investigation</a></li>
+<li><a href="https://github.com/danluu/post-mortems">A List of Post-mortems!</a></li>
+</ul>
+<h2 id="useful-resources">Useful Resources<a class="headerlink" href="#useful-resources" title="Permanent link">#</a></h2>
+<ul>
+<li><a href="http://www.slideshare.net/jallspaw/advanced-postmortem-fu-and-human-error-101-velocity-2011">Advanced PostMortem Fu and Human Error 101 (Velocity 2011)</a></li>
+<li><a href="http://fractio.nl/2015/10/30/blame-language-sharing/">Blame. Language. Sharing.</a></li>
+</ul>
+                
+                  
+                
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <div class="md-footer-nav">
+      <nav class="md-footer-nav__inner md-grid">
+        
+          <a href="../after_an_incident/" title="After an Incident" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
+            </div>
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  Previous
+                </span>
+                After an Incident
+              </span>
+            </div>
+          </a>
+        
+        
+          <a href="../post_mortem_template/" title="Post-Mortem Template" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  Next
+                </span>
+                Post-Mortem Template
+              </span>
+            </div>
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-forward md-footer-nav__button"></i>
+            </div>
+          </a>
+        
+      </nav>
+    </div>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+          <div class="md-footer-copyright__highlight">
+            Copyright &copy; PagerDuty, Inc.
+          </div>
+        
+        powered by
+        <a href="https://www.mkdocs.org" target="_blank" rel="noopener">MkDocs</a>
+        and
+        <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+          Material for MkDocs</a>
+      </div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    
+      <script src="../../assets/javascripts/application.c33a9706.js"></script>
+      
+      <script>app.initialize({version:"1.0.4",url:{base:"../.."}})</script>
+      
+        <script src="../../js/github_forks.js"></script>
+      
+    
+  </body>
+</html>

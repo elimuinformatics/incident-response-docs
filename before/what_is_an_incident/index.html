@@ -1,0 +1,1071 @@
+
+
+
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      <meta http-equiv="x-ua-compatible" content="ie=edge">
+      
+        <meta name="description" content="Before defining an incident response process, we should first define what an incident (and a major incident) is, along with how we should trigger the response for such incidents.">
+      
+      
+        <link rel="canonical" href="https://response.pagerduty.com/before/what_is_an_incident/">
+      
+      
+        <meta name="author" content="PagerDuty, Inc.">
+      
+      
+        <meta name="lang:clipboard.copy" content="Copy to clipboard">
+      
+        <meta name="lang:clipboard.copied" content="Copied to clipboard">
+      
+        <meta name="lang:search.language" content="en">
+      
+        <meta name="lang:search.pipeline.stopwords" content="True">
+      
+        <meta name="lang:search.pipeline.trimmer" content="True">
+      
+        <meta name="lang:search.result.none" content="No matching documents">
+      
+        <meta name="lang:search.result.one" content="1 matching document">
+      
+        <meta name="lang:search.result.other" content="# matching documents">
+      
+        <meta name="lang:search.tokenizer" content="[\s\-]+">
+      
+      <link rel="shortcut icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.0.4, mkdocs-material-4.6.3">
+    
+    
+      
+        <title>What is an Incident? - PagerDuty Incident Response Documentation</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/application.adb8469c.css">
+      
+      
+    
+    
+      <script src="../../assets/javascripts/modernizr.86422ebf.js"></script>
+    
+    
+      
+        <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>body,input{font-family:"Roboto","Helvetica Neue",Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono","Courier New",Courier,monospace}</style>
+      
+    
+    <link rel="stylesheet" href="../../assets/fonts/material-icons.css">
+    
+    
+      <link rel="stylesheet" href="../../assets/css/pagerduty.css">
+    
+      <link rel="stylesheet" href="../../assets/css/custom.css">
+    
+    
+      
+        
+<script>
+  window.ga = window.ga || function() {
+    (ga.q = ga.q || []).push(arguments)
+  }
+  ga.l = +new Date
+  /* Setup integration and send page view */
+  ga("create", "UA-8759953-1", "auto")
+  ga("set", "anonymizeIp", true)
+  ga("send", "pageview")
+  /* Register handler to log search on blur */
+  document.addEventListener("DOMContentLoaded", () => {
+    if (document.forms.search) {
+      var query = document.forms.search.query
+      query.addEventListener("blur", function() {
+        if (this.value) {
+          var path = document.location.pathname;
+          ga("send", "pageview", path + "?q=" + this.value)
+        }
+      })
+    }
+  })
+</script>
+<script async src="https://www.google-analytics.com/analytics.js"></script>
+      
+    
+    
+  </head>
+  
+    <body dir="ltr">
+  
+    <svg class="md-svg">
+      <defs>
+        
+        
+          <svg xmlns="http://www.w3.org/2000/svg" width="416" height="448" viewBox="0 0 416 448" id="__github"><path fill="currentColor" d="M160 304q0 10-3.125 20.5t-10.75 19T128 352t-18.125-8.5-10.75-19T96 304t3.125-20.5 10.75-19T128 256t18.125 8.5 10.75 19T160 304zm160 0q0 10-3.125 20.5t-10.75 19T288 352t-18.125-8.5-10.75-19T256 304t3.125-20.5 10.75-19T288 256t18.125 8.5 10.75 19T320 304zm40 0q0-30-17.25-51T296 232q-10.25 0-48.75 5.25Q229.5 240 208 240t-39.25-2.75Q130.75 232 120 232q-29.5 0-46.75 21T56 304q0 22 8 38.375t20.25 25.75 30.5 15 35 7.375 37.25 1.75h42q20.5 0 37.25-1.75t35-7.375 30.5-15 20.25-25.75T360 304zm56-44q0 51.75-15.25 82.75-9.5 19.25-26.375 33.25t-35.25 21.5-42.5 11.875-42.875 5.5T212 416q-19.5 0-35.5-.75t-36.875-3.125-38.125-7.5-34.25-12.875T37 371.5t-21.5-28.75Q0 312 0 260q0-59.25 34-99-6.75-20.5-6.75-42.5 0-29 12.75-54.5 27 0 47.5 9.875t47.25 30.875Q171.5 96 212 96q37 0 70 8 26.25-20.5 46.75-30.25T376 64q12.75 25.5 12.75 54.5 0 21.75-6.75 42 34 40 34 99.5z"/></svg>
+        
+      </defs>
+    </svg>
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
+    
+      <a href="#what-is-an-incident" tabindex="0" class="md-skip">
+        Skip to content
+      </a>
+    
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid">
+    <div class="md-flex">
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <a href="https://response.pagerduty.com" title="PagerDuty Incident Response Documentation" aria-label="PagerDuty Incident Response Documentation" class="md-header-nav__button md-logo">
+          
+            <i class="md-icon"></i>
+          
+        </a>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <label class="md-icon md-icon--menu md-header-nav__button" for="__drawer"></label>
+      </div>
+      <div class="md-flex__cell md-flex__cell--stretch">
+        <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
+          
+            <span class="md-header-nav__topic">
+              PagerDuty Incident Response Documentation
+            </span>
+            <span class="md-header-nav__topic">
+              
+                What is an Incident?
+              
+            </span>
+          
+        </div>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        
+          <label class="md-icon md-icon--search md-header-nav__button" for="__search"></label>
+          
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" aria-label="search" name="query" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="query" data-md-state="active">
+      <label class="md-icon md-search__icon" for="__search"></label>
+      <button type="reset" class="md-icon md-search__icon" data-md-component="reset" tabindex="-1">
+        &#xE5CD;
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="result">
+          <div class="md-search-result__meta">
+            Type to start searching
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+        
+      </div>
+      
+        <div class="md-flex__cell md-flex__cell--shrink">
+          <div class="md-header-nav__source">
+            
+
+
+  
+
+<a href="https://github.com/pagerduty/incident-response-docs/" title="Go to repository" class="md-source" data-md-source="github">
+  
+    <div class="md-source__icon">
+      <svg viewBox="0 0 24 24" width="24" height="24">
+        <use xlink:href="#__github" width="24" height="24"></use>
+      </svg>
+    </div>
+  
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+          </div>
+        </div>
+      
+    </div>
+  </nav>
+</header>
+    
+    <div class="md-container">
+      
+        
+      
+      
+      <main class="md-main" role="main">
+        <div class="md-main__inner md-grid" data-md-component="container">
+          
+            
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    <nav class="md-nav md-nav--primary" data-md-level="0">
+  <label class="md-nav__title md-nav__title--site" for="__drawer">
+    <a href="https://response.pagerduty.com" title="PagerDuty Incident Response Documentation" class="md-nav__button md-logo">
+      
+        <i class="md-icon"></i>
+      
+    </a>
+    PagerDuty Incident Response Documentation
+  </label>
+  
+    <div class="md-nav__source">
+      
+
+
+  
+
+<a href="https://github.com/pagerduty/incident-response-docs/" title="Go to repository" class="md-source" data-md-source="github">
+  
+    <div class="md-source__icon">
+      <svg viewBox="0 0 24 24" width="24" height="24">
+        <use xlink:href="#__github" width="24" height="24"></use>
+      </svg>
+    </div>
+  
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../.." title="Home" class="md-nav__link">
+      Home
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../getting_started/" title="Getting Started" class="md-nav__link">
+      Getting Started
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3">
+    
+    <label class="md-nav__link" for="nav-3">
+      On-Call
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-3">
+        On-Call
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../oncall/being_oncall/" title="Being On-Call" class="md-nav__link">
+      Being On-Call
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../oncall/whos_oncall/" title="Who's On-Call?" class="md-nav__link">
+      Who's On-Call?
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../oncall/alerting_principles/" title="Alerting Principles" class="md-nav__link">
+      Alerting Principles
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-4" type="checkbox" id="nav-4" checked>
+    
+    <label class="md-nav__link" for="nav-4">
+      Before an Incident
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-4">
+        Before an Incident
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        What is an Incident?
+      </label>
+    
+    <a href="./" title="What is an Incident?" class="md-nav__link md-nav__link--active">
+      What is an Incident?
+    </a>
+    
+      
+<nav class="md-nav md-nav--secondary">
+  
+  
+  
+    <label class="md-nav__title" for="__toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#what-is-an-incident" class="md-nav__link">
+    What is an incident?
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#what-is-a-major-incident" class="md-nav__link">
+    What is a major incident?
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#what-is-incident-response" class="md-nav__link">
+    What is Incident Response?
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#what-triggers-our-incident-response-process" class="md-nav__link">
+    What triggers our incident response process?
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#automated-monitoring" class="md-nav__link">
+    Automated Monitoring
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#human-escalation" class="md-nav__link">
+    Human Escalation
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#incident-severity" class="md-nav__link">
+    Incident Severity
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#mentality-shift" class="md-nav__link">
+    Mentality Shift
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+    
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../severity_levels/" title="Severity Levels" class="md-nav__link">
+      Severity Levels
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../different_roles/" title="Different Roles" class="md-nav__link">
+      Different Roles
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../call_etiquette/" title="Call Etiquette" class="md-nav__link">
+      Call Etiquette
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../complex_incidents/" title="Complex Incidents" class="md-nav__link">
+      Complex Incidents
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-5" type="checkbox" id="nav-5">
+    
+    <label class="md-nav__link" for="nav-5">
+      During an Incident
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-5">
+        During an Incident
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../during/during_an_incident/" title="During an Incident" class="md-nav__link">
+      During an Incident
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../during/security_incident_response/" title="Security Incident" class="md-nav__link">
+      Security Incident
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-6" type="checkbox" id="nav-6">
+    
+    <label class="md-nav__link" for="nav-6">
+      After an Incident
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-6">
+        After an Incident
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../after/after_an_incident/" title="After an Incident" class="md-nav__link">
+      After an Incident
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../after/post_mortem_process/" title="Post-Mortem Process" class="md-nav__link">
+      Post-Mortem Process
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../after/post_mortem_template/" title="Post-Mortem Template" class="md-nav__link">
+      Post-Mortem Template
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../after/effective_post_mortems/" title="Effective Post-Mortems" class="md-nav__link">
+      Effective Post-Mortems
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-7" type="checkbox" id="nav-7">
+    
+    <label class="md-nav__link" for="nav-7">
+      Training
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-7">
+        Training
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../training/overview/" title="Overview" class="md-nav__link">
+      Overview
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../training/incident_commander/" title="Incident Commander" class="md-nav__link">
+      Incident Commander
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../training/deputy/" title="Deputy" class="md-nav__link">
+      Deputy
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../training/scribe/" title="Scribe" class="md-nav__link">
+      Scribe
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../training/subject_matter_expert/" title="Subject Matter Expert" class="md-nav__link">
+      Subject Matter Expert
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../training/customer_liaison/" title="Customer Liaison" class="md-nav__link">
+      Customer Liaison
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../training/internal_liaison/" title="Internal Liaison" class="md-nav__link">
+      Internal Liaison
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../training/glossary/" title="Glossary" class="md-nav__link">
+      Glossary
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-8" type="checkbox" id="nav-8">
+    
+    <label class="md-nav__link" for="nav-8">
+      Training Courses
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-8">
+        Training Courses
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../training/courses/incident_response/" title="Incident Response" class="md-nav__link">
+      Incident Response
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-9" type="checkbox" id="nav-9">
+    
+    <label class="md-nav__link" for="nav-9">
+      Additional Resources
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-9">
+        Additional Resources
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../resources/reading/" title="Reading" class="md-nav__link">
+      Reading
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../resources/chatops/" title="ChatOps" class="md-nav__link">
+      ChatOps
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../resources/anti_patterns/" title="Anti-Patterns" class="md-nav__link">
+      Anti-Patterns
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../about/" title="About" class="md-nav__link">
+      About
+    </a>
+  </li>
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary">
+  
+  
+  
+    <label class="md-nav__title" for="__toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#what-is-an-incident" class="md-nav__link">
+    What is an incident?
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#what-is-a-major-incident" class="md-nav__link">
+    What is a major incident?
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#what-is-incident-response" class="md-nav__link">
+    What is Incident Response?
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#what-triggers-our-incident-response-process" class="md-nav__link">
+    What triggers our incident response process?
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#automated-monitoring" class="md-nav__link">
+    Automated Monitoring
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#human-escalation" class="md-nav__link">
+    Human Escalation
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#incident-severity" class="md-nav__link">
+    Incident Severity
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#mentality-shift" class="md-nav__link">
+    Mentality Shift
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                  <a href="https://github.com/pagerduty/incident-response-docs/edit/master/docs/before/what_is_an_incident.md" title="Edit this page" class="md-icon md-content__icon">&#xE3C9;</a>
+                
+                
+                  <h1>What is an Incident?</h1>
+                
+                <p><img alt="Incident" src="../../assets/img/headers/server_incident.png" /></p>
+<p>Before we can define our incident response process, we should first define what an incident (and a major incident) is.</p>
+<h2 id="what-is-an-incident">What is an incident?<a class="headerlink" href="#what-is-an-incident" title="Permanent link">#</a></h2>
+<p>Any unplanned disruption or degradation of service that is actively affecting customers ability to use PagerDuty.</p>
+<h2 id="what-is-a-major-incident">What is a major incident?<a class="headerlink" href="#what-is-a-major-incident" title="Permanent link">#</a></h2>
+<p>Any incident that requires a co-ordinated response between multiple teams.</p>
+<h2 id="what-is-incident-response">What is Incident Response?<a class="headerlink" href="#what-is-incident-response" title="Permanent link">#</a></h2>
+<p>An organized approach to addressing and managing an incident. The goal isn't just to solve the incident, but to handle the situation in a way that limits damage and reduces recovery time and costs.</p>
+<h2 id="what-triggers-our-incident-response-process">What triggers our incident response process?<a class="headerlink" href="#what-triggers-our-incident-response-process" title="Permanent link">#</a></h2>
+<p>Our incident response process should be initiated for any major incident. It provides a framework for effectively responding and reaching a fast resolution time. Our incident response process can be triggered one of two ways, either via automated monitoring and alerting, or manually via human action.</p>
+<h3 id="automated-monitoring">Automated Monitoring<a class="headerlink" href="#automated-monitoring" title="Permanent link">#</a></h3>
+<p>Throughout our system, we monitor various metrics to determine if our system is in a state which would require a co-ordinated human response in order to resolve. To determine which metrics we monitor, and what to monitor them for, we ask ourselves these questions. If the answer to any is "No", then we should trigger our incident response process.</p>
+<ol>
+<li>Can customers perform all incident response functions provided by PagerDuty, across all platforms?<ul>
+<li>e.g. Can customers acknowledge, reassign, and resolve incidents via every supported method?</li>
+</ul>
+</li>
+<li>Are customers receiving notifications within SLA?</li>
+</ol>
+<h3 id="human-escalation">Human Escalation<a class="headerlink" href="#human-escalation" title="Permanent link">#</a></h3>
+<p>Automatic monitoring is only part of the process. We may have parts of our functionality which lack the necessary monitoring. It's important to still be able to trigger a coordinated incident response in those cases. For example, if our Support team start to receive requests that indicate a system issue, they need to have the power to trigger our response. Any PagerDuty employee has the ability to trigger our incident response process at any time.</p>
+<p>We trigger on any unplanned disruption or degradation of service to which any PagerDuty employee deems necessary of requiring co-ordinated incident response.</p>
+<div class="admonition question">
+<p class="admonition-title">Is a response required?</p>
+<p>If you are unsure of whether response is required, trigger our incident response process. All you need to do to start the process is page an IC in Slack with <code>!ic page</code>.</p>
+</div>
+<h2 id="incident-severity">Incident Severity<a class="headerlink" href="#incident-severity" title="Permanent link">#</a></h2>
+<p>Our <a href="/before/severity_levels.md">severity definitions</a> determine how severe we <em>think</em> an incident is, based on some pre-defined guidelines. The intent is to guide responders on the type of response they can provide. For example, the higher the severity, the riskier the decisions you can take to return the system to normal.</p>
+<p>Severities are useful to quickly determine whether something requires a more complex response, or whether it requires a co-ordinated response at all. However, they are not a black and white definition of what constitutes a major incident. If something is not covered by our severity definitions, but you think it requires incident response, then it requires incident response. We only need to know one thing: "Is this a major incident?". The severity level can be determined later, and isn't a requirement of triggering our response process.</p>
+<h2 id="mentality-shift">Mentality Shift<a class="headerlink" href="#mentality-shift" title="Permanent link">#</a></h2>
+<p>One of the more important concepts of our incident response process is the mentality shift that needs to be made during an incident. We typically call this the "Peacetime vs Wartime" mentality shift. The idea is that the decision making process changes when you are in an incident situation, and you are able to take riskier actions than you would normally consider during day-to-day operations. It can be hard for responders to grasp this concept, and your incident response process can be held up by responders who stick to the peacetime way of thinking, not wanting to proceed with a potentially risky action. You can read more about peacetime vs wartime in the <a href="/training/subject_matter_expert">Responder Training Guide</a>.</p>
+<div class="admonition info">
+<p class="admonition-title">Normal vs Emergency</p>
+<p>Some people don't like the "Peacetime vs Wartime" analogy, in which case you can use any other terms you feel appropriate. "Normal vs Emergency" is a common choice, but you could equally use "OK vs Not OK". It's not terribly important what name you give it, the important part is to make the mentality shift.</p>
+</div>
+                
+                  
+                
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <div class="md-footer-nav">
+      <nav class="md-footer-nav__inner md-grid">
+        
+          <a href="../../oncall/alerting_principles/" title="Alerting Principles" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
+            </div>
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  Previous
+                </span>
+                Alerting Principles
+              </span>
+            </div>
+          </a>
+        
+        
+          <a href="../severity_levels/" title="Severity Levels" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  Next
+                </span>
+                Severity Levels
+              </span>
+            </div>
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-forward md-footer-nav__button"></i>
+            </div>
+          </a>
+        
+      </nav>
+    </div>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+          <div class="md-footer-copyright__highlight">
+            Copyright &copy; PagerDuty, Inc.
+          </div>
+        
+        powered by
+        <a href="https://www.mkdocs.org" target="_blank" rel="noopener">MkDocs</a>
+        and
+        <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+          Material for MkDocs</a>
+      </div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    
+      <script src="../../assets/javascripts/application.c33a9706.js"></script>
+      
+      <script>app.initialize({version:"1.0.4",url:{base:"../.."}})</script>
+      
+        <script src="../../js/github_forks.js"></script>
+      
+    
+  </body>
+</html>

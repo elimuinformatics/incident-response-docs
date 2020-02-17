@@ -1,0 +1,1202 @@
+
+
+
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      <meta http-equiv="x-ua-compatible" content="ie=edge">
+      
+        <meta name="description" content="Information on what to do during a major incident.">
+      
+      
+        <link rel="canonical" href="https://response.pagerduty.com/during/during_an_incident/">
+      
+      
+        <meta name="author" content="PagerDuty, Inc.">
+      
+      
+        <meta name="lang:clipboard.copy" content="Copy to clipboard">
+      
+        <meta name="lang:clipboard.copied" content="Copied to clipboard">
+      
+        <meta name="lang:search.language" content="en">
+      
+        <meta name="lang:search.pipeline.stopwords" content="True">
+      
+        <meta name="lang:search.pipeline.trimmer" content="True">
+      
+        <meta name="lang:search.result.none" content="No matching documents">
+      
+        <meta name="lang:search.result.one" content="1 matching document">
+      
+        <meta name="lang:search.result.other" content="# matching documents">
+      
+        <meta name="lang:search.tokenizer" content="[\s\-]+">
+      
+      <link rel="shortcut icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.0.4, mkdocs-material-4.6.3">
+    
+    
+      
+        <title>During an Incident - PagerDuty Incident Response Documentation</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/application.adb8469c.css">
+      
+      
+    
+    
+      <script src="../../assets/javascripts/modernizr.86422ebf.js"></script>
+    
+    
+      
+        <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>body,input{font-family:"Roboto","Helvetica Neue",Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono","Courier New",Courier,monospace}</style>
+      
+    
+    <link rel="stylesheet" href="../../assets/fonts/material-icons.css">
+    
+    
+      <link rel="stylesheet" href="../../assets/css/pagerduty.css">
+    
+      <link rel="stylesheet" href="../../assets/css/custom.css">
+    
+    
+      
+        
+<script>
+  window.ga = window.ga || function() {
+    (ga.q = ga.q || []).push(arguments)
+  }
+  ga.l = +new Date
+  /* Setup integration and send page view */
+  ga("create", "UA-8759953-1", "auto")
+  ga("set", "anonymizeIp", true)
+  ga("send", "pageview")
+  /* Register handler to log search on blur */
+  document.addEventListener("DOMContentLoaded", () => {
+    if (document.forms.search) {
+      var query = document.forms.search.query
+      query.addEventListener("blur", function() {
+        if (this.value) {
+          var path = document.location.pathname;
+          ga("send", "pageview", path + "?q=" + this.value)
+        }
+      })
+    }
+  })
+</script>
+<script async src="https://www.google-analytics.com/analytics.js"></script>
+      
+    
+    
+  </head>
+  
+    <body dir="ltr">
+  
+    <svg class="md-svg">
+      <defs>
+        
+        
+          <svg xmlns="http://www.w3.org/2000/svg" width="416" height="448" viewBox="0 0 416 448" id="__github"><path fill="currentColor" d="M160 304q0 10-3.125 20.5t-10.75 19T128 352t-18.125-8.5-10.75-19T96 304t3.125-20.5 10.75-19T128 256t18.125 8.5 10.75 19T160 304zm160 0q0 10-3.125 20.5t-10.75 19T288 352t-18.125-8.5-10.75-19T256 304t3.125-20.5 10.75-19T288 256t18.125 8.5 10.75 19T320 304zm40 0q0-30-17.25-51T296 232q-10.25 0-48.75 5.25Q229.5 240 208 240t-39.25-2.75Q130.75 232 120 232q-29.5 0-46.75 21T56 304q0 22 8 38.375t20.25 25.75 30.5 15 35 7.375 37.25 1.75h42q20.5 0 37.25-1.75t35-7.375 30.5-15 20.25-25.75T360 304zm56-44q0 51.75-15.25 82.75-9.5 19.25-26.375 33.25t-35.25 21.5-42.5 11.875-42.875 5.5T212 416q-19.5 0-35.5-.75t-36.875-3.125-38.125-7.5-34.25-12.875T37 371.5t-21.5-28.75Q0 312 0 260q0-59.25 34-99-6.75-20.5-6.75-42.5 0-29 12.75-54.5 27 0 47.5 9.875t47.25 30.875Q171.5 96 212 96q37 0 70 8 26.25-20.5 46.75-30.25T376 64q12.75 25.5 12.75 54.5 0 21.75-6.75 42 34 40 34 99.5z"/></svg>
+        
+      </defs>
+    </svg>
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
+    
+      <a href="#dont-panic" tabindex="0" class="md-skip">
+        Skip to content
+      </a>
+    
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid">
+    <div class="md-flex">
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <a href="https://response.pagerduty.com" title="PagerDuty Incident Response Documentation" aria-label="PagerDuty Incident Response Documentation" class="md-header-nav__button md-logo">
+          
+            <i class="md-icon"></i>
+          
+        </a>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <label class="md-icon md-icon--menu md-header-nav__button" for="__drawer"></label>
+      </div>
+      <div class="md-flex__cell md-flex__cell--stretch">
+        <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
+          
+            <span class="md-header-nav__topic">
+              PagerDuty Incident Response Documentation
+            </span>
+            <span class="md-header-nav__topic">
+              
+                During an Incident
+              
+            </span>
+          
+        </div>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        
+          <label class="md-icon md-icon--search md-header-nav__button" for="__search"></label>
+          
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" aria-label="search" name="query" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="query" data-md-state="active">
+      <label class="md-icon md-search__icon" for="__search"></label>
+      <button type="reset" class="md-icon md-search__icon" data-md-component="reset" tabindex="-1">
+        &#xE5CD;
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="result">
+          <div class="md-search-result__meta">
+            Type to start searching
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+        
+      </div>
+      
+        <div class="md-flex__cell md-flex__cell--shrink">
+          <div class="md-header-nav__source">
+            
+
+
+  
+
+<a href="https://github.com/pagerduty/incident-response-docs/" title="Go to repository" class="md-source" data-md-source="github">
+  
+    <div class="md-source__icon">
+      <svg viewBox="0 0 24 24" width="24" height="24">
+        <use xlink:href="#__github" width="24" height="24"></use>
+      </svg>
+    </div>
+  
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+          </div>
+        </div>
+      
+    </div>
+  </nav>
+</header>
+    
+    <div class="md-container">
+      
+        
+      
+      
+      <main class="md-main" role="main">
+        <div class="md-main__inner md-grid" data-md-component="container">
+          
+            
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    <nav class="md-nav md-nav--primary" data-md-level="0">
+  <label class="md-nav__title md-nav__title--site" for="__drawer">
+    <a href="https://response.pagerduty.com" title="PagerDuty Incident Response Documentation" class="md-nav__button md-logo">
+      
+        <i class="md-icon"></i>
+      
+    </a>
+    PagerDuty Incident Response Documentation
+  </label>
+  
+    <div class="md-nav__source">
+      
+
+
+  
+
+<a href="https://github.com/pagerduty/incident-response-docs/" title="Go to repository" class="md-source" data-md-source="github">
+  
+    <div class="md-source__icon">
+      <svg viewBox="0 0 24 24" width="24" height="24">
+        <use xlink:href="#__github" width="24" height="24"></use>
+      </svg>
+    </div>
+  
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../.." title="Home" class="md-nav__link">
+      Home
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../getting_started/" title="Getting Started" class="md-nav__link">
+      Getting Started
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3">
+    
+    <label class="md-nav__link" for="nav-3">
+      On-Call
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-3">
+        On-Call
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../oncall/being_oncall/" title="Being On-Call" class="md-nav__link">
+      Being On-Call
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../oncall/whos_oncall/" title="Who's On-Call?" class="md-nav__link">
+      Who's On-Call?
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../oncall/alerting_principles/" title="Alerting Principles" class="md-nav__link">
+      Alerting Principles
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-4" type="checkbox" id="nav-4">
+    
+    <label class="md-nav__link" for="nav-4">
+      Before an Incident
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-4">
+        Before an Incident
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../before/what_is_an_incident/" title="What is an Incident?" class="md-nav__link">
+      What is an Incident?
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../before/severity_levels/" title="Severity Levels" class="md-nav__link">
+      Severity Levels
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../before/different_roles/" title="Different Roles" class="md-nav__link">
+      Different Roles
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../before/call_etiquette/" title="Call Etiquette" class="md-nav__link">
+      Call Etiquette
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../before/complex_incidents/" title="Complex Incidents" class="md-nav__link">
+      Complex Incidents
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-5" type="checkbox" id="nav-5" checked>
+    
+    <label class="md-nav__link" for="nav-5">
+      During an Incident
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-5">
+        During an Incident
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        During an Incident
+      </label>
+    
+    <a href="./" title="During an Incident" class="md-nav__link md-nav__link--active">
+      During an Incident
+    </a>
+    
+      
+<nav class="md-nav md-nav--secondary">
+  
+  
+  
+    <label class="md-nav__title" for="__toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#dont-panic" class="md-nav__link">
+    Don't Panic!
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#steps-for-incident-commander" class="md-nav__link">
+    Steps for Incident Commander
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#steps-for-deputy" class="md-nav__link">
+    Steps for Deputy
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#steps-for-scribe" class="md-nav__link">
+    Steps for Scribe
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#steps-for-subject-matter-experts" class="md-nav__link">
+    Steps for Subject Matter Experts
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#steps-for-customer-liaison" class="md-nav__link">
+    Steps for Customer Liaison
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#steps-for-internal-liaison" class="md-nav__link">
+    Steps for Internal Liaison
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+    
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../security_incident_response/" title="Security Incident" class="md-nav__link">
+      Security Incident
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-6" type="checkbox" id="nav-6">
+    
+    <label class="md-nav__link" for="nav-6">
+      After an Incident
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-6">
+        After an Incident
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../after/after_an_incident/" title="After an Incident" class="md-nav__link">
+      After an Incident
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../after/post_mortem_process/" title="Post-Mortem Process" class="md-nav__link">
+      Post-Mortem Process
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../after/post_mortem_template/" title="Post-Mortem Template" class="md-nav__link">
+      Post-Mortem Template
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../after/effective_post_mortems/" title="Effective Post-Mortems" class="md-nav__link">
+      Effective Post-Mortems
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-7" type="checkbox" id="nav-7">
+    
+    <label class="md-nav__link" for="nav-7">
+      Training
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-7">
+        Training
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../training/overview/" title="Overview" class="md-nav__link">
+      Overview
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../training/incident_commander/" title="Incident Commander" class="md-nav__link">
+      Incident Commander
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../training/deputy/" title="Deputy" class="md-nav__link">
+      Deputy
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../training/scribe/" title="Scribe" class="md-nav__link">
+      Scribe
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../training/subject_matter_expert/" title="Subject Matter Expert" class="md-nav__link">
+      Subject Matter Expert
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../training/customer_liaison/" title="Customer Liaison" class="md-nav__link">
+      Customer Liaison
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../training/internal_liaison/" title="Internal Liaison" class="md-nav__link">
+      Internal Liaison
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../training/glossary/" title="Glossary" class="md-nav__link">
+      Glossary
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-8" type="checkbox" id="nav-8">
+    
+    <label class="md-nav__link" for="nav-8">
+      Training Courses
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-8">
+        Training Courses
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../training/courses/incident_response/" title="Incident Response" class="md-nav__link">
+      Incident Response
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-9" type="checkbox" id="nav-9">
+    
+    <label class="md-nav__link" for="nav-9">
+      Additional Resources
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-9">
+        Additional Resources
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../resources/reading/" title="Reading" class="md-nav__link">
+      Reading
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../resources/chatops/" title="ChatOps" class="md-nav__link">
+      ChatOps
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../resources/anti_patterns/" title="Anti-Patterns" class="md-nav__link">
+      Anti-Patterns
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../about/" title="About" class="md-nav__link">
+      About
+    </a>
+  </li>
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary">
+  
+  
+  
+    <label class="md-nav__title" for="__toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#dont-panic" class="md-nav__link">
+    Don't Panic!
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#steps-for-incident-commander" class="md-nav__link">
+    Steps for Incident Commander
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#steps-for-deputy" class="md-nav__link">
+    Steps for Deputy
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#steps-for-scribe" class="md-nav__link">
+    Steps for Scribe
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#steps-for-subject-matter-experts" class="md-nav__link">
+    Steps for Subject Matter Experts
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#steps-for-customer-liaison" class="md-nav__link">
+    Steps for Customer Liaison
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#steps-for-internal-liaison" class="md-nav__link">
+    Steps for Internal Liaison
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                  <a href="https://github.com/pagerduty/incident-response-docs/edit/master/docs/during/during_an_incident.md" title="Edit this page" class="md-icon md-content__icon">&#xE3C9;</a>
+                
+                
+                  <h1>During an Incident</h1>
+                
+                <p>Information on what to do during a major incident. See our <a href="/before/severity_levels.md">severity level descriptions</a> for what constitutes a major incident.</p>
+<div class="admonition note">
+<p class="admonition-title">Documentation</p>
+<p>For your own internal documentation, you should make sure that this page has all of the necessary information prominently displayed. Such as: phone bridge numbers, Slack rooms, important chat commands, etc. Here is an example,</p>
+<p><table class="custom-table" id="contact-summary">
+  <thead>
+  </thead>
+  <tbody>
+    <tr>
+      <td><a href="#">#incident-chat</a></td>
+      <td><a href="#">https://a-voip-provider.com/incident-call</a></td>
+      <td><a href="#">+1 555 BIG FIRE</a> (+1 555 244 3473) / PIN: 123456</td>
+    </tr>
+    <tr>
+      <td colspan="3" class="centered">Need an IC? Do <code>!ic page</code> in Slack</td>
+    </tr>
+    <tr>
+      <td colspan="3"><em>For executive summary updates only, join <a href="#">#executive-summary-updates</a>.</em></td>
+    </tr>
+  </tbody>
+</table></p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Security Incident?</p>
+<p>If this is a security incident, you should follow the <a href="/during/security_incident_response.md">Security Incident Response</a> process.</p>
+</div>
+<h2 id="dont-panic">Don't Panic!<a class="headerlink" href="#dont-panic" title="Permanent link">#</a></h2>
+<ol>
+<li>
+<p>Join the incident call and chat (see links above).</p>
+<ul>
+<li>Anyone is free to join the call or chat to observe and follow along with the incident.</li>
+<li>If you wish to participate however, you should join both. If you can't join the call for some reason, you should have a dedicated proxy for the call. Disjointed discussions in the chat room are ultimately distracting.</li>
+</ul>
+</li>
+<li>
+<p>Follow along with the call/chat, add any comments you feel are appropriate, but keep the discussion relevant to the problem at hand.</p>
+<ul>
+<li>If you are not an SME, try to filter any discussion through the primary SME for your service. Too many people discussing at once get become overwhelming, so we should try to maintain a hierarchical structure to the call if possible.</li>
+</ul>
+</li>
+<li>
+<p>Follow instructions from the Incident Commander.</p>
+<ul>
+<li><strong>Is there no IC on the call?</strong><ul>
+<li>Manually page them via Slack, with <code>!ic page</code> in Slack. This will page the primary and backup IC's at the same time.</li>
+<li>Never hesitate to page the IC. It's much better to have them and not need them than the other way around.</li>
+</ul>
+</li>
+</ul>
+</li>
+</ol>
+<h2 id="steps-for-incident-commander">Steps for Incident Commander<a class="headerlink" href="#steps-for-incident-commander" title="Permanent link">#</a></h2>
+<p>Resolve the incident as quickly and as safely as possible, use the Deputy to assist you. Delegate any tasks to relevant experts at your discretion.</p>
+<ol>
+<li>
+<p>Announce on the call and in Slack that you are the incident commander, who you have designated as deputy (usually the backup IC), and scribe.</p>
+</li>
+<li>
+<p>Identify if there is an obvious cause to the incident (recent deployment, spike in traffic, etc.), delegate investigation to relevant experts,</p>
+<ul>
+<li>Use the service experts on the call to assist in the analysis. They should be able to quickly provide confirmation of the cause, but not always. It's the call of the IC on how to proceed in cases where the cause is not positively known. Confer with service owners and use their knowledge to help you.</li>
+</ul>
+</li>
+<li>
+<p>Identify investigation &amp; repair actions (roll back, rate-limit services, etc) and delegate actions to relevant service experts. Typically something like this (obviously not an exhaustive list),</p>
+<ul>
+<li><strong>Bad Deployment:</strong> Roll it back.</li>
+<li><strong>Web Application Stuck/Crashed:</strong> Do a rolling restart.</li>
+<li><strong>Event Flood:</strong> Validate automatic throttling is sufficient, adjust manually if not.</li>
+<li><strong>Data Center Outage:</strong> Validate automation has removed bad data center. Force it to do so if not.</li>
+<li><strong>Degraded Service Behavior without load:</strong> Gather forensic data (heap dumps, etc), and consider doing a rolling restart.</li>
+</ul>
+</li>
+<li>
+<p>Listen for prompts from your Deputy regarding severity escalations, decide whether we need to announce publicly, and instruct customer liaison accordingly.</p>
+<ul>
+<li>Announcing publicly is at your discretion as IC. If you are unsure, then announce publicly ("If in doubt, tweet it out").</li>
+</ul>
+</li>
+<li>
+<p>Keep track of your <a href="/training/glossary.md#span-of-control">span of control</a>. If the response starts to become larger, or the incident increases in complexity, consider <a href="/before/complex_incidents.md#spinning-off-sub-teams">splitting off sub-teams</a> in order to get a more effective response.</p>
+</li>
+<li>
+<p>Once incident has recovered or is actively recovering, you can announce that the incident is over and that the call is ending. This usually indicates there's no more productive work to be done for the incident right now.</p>
+<ul>
+<li>Move the remaining, non-time-critical discussion to Slack.</li>
+<li>Follow up to ensure the customer liaison wraps up the incident publicly.</li>
+<li>Identify any post-incident clean-up work.</li>
+<li>You may need to perform debriefing/analysis of the underlying contributing factor.</li>
+</ul>
+</li>
+<li>
+<p>Once the call is over, you can start to follow the steps from <a href="/after/after_an_incident.md">After an Incident</a>.</p>
+</li>
+</ol>
+<h2 id="steps-for-deputy">Steps for Deputy<a class="headerlink" href="#steps-for-deputy" title="Permanent link">#</a></h2>
+<p>You are there to support the IC in whatever they need.</p>
+<ol>
+<li>
+<p>Monitor the status of the incident, and notify the IC if/when the incident escalates in severity level.</p>
+</li>
+<li>
+<p>Follow instructions from the Incident Commander.</p>
+</li>
+<li>
+<p>Once the call is over, you can start to follow the steps from <a href="/after/after_an_incident.md">After an Incident</a>.</p>
+</li>
+</ol>
+<h2 id="steps-for-scribe">Steps for Scribe<a class="headerlink" href="#steps-for-scribe" title="Permanent link">#</a></h2>
+<p>You are there to document the key information from the incident in Slack.</p>
+<ol>
+<li>
+<p>Update the Slack room with who the IC is, who the Deputy is, and that you're the scribe (if not already done).</p>
+<ul>
+<li>e.g. "IC: Bob Boberson, Deputy: Deputy Deputyson, Scribe: Writer McWriterson"</li>
+</ul>
+</li>
+<li>
+<p>Start our status monitoring bot so that all responders can see the current state without needing to ask.</p>
+<ul>
+<li>OfficerURL can help you to monitor the status on Slack,<ul>
+<li><code>!status</code> - Will tell you the current status.</li>
+<li><code>!status stalk</code> - Will continually monitor the status and report it to the room every 30s.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>You should add notes to Slack when significant actions are taken, or findings are determined. You don't need to wait for the IC to direct this - use your own judgment.</p>
+<ul>
+<li>You should also add <code>TODO</code> notes to the Slack room that indicate follow-ups slated for later.</li>
+</ul>
+</li>
+<li>
+<p>Follow instructions from the Incident Commander.</p>
+</li>
+<li>
+<p>Once the call is over, you can start to follow the steps from <a href="/after/after_an_incident.md">After an Incident</a>.</p>
+</li>
+</ol>
+<h2 id="steps-for-subject-matter-experts">Steps for Subject Matter Experts<a class="headerlink" href="#steps-for-subject-matter-experts" title="Permanent link">#</a></h2>
+<p>You are there to support the incident commander in identifying the cause of the incident, suggesting and evaluation repair actions, and following through on the repair actions.</p>
+<ol>
+<li>
+<p>Investigate the incident by analyzing any graphs or logs at your disposal. Announce all findings to the incident commander.</p>
+<ul>
+<li>If you are unsure of the cause, that's fine, state that you are investigating and provide regular updates to the IC.</li>
+</ul>
+</li>
+<li>
+<p>Announce all suggestions for resolution to the incident commander, it is their decision on how to proceed, do not follow any actions unless told to do so!</p>
+</li>
+<li>
+<p>Follow instructions from the incident commander.</p>
+</li>
+<li>
+<p>Once the call is over, you can start to follow the steps from <a href="/after/after_an_incident.md">After an Incident</a>.</p>
+</li>
+</ol>
+<h2 id="steps-for-customer-liaison">Steps for Customer Liaison<a class="headerlink" href="#steps-for-customer-liaison" title="Permanent link">#</a></h2>
+<p>Be on stand-by to post public facing messages regarding the incident.</p>
+<ol>
+<li>
+<p>You will typically be required to update the status page and to send Tweets from our various accounts at certain times during the call.</p>
+</li>
+<li>
+<p>Follow instructions from the Incident Commander.</p>
+</li>
+<li>
+<p>Once the call is over, you can start to follow the steps from <a href="/after/after_an_incident.md">After an Incident</a>.</p>
+</li>
+</ol>
+<h2 id="steps-for-internal-liaison">Steps for Internal Liaison<a class="headerlink" href="#steps-for-internal-liaison" title="Permanent link">#</a></h2>
+<p>You are there to provide updates to internal stakeholders, and to mobilize additional internal responders as necessary.</p>
+<ol>
+<li>
+<p>Be prepared to page other people as directed by the Incident Commander.</p>
+</li>
+<li>
+<p>Notify internal stakeholders as necessary, adding subscribers to the PagerDuty incident. We have pre-defined teams called "SEV-1 Stakeholders" and "SEV-2 Stakeholders" which can be used.</p>
+</li>
+<li>
+<p>Provide regular status updates in Slack (roughly every 30mins) to the executive team, giving an executive summary of the current status. Keep it short and to the point, and use <code>@here</code>.</p>
+</li>
+<li>
+<p>Follow instructions from the Incident Commander.</p>
+</li>
+<li>
+<p>Once the call is over, you can start to follow the steps from <a href="/after/after_an_incident.md">After an Incident</a>.</p>
+</li>
+</ol>
+                
+                  
+                
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <div class="md-footer-nav">
+      <nav class="md-footer-nav__inner md-grid">
+        
+          <a href="../../before/complex_incidents/" title="Complex Incidents" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
+            </div>
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  Previous
+                </span>
+                Complex Incidents
+              </span>
+            </div>
+          </a>
+        
+        
+          <a href="../security_incident_response/" title="Security Incident" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  Next
+                </span>
+                Security Incident
+              </span>
+            </div>
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-forward md-footer-nav__button"></i>
+            </div>
+          </a>
+        
+      </nav>
+    </div>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+          <div class="md-footer-copyright__highlight">
+            Copyright &copy; PagerDuty, Inc.
+          </div>
+        
+        powered by
+        <a href="https://www.mkdocs.org" target="_blank" rel="noopener">MkDocs</a>
+        and
+        <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+          Material for MkDocs</a>
+      </div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    
+      <script src="../../assets/javascripts/application.c33a9706.js"></script>
+      
+      <script>app.initialize({version:"1.0.4",url:{base:"../.."}})</script>
+      
+        <script src="../../js/github_forks.js"></script>
+      
+    
+  </body>
+</html>
