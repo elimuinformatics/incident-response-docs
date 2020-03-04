@@ -32,7 +32,7 @@ The first step in any incident response process is to determine what actually [c
       <td>
         <p class="response">Major incident response.</p>
         <ul>
-          <li>Page an IC in Slack <code>!ic page</code>.</li>
+          <li>Page an IC in Slack <code>!ir page</code>.</li>
           <li>See <a href="/during/during_an_incident">During an Incident</a>.</li>
           <li>Notify internal stakeholders.</li>
           <li>Public notification.</li>
@@ -54,7 +54,7 @@ The first step in any incident response process is to determine what actually [c
       <td>
         <p class="response">Major incident response.</p>
         <ul>
-          <li>Page an IC in Slack <code>!ic page</code>.</li>
+          <li>Page an IC in Slack <code>!ir page</code>.</li>
           <li>See <a href="/during/during_an_incident">During an Incident</a>.</li>
         </ul>
     </tr>
@@ -79,7 +79,7 @@ The first step in any incident response process is to determine what actually [c
           <li>If related to recent deployment, rollback.</li>
           <li>Monitor status and notice if/when it escalates.</li>
           <li>Mention on Slack if you think it has the potential to escalate.</li>
-          <li>Trigger incident response if necessary (<code>!ic page</code>).</li>
+          <li>Trigger incident response if necessary (<code>!ir page</code>).</li>
         </ul>
       </td>
     </tr>
