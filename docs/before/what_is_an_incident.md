@@ -31,7 +31,7 @@ Automatic monitoring is only part of the process. We may have parts of our funct
 We trigger on any unplanned disruption or degradation of service to which any PagerDuty employee deems necessary of requiring co-ordinated incident response.
 
 !!! question "Is a response required?"
-    If you are unsure of whether response is required, trigger our incident response process. All you need to do to start the process is page an IC in Slack with `!ic page`.
+    If you are unsure of whether response is required, trigger our incident response process. All you need to do to start the process is page an IC in Slack with `!ir page`.
 
 ## Incident Severity
 Our [severity definitions](/before/severity_levels.md) determine how severe we _think_ an incident is, based on some pre-defined guidelines. The intent is to guide responders on the type of response they can provide. For example, the higher the severity, the riskier the decisions you can take to return the system to normal.

@@ -30,7 +30,7 @@ The [Steps for Internal Liaison](/during/during_an_incident.md) provide a detail
 Here are some examples of phrases and patterns you should use during incident calls.
 
 ### Keep Track of Responders
-As you listen to the call, you should keep track of the responders to the call as you hear them speak. Make a note on a piece of paper, or use the `!ic responders` to see who they are. The IC may ask you who is on-call for a particular system, and you should know the answer, and be able to page them.
+As you listen to the call, you should keep track of the responders to the call as you hear them speak. Make a note on a piece of paper, or use the `!ir responders` to see who they are. The IC may ask you who is on-call for a particular system, and you should know the answer, and be able to page them.
 
 > Do we have a representative from [X] on the call?
 
