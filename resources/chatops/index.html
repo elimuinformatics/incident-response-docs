@@ -10,7 +10,7 @@
       <meta name="viewport" content="width=device-width,initial-scale=1">
       <meta http-equiv="x-ua-compatible" content="ie=edge">
       
-        <meta name="description" content="Throughout this documentation references are made to various chat commands, all starting with an exclamation (e.g. 'ic page'). We have bots running in our Slack rooms which watch for these commands and execute various actions for us when they're detected. This page gives an overview of the commands we've referenced in this documentation, and what they do behind the scenes.">
+        <meta name="description" content="Throughout this documentation references are made to various chat commands, all starting with an exclamation (e.g. 'ir page'). We have bots running in our Slack rooms which watch for these commands and execute various actions for us when they're detected. This page gives an overview of the commands we've referenced in this documentation, and what they do behind the scenes.">
       
       
         <link rel="canonical" href="https://elimuinformatics.github.io/incident-response-docs/resources/chatops/">
@@ -732,43 +732,43 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#ic" class="md-nav__link">
-    !ic
+  <a href="#ir" class="md-nav__link">
+    !ir
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#ic-page" class="md-nav__link">
-    !ic page
+  <a href="#ir-page" class="md-nav__link">
+    !ir page
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#ic-responders" class="md-nav__link">
-    !ic responders
+  <a href="#ir-responders" class="md-nav__link">
+    !ir responders
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#ic-page-responders" class="md-nav__link">
-    !ic page responders
+  <a href="#ir-page-responders" class="md-nav__link">
+    !ir page responders
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#ic-who-ltusergt" class="md-nav__link">
-    !ic who &amp;lt;user&amp;gt;
+  <a href="#ir-who-ltusergt" class="md-nav__link">
+    !ir who &amp;lt;user&amp;gt;
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#ic-page-ltusergt" class="md-nav__link">
-    !ic page &amp;lt;user&amp;gt;
+  <a href="#ir-page-ltusergt" class="md-nav__link">
+    !ir page &amp;lt;user&amp;gt;
   </a>
   
 </li>
@@ -872,43 +872,43 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#ic" class="md-nav__link">
-    !ic
+  <a href="#ir" class="md-nav__link">
+    !ir
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#ic-page" class="md-nav__link">
-    !ic page
+  <a href="#ir-page" class="md-nav__link">
+    !ir page
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#ic-responders" class="md-nav__link">
-    !ic responders
+  <a href="#ir-responders" class="md-nav__link">
+    !ir responders
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#ic-page-responders" class="md-nav__link">
-    !ic page responders
+  <a href="#ir-page-responders" class="md-nav__link">
+    !ir page responders
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#ic-who-ltusergt" class="md-nav__link">
-    !ic who &amp;lt;user&amp;gt;
+  <a href="#ir-who-ltusergt" class="md-nav__link">
+    !ir who &amp;lt;user&amp;gt;
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#ic-page-ltusergt" class="md-nav__link">
-    !ic page &amp;lt;user&amp;gt;
+  <a href="#ir-page-ltusergt" class="md-nav__link">
+    !ir page &amp;lt;user&amp;gt;
   </a>
   
 </li>
@@ -966,29 +966,29 @@
                 
                   <h1>ChatOps</h1>
                 
-                <p>Throughout this documentation, references are made to various chat commands, all starting with an exclamation (e.g. <code>!ic page</code>). We have bots running in our Slack rooms which watch for these commands and execute various actions for us when they're detected. This page gives an overview of the commands we've referenced in this documentation, and what they do behind the scenes.</p>
+                <p>Throughout this documentation, references are made to various chat commands, all starting with an exclamation (e.g. <code>!ir page</code>). We have bots running in our Slack rooms which watch for these commands and execute various actions for us when they're detected. This page gives an overview of the commands we've referenced in this documentation, and what they do behind the scenes.</p>
 <h2 id="incident-response">Incident Response<a class="headerlink" href="#incident-response" title="Permanent link">#</a></h2>
-<p>Our <code>!ic</code> commands poll the PagerDuty API behind the scenes for various on-call schedules we specify. It caches the names and contact details for the current on-call users, so that if there's any issue in making API requests, the funtionality isn't impacted.</p>
-<h3 id="ic"><code>!ic</code><a class="headerlink" href="#ic" title="Permanent link">#</a></h3>
-<p>This command lists out the current Incident Commanders on-call, their phone numbers, and a message telling users how to page them.</p>
-<p><img alt="Incident Commander List" src="../../assets/img/chatops/ic.png" /></p>
-<h3 id="ic-page"><code>!ic page</code><a class="headerlink" href="#ic-page" title="Permanent link">#</a></h3>
-<p>This is the command we use to manually trigger our incident response process. It uses the cached schedule information and will page all of the current Incident Commanders on-call (the primary, the backup, and any trainees who are shadowing). It will also notify into the room if it is unable to page them for any reason, and direct users to manually call the person using their contact information. Additionally, it will create a new PagerDuty incident and link users to it.</p>
-<p><img alt="Paging Incident Commanders" src="../../assets/img/chatops/ic_page.png" /></p>
-<p>If for any reason we are unable to page the Incident Commanders automatically, the bot will let us know that it has failed, and give us the phone numbers for the relevant people so we can manually call them. Here is some example output from our test bot, where we have simulated being unable to page via PagerDuty due to an unresponsive API call.</p>
+<p>Our <code>!ir</code> commands poll the OpsGenie API behind the scenes for various on-call schedules we specify. It caches the names and contact details for the current on-call users, so that if there's any issue in making API requests, the funtionality isn't impacted.</p>
+<h3 id="ir"><code>!ir</code><a class="headerlink" href="#ir" title="Permanent link">#</a></h3>
+<p>This command lists out the current Incident Commander(s) on-call, their phone numbers, and a message telling users how to page them.</p>
+<p><img alt="Incident Commander List" src="../../assets/img/chatops/ir.png" /></p>
+<h3 id="ir-page"><code>!ir page</code><a class="headerlink" href="#ir-page" title="Permanent link">#</a></h3>
+<p>This is the command we use to manually trigger our incident response process. It will page the current Incident Commander(s) on-call (the primary, the backup, and any trainees who are shadowing). It will also create a new incident in Jira that will be used for reporting purposes and a new Slack channel for discussions about the incident (aka an incident war room). Links to the Jira incident and new Slack channel will be displayed in the channel where the command was entered.</p>
+<p><img alt="Paging Incident Commanders" src="../../assets/img/chatops/ir_page.png" /></p>
+<p>If for any reason we are unable to page the Incident Commanders automatically, the bot will let us know that it has failed, and give us the phone numbers for the relevant people so we can manually call them. Here is some example output from our test bot, where we have simulated being unable to page via OpsGenie due to an unresponsive API call.</p>
 <p><img alt="Testing for Failure" src="../../assets/img/chatops/test_for_failure.png" /></p>
-<h3 id="ic-responders"><code>!ic responders</code><a class="headerlink" href="#ic-responders" title="Permanent link">#</a></h3>
-<p>This works similarly to the <code>!ic</code> command, only it uses all our service team schedules instead of just the IC schedules. It will list out all the current people who are on-call for each engineering team. This is useful to also know who will likely be joining the incident call momentarily.</p>
-<p><img alt="Listing Responders" src="../../assets/img/chatops/ic_responders.png" /></p>
-<h3 id="ic-page-responders"><code>!ic page responders</code><a class="headerlink" href="#ic-page-responders" title="Permanent link">#</a></h3>
-<p>This works similarly to <code>!ic page</code>, only it pages the responders list instead of the Incident Commanders. This is rarely used, since generally only the relevant team will get paged. However, sometimes we require an "all hands on deck" response, and need the ability to quickly page all the current on-calls.</p>
-<p><img alt="Paging Responders" src="../../assets/img/chatops/ic_page_responders.png" /></p>
-<h3 id="ic-who-ltusergt"><code>!ic who &lt;user&gt;</code><a class="headerlink" href="#ic-who-ltusergt" title="Permanent link">#</a></h3>
+<h3 id="ir-responders"><code>!ir responders</code><a class="headerlink" href="#ir-responders" title="Permanent link">#</a></h3>
+<p>This works similarly to the <code>!ir</code> command, but it uses all of the team schedules instead of just the Incident Commander schedules. It will list out all the current people who are on-call for each team. This is useful to also know who will likely be joining the incident call momentarily.</p>
+<p><img alt="Listing Responders" src="../../assets/img/chatops/ir_responders.png" /></p>
+<h3 id="ir-page-responders"><code>!ir page responders</code><a class="headerlink" href="#ir-page-responders" title="Permanent link">#</a></h3>
+<p>This works similarly to <code>!ir page</code>, but it pages all of the team responders instead of the Incident Commander(s). This is rarely used, since generally only the relevant team will get paged. However, sometimes we require an "all hands on deck" response, and need the ability to quickly page all the current on-calls.</p>
+<p><img alt="Paging Responders" src="../../assets/img/chatops/ir_page_responders.png" /></p>
+<h3 id="ir-who-ltusergt"><code>!ir who &lt;user&gt;</code><a class="headerlink" href="#ir-who-ltusergt" title="Permanent link">#</a></h3>
 <p>Sometimes we may need to identify a specific individual to bring them onto a call. This command lists out the contact info for a specific user, and a message telling users how to page them.</p>
-<p><img alt="Identifying Users" src="../../assets/img/chatops/ic_who_rich.png" /></p>
-<h3 id="ic-page-ltusergt"><code>!ic page &lt;user&gt;</code><a class="headerlink" href="#ic-page-ltusergt" title="Permanent link">#</a></h3>
+<p><img alt="Identifying Users" src="../../assets/img/chatops/ir_who_rich.png" /></p>
+<h3 id="ir-page-ltusergt"><code>!ir page &lt;user&gt;</code><a class="headerlink" href="#ir-page-ltusergt" title="Permanent link">#</a></h3>
 <p>This will page a specific person by username.</p>
-<p><img alt="Paging a User" src="../../assets/img/chatops/ic_page_rich.png" /></p>
+<p><img alt="Paging a User" src="../../assets/img/chatops/ir_page_rich.png" /></p>
 <h2 id="status">Status<a class="headerlink" href="#status" title="Permanent link">#</a></h2>
 <p>Our <code>!status</code> commands look at our internal monitoring systems to determine the current system state, as reported by the systems themselves. This is the status our alerting tooling uses to automatically notify us of issues.</p>
 <h3 id="status_1"><code>!status</code><a class="headerlink" href="#status_1" title="Permanent link">#</a></h3>
