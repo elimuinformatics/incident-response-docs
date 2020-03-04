@@ -17,7 +17,7 @@ Information on what to do during a major incident. See our [severity level descr
           <td><a href="#">+1 555 BIG FIRE</a> (+1 555 244 3473) / PIN: 123456</td>
         </tr>
         <tr>
-          <td colspan="3" class="centered">Need an IC? Do <code>!ic page</code> in Slack</td>
+          <td colspan="3" class="centered">Need an IC? Do <code>!ir page</code> in Slack</td>
         </tr>
         <tr>
           <td colspan="3"><em>For executive summary updates only, join <a href="#">#executive-summary-updates</a>.</em></td>
@@ -39,7 +39,7 @@ Information on what to do during a major incident. See our [severity level descr
 
 1. Follow instructions from the Incident Commander.
     * **Is there no IC on the call?**
-        * Manually page them via Slack, with `!ic page` in Slack. This will page the primary and backup IC's at the same time.
+        * Manually page them via Slack, with `!ir page` in Slack. This will page the primary and backup IC's at the same time.
         * Never hesitate to page the IC. It's much better to have them and not need them than the other way around.
 
 ## Steps for Incident Commander
