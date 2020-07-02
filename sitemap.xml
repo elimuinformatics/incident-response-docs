@@ -2,147 +2,147 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
      <loc>https://elimuinformatics.github.io/incident-response-docs/</loc>
-     <lastmod>2020-03-04</lastmod>
+     <lastmod>2020-07-02</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://elimuinformatics.github.io/incident-response-docs/getting_started/</loc>
-     <lastmod>2020-03-04</lastmod>
+     <lastmod>2020-07-02</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://elimuinformatics.github.io/incident-response-docs/oncall/being_oncall/</loc>
-     <lastmod>2020-03-04</lastmod>
+     <lastmod>2020-07-02</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://elimuinformatics.github.io/incident-response-docs/oncall/whos_oncall/</loc>
-     <lastmod>2020-03-04</lastmod>
+     <lastmod>2020-07-02</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://elimuinformatics.github.io/incident-response-docs/oncall/alerting_principles/</loc>
-     <lastmod>2020-03-04</lastmod>
+     <lastmod>2020-07-02</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://elimuinformatics.github.io/incident-response-docs/before/what_is_an_incident/</loc>
-     <lastmod>2020-03-04</lastmod>
+     <lastmod>2020-07-02</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://elimuinformatics.github.io/incident-response-docs/before/severity_levels/</loc>
-     <lastmod>2020-03-04</lastmod>
+     <lastmod>2020-07-02</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://elimuinformatics.github.io/incident-response-docs/before/different_roles/</loc>
-     <lastmod>2020-03-04</lastmod>
+     <lastmod>2020-07-02</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://elimuinformatics.github.io/incident-response-docs/before/call_etiquette/</loc>
-     <lastmod>2020-03-04</lastmod>
+     <lastmod>2020-07-02</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://elimuinformatics.github.io/incident-response-docs/before/complex_incidents/</loc>
-     <lastmod>2020-03-04</lastmod>
+     <lastmod>2020-07-02</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://elimuinformatics.github.io/incident-response-docs/during/during_an_incident/</loc>
-     <lastmod>2020-03-04</lastmod>
+     <lastmod>2020-07-02</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://elimuinformatics.github.io/incident-response-docs/during/security_incident_response/</loc>
-     <lastmod>2020-03-04</lastmod>
+     <lastmod>2020-07-02</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://elimuinformatics.github.io/incident-response-docs/after/after_an_incident/</loc>
-     <lastmod>2020-03-04</lastmod>
+     <lastmod>2020-07-02</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://elimuinformatics.github.io/incident-response-docs/after/post_mortem_process/</loc>
-     <lastmod>2020-03-04</lastmod>
+     <lastmod>2020-07-02</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://elimuinformatics.github.io/incident-response-docs/after/post_mortem_template/</loc>
-     <lastmod>2020-03-04</lastmod>
+     <lastmod>2020-07-02</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://elimuinformatics.github.io/incident-response-docs/after/effective_post_mortems/</loc>
-     <lastmod>2020-03-04</lastmod>
+     <lastmod>2020-07-02</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://elimuinformatics.github.io/incident-response-docs/training/overview/</loc>
-     <lastmod>2020-03-04</lastmod>
+     <lastmod>2020-07-02</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://elimuinformatics.github.io/incident-response-docs/training/incident_commander/</loc>
-     <lastmod>2020-03-04</lastmod>
+     <lastmod>2020-07-02</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://elimuinformatics.github.io/incident-response-docs/training/deputy/</loc>
-     <lastmod>2020-03-04</lastmod>
+     <lastmod>2020-07-02</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://elimuinformatics.github.io/incident-response-docs/training/scribe/</loc>
-     <lastmod>2020-03-04</lastmod>
+     <lastmod>2020-07-02</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://elimuinformatics.github.io/incident-response-docs/training/subject_matter_expert/</loc>
-     <lastmod>2020-03-04</lastmod>
+     <lastmod>2020-07-02</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://elimuinformatics.github.io/incident-response-docs/training/customer_liaison/</loc>
-     <lastmod>2020-03-04</lastmod>
+     <lastmod>2020-07-02</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://elimuinformatics.github.io/incident-response-docs/training/internal_liaison/</loc>
-     <lastmod>2020-03-04</lastmod>
+     <lastmod>2020-07-02</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://elimuinformatics.github.io/incident-response-docs/training/glossary/</loc>
-     <lastmod>2020-03-04</lastmod>
+     <lastmod>2020-07-02</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://elimuinformatics.github.io/incident-response-docs/training/courses/incident_response/</loc>
-     <lastmod>2020-03-04</lastmod>
+     <lastmod>2020-07-02</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://elimuinformatics.github.io/incident-response-docs/resources/reading/</loc>
-     <lastmod>2020-03-04</lastmod>
+     <lastmod>2020-07-02</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://elimuinformatics.github.io/incident-response-docs/resources/chatops/</loc>
-     <lastmod>2020-03-04</lastmod>
+     <lastmod>2020-07-02</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://elimuinformatics.github.io/incident-response-docs/resources/anti_patterns/</loc>
-     <lastmod>2020-03-04</lastmod>
+     <lastmod>2020-07-02</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://elimuinformatics.github.io/incident-response-docs/about/</loc>
-     <lastmod>2020-03-04</lastmod>
+     <lastmod>2020-07-02</lastmod>
      <changefreq>daily</changefreq>
     </url>
 </urlset>
