@@ -1,7 +1,6 @@
 ---
 cover: assets/img/covers/incident_response_docs.png
 ---
-![Elimu Informatics](../assets/img/headers/pagerduty_logo.png)
 
 This site documents parts of the Elimu Informatics Incident Response process. It is a cut-down version of our internal documentation, used at Elimu Informatics for any major incidents, and to prepare new employees for on-call responsibilities. It provides information not only on preparing for an incident, but also what to do during and after.
 
@@ -17,7 +16,7 @@ It is intended for on-call practitioners and those involved in an operational in
 
 ## Why do I need it?
 
-Incident response is something you hope to never need, but when you do, you want it to go smoothly and seamlessly. Normally the knowledge of how to handle incidents within your company will be built up over time, getting better with each incident. While tools such as [Elimu Informatics's Major Incidents Application](https://www.pagerduty.com/applications/#major-incidents-application) can help you recover quickly, the process you follow is just as important. This documentation will allow you to learn from the start something which has taken us years to build up. Giving you a head start on how to deal with major incidents in a way which leads to the fastest possible recovery time.
+Incident response is something you hope to never need, but when you do, you want it to go smoothly and seamlessly. Normally the knowledge of how to handle incidents within your company will be built up over time, getting better with each incident.
 
 ## What is covered?
 
@@ -25,7 +24,7 @@ Anything from preparing to [go on-call](/oncall/being_oncall.md), definitions of
 
 ## What is missing?
 
-This isn't an exact clone of our internal documentation, but instead has some information removed. Things such as our phone bridge numbers, names of internal tools and systems which are not (yet) open sourced, images of our dashboards, etc. Basically anything that is specific to Elimu Informatics or is too sensitive to share.
+This isn't an exact clone of our internal documentation, but instead has some information removed. Things such as our phone numbers, names of internal tools and systems which are not (yet) open sourced, images of our dashboards, etc. Basically anything that is specific to Elimu Informatics or is too sensitive to share.
 
 ## License
 

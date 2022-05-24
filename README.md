@@ -1,9 +1,9 @@
 # Elimu Informatics Incident Response Documentation
 This is a public version of the Incident Response process used at Elimu Informatics. It is also used to prepare new employees for on-call responsibilities, and provides information not only on preparing for an incident, but also what to do during and after. See the [about page](docs/about.md) for more information on what this documentation is and why it exists.
 
-You can view the documentation [directly](/docs/index.md) in this repository, or rendered as a website at https://response.pagerduty.com.
+You can view the documentation [directly](/docs/index.md) in this repository, or rendered as a website at https://response.elimuinformatics.com.
 
-[![Elimu Informatics Incident Response Documentation](screenshot.png)](https://response.pagerduty.com)
+[![Elimu Informatics Incident Response Documentation](screenshot.png)](https://response.elimuinformatics.com)
 
 ## Development
 We use [MkDocs](http://www.mkdocs.org/) to create a static site from this repository. For local development,

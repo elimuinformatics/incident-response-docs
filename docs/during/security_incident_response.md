@@ -1,6 +1,6 @@
 ---
 cover: assets/img/covers/security_incident.png
-description: Checklist of actions for responding to a security incident at PagerDuty.
+description: Checklist of actions for responding to a security incident at Elimu Informatics.
 ---
 <div id="reviewed-dates">
   <span><strong>Last Reviewed:</strong> <abbr title="We recommend you include with this document the date you last reviewed your process.">YYYY-MM-DD</abbr></span>
@@ -8,7 +8,7 @@ description: Checklist of actions for responding to a security incident at Pager
 </div>
 
 !!! warning "Incident Commander Required"
-     As with all major incidents at PagerDuty, security ones will also involve an Incident Commander, who will delegate the tasks to relevant resolvers. Tasks may be performed in parallel as assigned by the IC. Page one at the earliest possible opportunity `!ic page`.
+     As with all major incidents at Elimu Informatics, security ones will also involve an Incident Commander, who will delegate the tasks to relevant resolvers. Tasks may be performed in parallel as assigned by the IC. Page one at the earliest possible opportunity `!ir page`.
 
 !!! question "Not Sure it's a Security Incident?"
     Trigger the process anyway. It's better to be safe than sorry. The Incident Commander will make a determination on if response is needed.
@@ -154,7 +154,7 @@ Once you have validated all of the information you have is accurate, have a time
 * Prefer voice call and Slack over any other methods.
 * Avoid email, but if you absolutely need to for some reason,
     * Subject of emails should be "Attorney Work Project" and nothing else.
-    * If email chain has **ANY** contacts **not with the @pagerduty.com domain**, make sure your emails are encrypted.
+    * If email chain has **ANY** contacts **not with the @elimu.io domain**, make sure your emails are encrypted.
 * Do not use SMS to communicate about the incident.
     * The only exception is to tell someone to move to a more secure channel. e.g. "Please join Slack ASAP".
 * Do not disseminate anything about the incident to those outside the response team until you have approval to do so.
