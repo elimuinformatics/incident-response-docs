@@ -48,6 +48,6 @@ As you listen to the call, the IC may ask you to reach out to another internal t
 > IL: Understood, paging Marketing team.
 
 ### Provide Executive Status Updates
-Provide regular status updates on Slack (roughly every 30mins), giving an executive summary of the current status during SEV-1 incidents. Keep it short and to the point, and use `@here`. Mention the current state, the actions in progress, customer impact, and expected time remaining. It's OK to miss out some of those if the information isn't known.
+Provide regular status updates on Slack (roughly every 30mins), giving an executive summary of the current status during P1 incidents. Keep it short and to the point, and use `@here`. Mention the current state, the actions in progress, customer impact, and expected time remaining. It's OK to miss out some of those if the information isn't known.
 
-> @here: We are in SEV-1 due to X. Current actions in progress are to do Y. Expecting 3 mins to complete that action. Once action is complete, system should recover on its own within 5 minutes.
+> @here: We are experiencing a P1 incidnt due to X. Current actions in progress are to do Y. Expecting 3 mins to complete that action. Once action is complete, system should recover on its own within 5 minutes.

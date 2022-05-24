@@ -1,14 +1,14 @@
 ---
 cover: assets/img/covers/severity_levels.png
-description: Incidents are typically classified by severity or priority. At PagerDuty we use 'SEV' levels, with lower numbered severities being more urgent. Operational issues can be classified at one of these severity levels, and in general you are able to take more risky moves to resolve a higher severity issue.
+description: Incidents are typically classified by severity or priority. At Elimu Informatics we use 'P' levels, with lower numbered severities being more urgent. Operational issues can be classified at one of these severity levels, and in general you are able to take more risky moves to resolve a higher severity issue.
 ---
-The first step in any incident response process is to determine what actually [constitutes an incident](/before/what_is_an_incident.md). Incidents can then be classified by severity, usually done by using "SEV" definitions, with lower numbered severities being more urgent. Operational issues can be classified at one of these severity levels, and in general you are able to take more risky moves to resolve a higher severity issue. Anything above a SEV-3 is automatically considered a "major incident" and gets a more intensive response than a normal incident.
+The first step in any incident response process is to determine what actually [constitutes an incident](/before/what_is_an_incident.md). Incidents can then be classified by severity, usually done by using "SEV" definitions, with lower numbered severities being more urgent. Operational issues can be classified at one of these severity levels, and in general you are able to take more risky moves to resolve a higher severity issue. Anything above a P3 is automatically considered a "major incident" and gets a more intensive response than a normal incident.
 
 !!! tip "Always Assume The Worst"
-     If you are unsure which level an incident is (e.g. not sure if SEV-2 or SEV-1), **treat it as the higher one**. During an incident is not the time to discuss or litigate severities, just assume the highest and review during a post-mortem.
+     If you are unsure which level an incident is (e.g. not sure if P2 or P1), **treat it as the higher one**. During an incident is not the time to discuss or litigate severities, just assume the highest and review during a post-mortem.
 
-!!! question "Can a SEV-3 be a major incident?"
-     All SEV-2's are major incidents, but not all major incidents need to be SEV-2's. If you require co-ordinated response, even for lower severity issues, then trigger our incident response process. The IC can make a determination on whether full incident response is necessary.
+!!! question "Can a P3 be a major incident?"
+     All P2's are major incidents, but not all major incidents need to be P2's. If you require co-ordinated response, even for lower severity issues, then trigger our incident response process. The IC can make a determination on whether full incident response is necessary.
 
 <table class="custom-table">
   <thead>
@@ -20,7 +20,7 @@ The first step in any incident response process is to determine what actually [c
   </thead>
   <tbody>
     <tr>
-      <td class="sev-1">SEV-1</td>
+      <td class="p1">P1</td>
       <td>
         <p class="intent">Critical issue that warrants public notification and liaison with executive teams.</p>
         <ul>
@@ -40,15 +40,15 @@ The first step in any incident response process is to determine what actually [c
       </td>
     </tr>
     <tr>
-      <td class="sev-2">SEV-2</td>
+      <td class="p2">P2</td>
       <td>
         <p class="intent">Critical system issue actively impacting many customers' ability to use the product.</p>
         <ul>
           <li>Notification pipeline is severely impaired.</li>
           <li>Incident response functionality (ack, resolve, etc) is severely impaired.</li>
           <li>Web app is unavailable or experiencing severe performance degradation for most/all users.</li>
-          <li>Monitoring of PagerDuty systems for major incident conditions is impaired.</li>
-          <li>Any other event to which a PagerDuty employee deems necessary of incident response.</li>
+          <li>Monitoring of OpsGenie systems for major incident conditions is impaired.</li>
+          <li>Any other event to which an Elimu Informatics employee deems necessary of incident response.</li>
         </ul>
       </td>
       <td>
@@ -62,12 +62,12 @@ The first step in any incident response process is to determine what actually [c
       <td class="warning" colspan="3">Anything above this line is considered a "Major Incident". Our incident response process should be triggered for any major incidents.</td>
     </tr>
     <tr>
-      <td class="sev-3">SEV-3</td>
+      <td class="p3">P3</td>
       <td>
         <p class="intent">Stability or minor customer-impacting issues that require immediate attention from service owners.</p>
         <ul>
           <li>Partial loss of functionality, not affecting majority of customers.</li>
-          <li>Something that has the likelihood of becoming a SEV-2 if nothing is done.</li>
+          <li>Something that has the likelihood of becoming a P2 if nothing is done.</li>
           <li>No redundancy in a service (failure of 1 more node will cause outage).</li>
         </ul>
       </td>
@@ -84,7 +84,7 @@ The first step in any incident response process is to determine what actually [c
       </td>
     </tr>
     <tr>
-      <td class="sev-4">SEV-4</td>
+      <td class="p4">P4</td>
       <td>
         <p class="intent">Minor issues requiring action, but not affecting customer ability to use the product.</p>
         <ul>
@@ -103,7 +103,7 @@ The first step in any incident response process is to determine what actually [c
       </td>
     </tr>
     <tr>
-      <td class="sev-5">SEV-5</td>
+      <td class="p5">P5</td>
       <td>
         <p class="intent">Cosmetic issues or bugs, not affecting customer ability to use the product.</li>
         <ul>
@@ -121,4 +121,4 @@ The first step in any incident response process is to determine what actually [c
 </table>
 
 !!! note "Be Specific"
-    These severity descriptions have been changed from the PagerDuty internal definitions to be more generic. For your own documentation, you are encouraged to make your definitions very specific, usually referring to a % of users/accounts affected. You will usually want your severity definitions to be metric driven.
+    These severity descriptions have been changed from the Elimu Informatics internal definitions to be more generic. For your own documentation, you are encouraged to make your definitions very specific, usually referring to a % of users/accounts affected. You will usually want your severity definitions to be metric driven.

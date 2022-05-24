@@ -22,7 +22,7 @@ An IC should also be considering next steps and backup plans at every opportunit
 Before you can be an Incident Commander, it is expected that you meet the following criteria. Don't worry if you don't meet them all yet, you can still continue with training!
 
 * Excellent verbal and written **communication skills**.
-* Has **high-level knowledge** of how the different PagerDuty services interact with each other.
+* Has **high-level knowledge** of how the different applications and services interact with each other.
 * Ability to size-up a situation, **assess the effectiveness** of various tactics/strategies, and **make rapid decisions** on appropriate courses of action.
 * Has flexibility, and is able to **listen to expert feedback**, modifying plans on-the-fly as necessary.
 * Has been **involved in at least two major incident responses**, either as a spectator, or as an active participant.
@@ -202,7 +202,7 @@ It's important to maintain a cadence during a major incident call. Whenever ther
 
 > While we wait for [X], here's an update of our current situation.
 
-> We are currently in a SEV-1 situation, we believe to be caused by [X]. There's an open question to [Y] who will be getting back to us in 2 minutes. In the meantime, we have Tweeted out that we are experiencing issues. Our next Tweet will be in 10 minutes if the incident is still ongoing at that time.
+> We are currently in a P1 incident situation, we believe to be caused by [X]. There's an open question to [Y] who will be getting back to us in 2 minutes. In the meantime, we have Tweeted out that we are experiencing issues. Our next Tweet will be in 10 minutes if the incident is still ongoing at that time.
 
 > Are there any additional actions or proposals from anyone else at this time?
 
@@ -308,11 +308,11 @@ The most common case of executive swoop is a request for more information. Unfor
 Note that this isn't phrased as a question, you've already made the decision as Incident Commander, you're just informing the executive of that decision.
 
 ### Executive Swoop - Questioning Severity
-> Executive: Is this really a SEV-1?
+> Executive: Is this really a P1?
 
 Our severity levels determine the scale of response we give to an incident. Conversations on what severity an incident is can very quickly consume the entire call and doesn't change the fact that there is an incident on-going. We do not discuss incident severity during an incident call, as we treat an incident as the highest severity we think it could be. We can downgrade the severity during the post-mortem, however we cannot waste time litigating severities on an incident call. So simply remind folks of this in order to get things back on track,
 
-> IC: We do not discuss incident severity during the call. We're treating this as a SEV-1.
+> IC: We do not discuss incident severity during the call. We're treating this as a P1.
 
 ### The Belligerent Responder
 Sometimes you will have a responder who does not follow instructions and/or is being actively disruptive to your response call. Perhaps this is being done intentionally, or it could even be unintentional (an un-muted microphone while in a loud environment, etc). In either case, you need to resolve the situation and get back to the incident at hand. State the fact that the individual is being disruptive, provide them a way to save face, but also state what will happen if they don't stop. No second chances, if they don't follow through, remove them from the call.
@@ -321,7 +321,7 @@ Sometimes you will have a responder who does not follow instructions and/or is b
 
 
 ## Examples From Pop Culture
-PagerDuty employees have access to all previous incident calls, and can listen to them at their discretion. We can't release these calls, so for everyone else, here are some short examples from popular culture to show the techniques at work.
+Elimu Informatics employees have access to all previous incident calls, and can listen to them at their discretion. We can't release these calls, so for everyone else, here are some short examples from popular culture to show the techniques at work.
 
 ---
 

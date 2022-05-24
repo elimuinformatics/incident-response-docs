@@ -109,11 +109,11 @@ But this still covers quite a range of potential incidents. We can get more gran
 <input type="checkbox" id="008" /><label for="008">![008](/assets/slides/incident_response/incident_response.008.jpeg)</label>
 _008. Severity levels. [Docs Reference](/before/severity_levels/)_
 
-We also use [severity levels](/before/severity_levels/) to determine how severe an incident is, and what type of response it gets. We use `SEV-5` through `SEV-1` for our levels, but you may use a different scheme, `P0` through `P5`, or maybe even emoji, 🔥 through 💩, etc.
+We also use [severity levels](/before/severity_levels/) to determine how severe an incident is, and what type of response it gets. We use `P5` through `P1` for our levels, but you may use a different scheme, `P0` through `P5`, or maybe even emoji, 🔥 through 💩, etc.
 
 Let's imagine you're looking at a graph of traffic to your website. You can typically determine severity based on how drastically your metrics are affected. So as your website traffic drops, the severity increases.
 
-You will usually reach a point where you've set some predefined target or watermark, where as soon as the metric passes, you automatically consider something a major incident. At PagerDuty it's the difference between a `SEV-3` and `SEV-2`, but it may be different for your organization. Then as things get even more dire, we get into our `SEV-2`'s and our `SEV-1`'s when things completely flatline.
+You will usually reach a point where you've set some predefined target or watermark, where as soon as the metric passes, you automatically consider something a major incident. At PagerDuty it's the difference between a `P3` and `P2`, but it may be different for your organization. Then as things get even more dire, we get into our `P2`'s and our `P1`'s when things completely flatline.
 
 Having pre-defined thresholds and metrics can allow you to have automatic triggers for your response process.
 
@@ -737,14 +737,14 @@ Remember that the IC is still in charge, you don't want to cede decision making 
 
 ---
 
-### Really a SEV-1?
+### Really a P1?
 
 <input type="checkbox" id="056" /><label for="056">![056](/assets/slides/incident_response/incident_response.056.jpeg)</label>
-_056. Is this really a SEV-1?_
+_056. Is this really a P1?_
 
-> Is this really a SEV-1?
+> Is this really a P1?
 
-Oh look, it's another one that's never ever happened at PagerDuty. We used to have a really big problem with this one. We'd start incident response calls, then spend the first 10 minutes arguing over whether it was a `SEV-3` or a `SEV-2`. By the time we were finished, we would be 10 minutes into a `SEV-1` and have made no progress.
+Oh look, it's another one that's never ever happened at PagerDuty. We used to have a really big problem with this one. We'd start incident response calls, then spend the first 10 minutes arguing over whether it was a `P3` or a `P2`. By the time we were finished, we would be 10 minutes into a `P1` and have made no progress.
 
 So now we have a rule. We don't discuss incident severity during the call. If we can't decide between two, we always assume it's the higher severity and move on.
 
@@ -752,14 +752,14 @@ Don't litigate severities during an incident. It's a waste of time.
 
 ---
 
-### Treating as a SEV-1
+### Treating as a P1
 
 <input type="checkbox" id="057" /><label for="057">![057](/assets/slides/incident_response/incident_response.057.jpeg)</label>
-_057. We're treating this as a SEV-1. [Docs Reference](/training/incident_commander/#executive-swoop-questioning-severity)_
+_057. We're treating this as a P1. [Docs Reference](/training/incident_commander/#executive-swoop-questioning-severity)_
 
-So the IC will need to make it clear we don’t discuss, and that we’re treating it as a `SEV-1`. It may turn out to be a `SEV-4`, who knows, it doesn’t matter. That's a discussion for the post-mortem.
+So the IC will need to make it clear we don’t discuss, and that we’re treating it as a `P1`. It may turn out to be a `P4`, who knows, it doesn’t matter. That's a discussion for the post-mortem.
 
-> We do not discuss incident severity during the call. We're treating this as a SEV-1.
+> We do not discuss incident severity during the call. We're treating this as a P1.
 
 Once you’ve spun up the gears of incident response, you may as well finish the process, if anything it just gives you all more practice.
 
@@ -864,7 +864,7 @@ Let’s talk about some [anti-patterns](/resources/anti_patterns/). Things which
 <input type="checkbox" id="065" /><label for="065">![065](/assets/slides/incident_response/incident_response.065.jpeg)</label>
 _065. Getting everyone on the call. [Docs Reference](/resources/anti_patterns/#getting-everyone-on-the-call)_
 
-Believe it or not, we used to page every single engineer at PagerDuty whenever we had a `SEV-2`. I'm not joking. It was horrible. It worked great when we only had 5 engineers, less so when we had 50.
+Believe it or not, we used to page every single engineer at PagerDuty whenever we had a `P2`. I'm not joking. It was horrible. It worked great when we only had 5 engineers, less so when we had 50.
 
 It's important to **maintain an effective [span of control](/training/glossary/#span-of-control)** during an incident. No one person should have more than ~7 people reporting to them. Any more than that and you have too many cooks in the kitchen.
 
