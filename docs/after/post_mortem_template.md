@@ -1,8 +1,8 @@
 ---
 cover: assets/img/covers/post-mortem_template.png
-description: This is a standard template we use for postmortems at PagerDuty. Each section describes the type of information you will want to put in that section.
+description: This is a standard template we use for postmortems at Elimu Informatics. Each section describes the type of information you will want to put in that section.
 ---
-This is a standard template we use for postmortems at PagerDuty. Each section describes the type of information you will want to put in that section.
+This is a standard template we use for postmortems at Elimu Informatics. Each section describes the type of information you will want to put in that section.
 
 ---
 
@@ -18,7 +18,7 @@ This is a standard template we use for postmortems at PagerDuty. Each section de
 **Call Recording:** _Link to the incident call recording._
 
 ## Overview
-_Include a **short** sentence or two summarizing the contributing factors, timeline summary, and the impact. E.g. "On the morning of August 99th, we suffered a 1 minute SEV-1 due to a runaway process on our primary database machine. This slowness caused roughly 0.024% of alerts that had begun during this time to be delivered out of SLA."_
+_Include a **short** sentence or two summarizing the contributing factors, timeline summary, and the impact. E.g. "On the morning of August 99th, we suffered a 1 minute P1 due to a runaway process on our primary database machine. This slowness caused roughly 0.024% of alerts that had begun during this time to be delivered out of SLA."_
 
 ## What Happened
 _Include a short description of what happened._
@@ -34,8 +34,8 @@ _Be very specific here and include exact numbers._
 
 | | |
 |-|-|
-| Time in SEV-1 | ?mins |
-| Time in SEV-2 | ?mins |
+| Time in P1 | ?mins |
+| Time in P2 | ?mins |
 | Notifications Delivered out of SLA | ??% (?? of ??) |
 | Events Dropped / Not Accepted | ??% (?? of ??) _Should usually be 0, but always check_ |
 | Accounts Affected | ?? |
@@ -49,7 +49,7 @@ _Be very specific here and include exact numbers._
 * _Who else was involved?_
 
 ## Timeline
-_Some important times to include: (1) time the contributing factor began, (2) time of the page, (3) time that the status page was updated (i.e. when the incident became public), (4) time of any significant actions, (5) time the SEV-2/1 ended, (6) links to tools/logs that show how the timestamp was arrived at._
+_Some important times to include: (1) time the contributing factor began, (2) time of the page, (3) time that the status page was updated (i.e. when the incident became public), (4) time of any significant actions, (5) time the P1 or P2 ended, (6) links to tools/logs that show how the timestamp was arrived at._
 
 | Time (UTC) | Event | Data Link |
 | ---------- | ----- | --------- |
@@ -75,7 +75,7 @@ _This is a follow-up for employees. It should be sent out right after the postmo
 > Briefly summarize what happened and where the postmortem page (this page) can be found.
 
 ### External Message
-_This is what will be included on the status.pagerduty.com website regarding this incident. What are we telling customers, including an apology? (The apology should be genuine, not rote.)_
+_This is what will be included on the status.elimu.io website regarding this incident. What are we telling customers, including an apology? (The apology should be genuine, not rote.)_
 
 > Summary
 

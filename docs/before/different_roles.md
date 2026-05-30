@@ -1,8 +1,8 @@
 ---
 cover: assets/img/covers/roles.png
-description: There are several main roles for our incident response teams at PagerDuty. This page describes each of our roles in detail, why it's important to have them, and what their responsibilities are.
+description: There are several main roles for our incident response teams at Elimu Informatics. This page describes each of our roles in detail, why it's important to have them, and what their responsibilities are.
 ---
-There are several main roles for our incident response teams at PagerDuty. Certain roles only have one person per incident (e.g. IC), whereas other roles can have multiple people (e.g. Subject Matter Expert, SME). It's all about coming together as a team, working the problem, and getting a solution quickly.
+There are several main roles for our incident response teams at Elimu Informatics. Certain roles only have one person per incident (e.g. IC), whereas other roles can have multiple people (e.g. Subject Matter Expert, SME). It's all about coming together as a team, working the problem, and getting a solution quickly.
 
 Here is a rough outline of our role hierarchy with each role discussed in more detail on the rest of this page.
 
@@ -91,7 +91,7 @@ The Scribe is expected to:
 1. Ensure the incident call is being recorded.
 1. Note in Slack important data, events, and actions, as they happen. Specifically:
     * Key actions as they are taken (Example: "prod-server-387723 is being restarted to attempt to remove the stuck lock")
-    * Status reports when one is provided by the IC (Example: "We are in SEV-1, service A is currently not processing events due to a stuck lock, X is restarting the app stack, next checkin in 3 minutes")
+    * Status reports when one is provided by the IC (Example: "We are experiencing a P1 incident, service A is currently not processing events due to a stuck lock, X is restarting the app stack, next checkin in 3 minutes")
     * Any key callouts either during the call or at the ending review (Example: "Note: (Bob B) We should have a better way to determine stuck locks.")
 
 ### Who are they?
@@ -105,7 +105,7 @@ Follow our [Scribe training guide](../training/scribe.md), and then notify the I
 ## Subject Matter Expert
 
 ### What is it?
-A Subject Matter Expert (SME), sometimes called a "Resolver", is a domain expert or designated owner of a component or service that is part of the PagerDuty software stack.
+A Subject Matter Expert (SME), sometimes called a "Resolver", is a domain expert or designated owner of a component or service that is part of the Elimu Informatics software stack.
 
 ### Why have one?
 The IC and Deputy are not all-knowing super beings. When there is a problem with a service, an expert in that service is needed to be able to quickly help identify and fix issues.

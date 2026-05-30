@@ -1,11 +1,9 @@
-# PagerDuty Incident Response Documentation 
-[![Netlify Status](https://api.netlify.com/api/v1/badges/ca66d085-7d5f-4a57-81c7-4eb104c9bdb7/deploy-status)](https://app.netlify.com/sites/incident-response-docs/deploys)
+# Elimu Informatics Incident Response Documentation
+This is a public version of the Incident Response process used at Elimu Informatics. It is also used to prepare new employees for on-call responsibilities, and provides information not only on preparing for an incident, but also what to do during and after. See the [about page](docs/about.md) for more information on what this documentation is and why it exists.
 
-This is a public version of the Incident Response process used at PagerDuty. It is also used to prepare new employees for on-call responsibilities, and provides information not only on preparing for an incident, but also what to do during and after. See the [about page](docs/about.md) for more information on what this documentation is and why it exists.
+You can view the documentation [directly](docs/index.md) in this repository, or rendered as a website at https://response.elimuinformatics.com.
 
-You can view the documentation [directly](docs/index.md) in this repository, or rendered as a website at https://response.pagerduty.com.
-
-[![PagerDuty Incident Response Documentation](screenshot.png)](https://response.pagerduty.com)
+[![Elimu Informatics Incident Response Documentation](screenshot.png)](https://response.elimuinformatics.com)
 
 ## Development
 We use [MkDocs](https://www.mkdocs.org/) to create a static site from this repository.
@@ -48,7 +46,7 @@ Thank you for considering contributing! If you have any questions, just ask - or
 
 Here is our preferred process for submitting a pull request,
 
-1. Fork it ( https://github.com/PagerDuty/incident-response-docs/fork )
+1. Fork it ( https://github.com/elimuinformatics/incident-response-docs/fork )
 1. Create your feature branch (`git checkout -b my-new-feature`)
 1. Commit your changes (`git commit -am 'Add some feature'`)
 1. Push to the branch (`git push origin my-new-feature`)

@@ -1,9 +1,9 @@
 ---
 cover: assets/img/covers/incident_response_docs.png
 hero: assets/img/headers/iStock-1097331490-3992x2242-e4f3f2d.png
-hero_alt_text: Incident Response at PagerDuty
+hero_alt_text: Incident Response at Elimu Informatics
 ---
-This documentation covers parts of the PagerDuty Incident Response process. It is a cut-down version of our internal documentation used at PagerDuty for any major incidents and to prepare new employees for on-call responsibilities. It provides information not only on preparing for an incident, but also what to do during and after the incident. It is intended to be used by on-call practitioners and those involved in an operational incident response process (or those wishing to enact a formal incident response process). See the [about page](about.md) for more information on what this documentation is and why it exists.
+This documentation covers parts of the Elimu Informatics Incident Response process. It is a cut-down version of our internal documentation used at Elimu Informatics for any major incidents and to prepare new employees for on-call responsibilities. It provides information not only on preparing for an incident, but also what to do during and after the incident. It is intended to be used by on-call practitioners and those involved in an operational incident response process (or those wishing to enact a formal incident response process). See the [about page](about.md) for more information on what this documentation is and why it exists.
 
 !!! tip "Don't know where to start?"
     If you're new to incident response and don't yet have a formal process in your organization, we recommend looking at our [Getting Started](getting_started.md) page for a quick list of things you can do to begin. Additionally, you can check out our [Training Course](training/courses/incident_response.md) page for a more detailed overview of our process.
@@ -20,7 +20,7 @@ If you've never been on-call before, you might be wondering what it's all about.
 Reading material for things you probably want to know before an incident occurs. You likely don't want to be reading these during an actual incident.
 
 * [What is an Incident?](before/what_is_an_incident.md) - _Before we can talk about incident response, we need to define what an incident actually is._
-* [Severity Levels](before/severity_levels.md) - _Information on our severity level classification. What constitutes a SEV-3 vs SEV-1? What response do they get?_
+* [Severity Levels](before/severity_levels.md) - _Information on our severity level classification. What constitutes a P3 vs P1? What response do they get?_
 * [Different Roles for Incidents](before/different_roles.md) - _Information on the roles during an incident(i.e. Incident Commander (IC), Scribe, etc.)_
 * [Incident Call Etiquette](before/call_etiquette.md) - _Our etiquette guidelines for incident calls (before you find yourself in one)._
 * [Complex Incidents](before/complex_incidents.md) - _Our guide for handling larger, more complex incidents._
@@ -40,17 +40,6 @@ Our followup-processes, how we make sure we don't repeat mistakes, and are alway
 * [Postmortem Process](after/post_mortem_process.md) - _Information on our postmortem process, what's involved, and how to write or run a postmortem._
 * [Postmortem Template](after/post_mortem_template.md) - _The template we use for writing our postmortems for major incidents._
 * [Effective Postmortems](after/effective_post_mortems.md) - _A guide for writing effective postmortems._
-
-## Crisis Response 
-
-Incident response is about more than dealing with technical incidents. A crisis can happen at any time. Are you ready for it? The way you handle your worst day will leave lasting impressions about your brand and its perceived value in the eyes of your current and potential customers.
-
-* [Introduction](crisis/crisis_intro.md) - _An introduction to crisis response and who this document is intended for._
-* [Terminology](crisis/terms.md) - _A list of key terms and concepts used in this guide._
-* [Crisis Leadership](crisis/leadership.md) - _Incorporating basic principles and your values in your response._
-* [Crisis Response Operations](crisis/operations.md) - _Activating your crisis response plans._
-* [Pre-crisis Phase](crisis/prework.md) - _Capitalizing on preparedness activities to keep your teams ready and engaged._
-* [PagerDuty for CRMOps](crisis/pagerduty.md) - _How PagerDuty leverages PagerDuty for crisis response management operations._
 
 ## Training
 

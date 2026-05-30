@@ -1,13 +1,13 @@
 ---
 cover: assets/img/covers/being_on-call.png
-description: A summary of the expectations and responsibilities of being on-call at PagerDuty, along with some best practice and etiquette recommendations.
+description: A summary of the expectations and responsibilities of being on-call at Elimu Informatics, along with some best practice and etiquette recommendations.
 ---
 A summary of expectations and helpful information for being on-call.
 
 ## What is On-Call?
-Being on-call means that you are able to be contacted at any time in order to investigate and fix issues that may arise for the system you are responsible for. For example, if you are on-call for your service at PagerDuty, should any alarms be triggered for that service, you will receive a "page" (an alert on your mobile device, email, phone call, or SMS, etc.) giving you details on what is broken and how to fix it. You will be expected to take whatever actions are necessary in order to resolve the issue and return your service to a normal state.
+Being on-call means that you are able to be contacted at any time in order to investigate and fix issues that may arise for the system you are responsible for. For example, if you are on-call for your service at Elimu Informatics, should any alarms be triggered for that service, you will receive a "page" (an alert on your mobile device, email, phone call, or SMS, etc.) giving you details on what is broken and how to fix it. You will be expected to take whatever actions are necessary in order to resolve the issue and return your service to a normal state.
 
-On-call responsibilities extend beyond normal office hours, and if you are on-call, you are expected to be able to respond to issues - even at 2am. This sounds horrible (and it can be), but this is what our customers go through and is the problem that the PagerDuty product itself is trying to fix!
+On-call responsibilities extend beyond normal office hours, and if you are on-call, you are expected to be able to respond to issues - even at 2am. This sounds horrible (and it can be), but this is what our customers go through and is the problem that we need to fix!
 
 ## Responsibilities
 
@@ -15,7 +15,7 @@ On-call responsibilities extend beyond normal office hours, and if you are on-ca
     * Have your laptop and Internet with you (office, home, a MiFi dongle, a phone with a tethering plan, etc).
         * Have a way to charge your MiFi.
     * Team alert escalation happens within 5 minutes, set/stagger your notification timeouts (push, SMS, phone, etc.) accordingly.
-        * Make sure PagerDuty texts and calls can [bypass your "Do Not Disturb" settings](https://support.pagerduty.com/docs/notification-phone-numbers){:target="_blank" }.
+        * Make sure OpsGenie texts and calls can [bypass your "Do Not Disturb" settings](https://support.pagerduty.com/docs/notification-phone-numbers){:target="_blank" }.
     * Be prepared (environment is set up, a current working copy of the necessary repositories is local and functioning, you have configured and tested environments on workstations, your credentials for third-party services are current, etc.)
     * Read our incident response documentation (that's this!) to understand how we handle serious incidents, what the different roles and methods of communication are, etc.
     * Be aware of your upcoming on-call time (primary, backup) and arrange swaps around travel, vacations, appointments, etc.

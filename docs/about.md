@@ -1,9 +1,9 @@
 ---
 cover: assets/img/covers/incident_response_docs.png
 hero: assets/img/headers/iStock-1097331490-3992x2242-e4f3f2d.png
-hero_alt_text: PagerDuty
+hero_alt_text: Elimu Informatics
 ---
-This site documents parts of the PagerDuty Incident Response process. It is a cut-down version of our internal documentation, used at PagerDuty for any major incidents, and to prepare new employees for on-call responsibilities. It provides information not only on preparing for an incident, but also what to do during and after.
+This site documents parts of the Elimu Informatics Incident Response process. It is a cut-down version of our internal documentation, used at Elimu Informatics for any major incidents, and to prepare new employees for on-call responsibilities. It provides information not only on preparing for an incident, but also what to do during and after.
 
 Few companies seem to talk about their internal processes for dealing with major incidents. We would like to change that by opening up our documentation to the community, in the hopes that it proves useful to others who may want to formalize their own processes. Additionally, it provides an opportunity for others to suggest improvements, which ends up helping everyone.
 
@@ -17,7 +17,7 @@ It is intended for on-call practitioners and those involved in an operational in
 
 ## Why do I need it?
 
-Incident response is something you hope to never need, but when you do, you want it to go smoothly and seamlessly. Normally the knowledge of how to handle incidents within your company will be built up over time, getting better with each incident. While tools such as [PagerDuty's Modern Incidents Response](https://www.pagerduty.com/platform/modern-incident-response/){:target="_blank" } can help you recover quickly, the process you follow is just as important. This documentation will allow you to learn from the start something which has taken us years to build up. Giving you a head start on how to deal with major incidents in a way which leads to the fastest possible recovery time.
+Incident response is something you hope to never need, but when you do, you want it to go smoothly and seamlessly. Normally the knowledge of how to handle incidents within your company will be built up over time, getting better with each incident.
 
 ## What is covered?
 
@@ -25,10 +25,8 @@ Anything from preparing to [go on-call](oncall/being_oncall.md), definitions of 
 
 ## What is missing?
 
-This isn't an exact clone of our internal documentation, but instead has some information removed. Things such as our phone bridge numbers, names of internal tools and systems which are not (yet) open sourced, images of our dashboards, etc. Basically anything that is specific to PagerDuty or is too sensitive to share.
+This isn't an exact clone of our internal documentation, but instead has some information removed. Things such as our phone numbers, names of internal tools and systems which are not (yet) open sourced, images of our dashboards, etc. Basically anything that is specific to Elimu Informatics or is too sensitive to share.
 
 ## License
 
 This documentation is provided under the Apache License 2.0. In plain English that means you can use and modify this documentation and use it both commercially and for private use. However, you must include any original copyright notices, and the original LICENSE file.
-
-Whether you are a PagerDuty customer or not, we want you to have the ability to use this documentation internally at your own company. You can view the source code for all of this documentation on our GitHub account, feel free to fork the repository and use it as a base for your own internal documentation.

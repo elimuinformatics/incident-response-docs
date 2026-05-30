@@ -22,31 +22,31 @@ table.custom-table td.warning {
   background: #ffe7e7;
 }
 
-table.custom-table td.sev-1 {
+table.custom-table td.p1 {
   background: #ffe7e7;
   color: #f00;
   font-weight: bold;
 }
 
-table.custom-table td.sev-2 {
+table.custom-table td.p2 {
   background: #ffd;
   color: rgb(255,153,0);
   font-weight: bold;
 }
 
-table.custom-table td.sev-3 {
+table.custom-table td.p3 {
   background: #e0f0ff;
   color: rgb(51,102,255);
   font-weight: bold;
 }
 
-table.custom-table td.sev-4 {
+table.custom-table td.p4 {
   background: #f0f0f0;
   color: rgb(128,128,128);
   font-weight: bold;
 }
 
-table.custom-table td.sev-5 {
+table.custom-table td.p5 {
   background: #ddfade;
   color: rgb(0,128,0);
   font-weight: bold;

@@ -1,8 +1,8 @@
 ---
 cover: assets/img/covers/post-mortem_process.png
-description: For every major incident (SEV-2/1), we need to follow up with a postmortem. A blame-free, detailed description, of exactly what went wrong in order to cause the incident, along with a list of steps to take in order to prevent a similar incident from occurring again in the future.
+description: For every major incident (P1 or P2), we need to follow up with a postmortem. A blame-free, detailed description, of exactly what went wrong in order to cause the incident, along with a list of steps to take in order to prevent a similar incident from occurring again in the future.
 ---
-For every major incident (SEV-2/1), we need to follow up with a postmortem. A blame-free, detailed description, of exactly what went wrong in order to cause the incident, along with a list of steps to take in order to prevent a similar incident from occurring again in the future. The incident response process itself should also be included.
+For every major incident (P1 or P2), we need to follow up with a postmortem. A blame-free, detailed description, of exactly what went wrong in order to cause the incident, along with a list of steps to take in order to prevent a similar incident from occurring again in the future. The incident response process itself should also be included.
 
 !!! warning "Don't Neglect the Postmortem"
     Don't make the mistake of neglecting a postmortem after an incident. Without a postmortem, you fail to recognize what you're doing right, where you could improve, and most importantly how to avoid making the same exact mistakes next time around. A well-designed, blameless postmortem allows teams to continuously learn and serves as a way to iteratively improve your infrastructure and incident response process.
@@ -13,7 +13,7 @@ The first step is designating a postmortem owner. This is done by the IC either 
 ## Owner Responsibilities
 As owner of a postmortem, you are responsible for the following,
 
-* Scheduling the postmortem meeting (on the shared calendar) and inviting the relevant people (this should be **scheduled within 3 calendar days** for a SEV-1 and **5 business days** for a SEV-2).
+* Scheduling the postmortem meeting (on the shared calendar) and inviting the relevant people (this should be **scheduled within 3 calendar days** for a P1 and **5 business days** for a P2).
 * Investigating the incident and pulling in whomever you need from other teams to assist in the investigation.
 * Updating the page with all of the necessary content.
 * Creating follow-up JIRA tickets (_You are only responsible for creating the tickets, not following them up to resolution_).
@@ -36,7 +36,7 @@ Once you've been designated as the owner of a postmortem, you should start creat
 
 1. (If not already done by the IC) Create a new postmortem for the incident.
 
-1. Schedule a postmortem meeting for within **3 calendar days** for a SEV-1 and **5 business days** for a SEV-2. You should schedule this before filling in the postmortem, just so it's on the calendar.
+1. Schedule a postmortem meeting for within **3 calendar days** for a P1 and **5 business days** for a P2. You should schedule this before filling in the postmortem, just so it's on the calendar.
     * Create the meeting on the "Incident Postmortem Meetings" shared calendar.
 
 1. Begin populating the page with all of the information you have.
@@ -89,7 +89,7 @@ You should invite the following people to the postmortem meeting,
     * Engineering manager for impacted systems.
     * Product manager for impacted systems.
 * Optional
-    * Customer Liaison. (Only SEV-1 incidents)
+    * Customer Liaison. (Only P1 incidents)
 
 The Incident Commander will run the meeting, keeping the discussion focused and on track. However the postmortem owner will likely be doing most of the talking as they walk through the postmortem report.
 
