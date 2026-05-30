@@ -1,29 +1,27 @@
 ---
 cover: assets/img/covers/incident_commander.png
-description: So you want to be an incident commander? You've come to the right place! You don't need to be a senior team member to become an IC, anyone can do it providing you have the requisite knowledge (yes, even an intern)!
+description: So you want to be an incident commander? You've come to the right place! You don't need to be a senior team member to become an IC, anyone can do it providing you have the requisite knowledge (yes, even an intern!)
+hero: assets/img/headers/iStock-1097331490-3992x2242-e4f3f2d.png
 ---
-![Gene Kranz](../assets/img/headers/gene_kranz.jpg)
-*Credit: [NASA](https://en.wikipedia.org/wiki/File:Eugene_F._Kranz_at_his_console_at_the_NASA_Mission_Control_Center.jpg)*
-
-So you want to be an Incident Commander (IC)? You've come to the right place! You don't need to be a senior team member to become an IC, anyone can do it providing you have the requisite knowledge (yes, even an intern)!
+So you want to be an Incident Commander (IC)? You've come to the right place! You don't need to be a senior team member to become an IC, anyone can do it providing you have the requisite knowledge (yes, even an intern!)
 
 ## Purpose
-If you could boil down the purpose of an Incident Commander to one sentence, it would be,
+If you could boil down the purpose of an Incident Commander to one sentence, it would be:
 
 > Keep the incident moving towards resolution.
 
-The Incident Commander is the decision maker during an major incident; Delegating tasks and listening to input from subject matter experts in order to bring the incident to resolution. They become the highest ranking individual on any major incident call, regardless of their day-to-day rank. Their decisions made as commander are final.
+The Incident Commander is the decision maker during a major incident; Delegating tasks and listening to input from subject matter experts in order to bring the incident to resolution. They become the highest ranking individual on any major incident call, regardless of their day-to-day rank. Their decisions made as commander are final.
 
 Your job as an Incident Commander is to listen to the call and to watch the incident Slack room in order to provide clear coordination, recruiting others to gather context/details. **You should not be performing any actions or remediations, checking graphs, or investigating logs.** Those tasks should be delegated.
 
-An IC should also be considering next steps and backup plans at every opportunity, in an effort avoid getting stuck without any clear options to proceed, and to keep things moving towards resolution.
+An IC should also be considering next steps and backup plans at every opportunity, in an effort to avoid getting stuck without any clear options to proceed and to keep things moving towards resolution.
 
 ## Prerequisites
 Before you can be an Incident Commander, it is expected that you meet the following criteria. Don't worry if you don't meet them all yet, you can still continue with training!
 
 * Excellent verbal and written **communication skills**.
-* Has **high-level knowledge** of how the different applications and services interact with each other.
-* Ability to size-up a situation, **assess the effectiveness** of various tactics/strategies, and **make rapid decisions** on appropriate courses of action.
+* Has **high-level knowledge** of how the different PagerDuty services interact with each other.
+* Ability to size up a situation, **assess the effectiveness** of various tactics/strategies, and **make rapid decisions** on appropriate courses of action.
 * Has flexibility, and is able to **listen to expert feedback**, modifying plans on-the-fly as necessary.
 * Has been **involved in at least two major incident responses**, either as a spectator, or as an active participant.
 * Has gravitas, **takes command**, and is **willing to kick people off a call** to remove distractions, even if it's the CEO.
@@ -32,48 +30,48 @@ Before you can be an Incident Commander, it is expected that you meet the follow
     [Incident Commanders do not require deep technical knowledge of our systems](../resources/anti_patterns.md#requiring-incident-commanders-to-have-deep-technical-knowledge). Your job as Incident Commander is to coordinate the response, not make technical changes. Don’t think you can’t be an Incident Commander just because you’re not in the engineering department!
 
 ## Responsibilities
-Read up on our [Different Roles for Incidents](/before/different_roles.md) to see what is expected from an Incident Commander, as well as what we expect from the other roles you'll be interacting with.
+Read up on our [Different Roles for Incidents](../before/different_roles.md) to see what is expected from an Incident Commander, as well as what we expect from the other roles you'll be interacting with.
 
 ## Training Process
 The process is fairly loose for now. Here's a list of things you can do to train though,
 
 * Read the rest of this page, particularly the sections below.
 
-* Participate in [Failure Friday](https://www.pagerduty.com/blog/failure-friday-at-pagerduty/) (FF).
+* Participate in [Failure Friday](https://www.youtube.com/watch?v=XKl-7hB3paY){:target="_blank"}  (FF).
     * Shadow a FF to see how it's run.
-    * Be the scribe for multiple FF's.
-    * Be the incident commander for multiple FF's.
+    * Be the Scribe for multiple FF's.
+    * Be the Incident Commander for multiple FF's.
 
-* Play a game of "[Keep Talking and Nobody Explodes](http://www.keeptalkinggame.com/)" with other people in the office.
+* Play a game of "[Keep Talking and Nobody Explodes](https://www.keeptalkinggame.com/){:target="_blank"}" with other people in the office.
     * For a more realistic experience, play it with someone in a different office over Hangouts.
 
-* Shadow a current incident commander for at least a full week shift.
+* Shadow a current Incident Commander for at least a full week shift.
     * Get alerted when they do, join in on the same calls.
     * Sit in on an active incident call, follow along with the chat, and follow along with what the Incident Commander is doing.
     * **Do not actively participate in the call, keep your questions until the end.**
 
-* Reverse shadow a current incident commander for at least a full week shift.
-    * You should be the one to respond to incidents, and you will take point on calls, however the current IC will be there to take over should you not know how to proceed.
+* Reverse shadow a current Incident Commander for at least a full week shift.
+    * You should be the one to respond to incidents, and you will take point on calls; however, the current IC will be there to take over should you not know how to proceed.
 
 ## Graduation
-What's the difference between an IC in training, and an IC? (This isn't the set up to a joke). Simple, an IC puts themselves on the schedules.
+What's the difference between an IC in training and an IC? (This isn't a set up to a joke). Simple, an IC puts themselves on the schedules.
 
 Also, don't forget to announce yourself in the IC Slack channel, and get yourself added to our IC mailing list.
 
 ## Handling Incidents
 Every incident is different (we're hopefully not repeating the same issue multiple times!), but there's a common process you can apply to each one. The language used in each step is discussed in more detail in the "Procedures and Lingo" section below.
 
-![Handling Incidents](/assets/img/misc/handling_incidents.png)
+![Handling Incidents](../assets/img/misc/handling_incidents.png)
 
 ### Size-Up
 _Sizing-up involves getting an idea of what's going on, and how much impact it's having. This is an information gathering step that will allow you to make good decisions later._
 
 1. **Identify the symptoms. _- Ask "What's wrong?"_**
-    * Identify what the symptoms are, ask your experts to provide this information.
+    * Identify what the symptoms are and ask your experts to provide this information.
     * Gather as much information as you can, as quickly as you can (remember the incident is still happening while you're doing this).
 
 1. **Identify scope of incident. _- Ask "Is this affecting multiple services?"_**
-    * Identify how big the issue is, and whether it's escalating/flapping/static.
+    * Identify how big the issue is and whether it's escalating/flapping/static.
     * Get the facts, the possibilities of what can happen, and the probability of those things happening.
 
 ### Stabilize
@@ -88,7 +86,7 @@ _Next step is to stabilize the incident. We need to determine what we can do to 
     * Making the "wrong" decision is better than making no decision. If you have nothing but bad options, pick one and proceed.
 
 1. **Gain consensus. _- Ask "Are there any strong objections?"_**
-    * Gather support for the plan (See "Polling During a Decision" below).
+    * Gather support for the plan (See "[Polling During a Decision](/training/incident_commander/#gaining-consensus-polling-during-a-decision)" below).
     * Listen for objections.
     * Be prepared to adjust your plan if new information is presented.
 
@@ -116,7 +114,7 @@ _Once remediation actions have been performed, we need to verify that they have 
     * If problems persist, begin again from the size-up step.
 
 ## Deputy
-The deputy for an incident is generally the backup Incident Commander. However, as an Incident Commander, you may appoint one or more Deputies. Note that Deputy Incident Commanders must be as qualified as the Incident Commander, and that if a Deputy is assigned, he or she must be fully qualified to assume the Incident Commander’s position if required.
+The Deputy for an incident is generally the backup Incident Commander. However, as an Incident Commander, you may appoint one or more Deputies. Note that Deputy Incident Commanders must be as qualified as the Incident Commander, and that if a Deputy is assigned, he or she must be fully qualified to assume the Incident Commander’s position if required.
 
 ## Communication Responsibilities
 Sharing information during an incident is a critical process. As an Incident Commander (or Deputy), you should be prepared to brief others as necessary. You will also be required to communicate your intentions and decisions clearly so that there is no ambiguity in your commands.
@@ -129,9 +127,9 @@ After an incident, you should communicate with other training Incident Commander
     Remember that clear communication is better than concise communication. It can be tempting to try and abbreviate or rush speech in order to speed up the response. This can lead to confusion and misunderstandings which will ultimate increase the response time. Always favour clear communication, even if takes a little bit longer.
 
 ## Incident Call Procedures and Lingo
-The [Steps for Incident Commander](/during/during_an_incident.md) provide a detailed description of what you should be doing during an incident.
+The [Steps for Incident Commander](../during/during_an_incident.md) provide a detailed description of what you should be doing during an incident.
 
-Additionally, aside from following the [usual incident call etiquette](/before/call_etiquette.md), there a few extra etiquette guidelines you should follow as IC:
+Additionally, aside from following the [usual incident call etiquette](../before/call_etiquette.md), there a few extra etiquette guidelines you should follow as IC:
 
 * Always announce when you join the call if you are the on-call IC.
 * Don't let discussions get out of hand. Keep conversations short.
@@ -142,7 +140,7 @@ Additionally, aside from following the [usual incident call etiquette](/before/c
 Here are some examples of phrases and patterns you should use during incident calls.
 
 ### Start of Call Announcement
-At the start of any major incident call, the incident commander should announce the following,
+At the start of any major incident call, the Incident Commander should announce the following,
 
 > This is [NAME], I am the Incident Commander for this call.
 
@@ -160,7 +158,7 @@ If you are trained to be an IC and have joined a call, even if you aren't the IC
 If the on-call IC joins later, you may hand over to them at your discretion (see below for the hand-off procedure)
 
 ### Checking if SME's are Present
-During a call, you will want to know who is available from the various teams in order to resolve the incident. Etiquette dictates that people should announce themselves, but sometimes you may be joining late to the call. If you need a representative from a team, just ask on the call. Your deputy can page one if no one answers.
+During a call, you will want to know who is available from the various teams in order to resolve the incident. Etiquette dictates that people should announce themselves, but sometimes you may be joining late to the call. If you need a representative from a team, just ask on the call. Your Deputy can page one if no one answers.
 
 > Do we have a representative from [X] on the call?
 
@@ -176,7 +174,7 @@ When you need to give out an assignment or task, you should follow these three s
 1. Confirm that the responder has acknowledged and understood the instructions.
 
 !!!warning "Can someone..."
-    Never say "Can someone..." as this leads to the [bystander effect](https://en.wikipedia.org/wiki/Bystander_effect). Tasks should always be assigned directly to an individual, and never just thrown out with the hope that someone will pick it up.
+    Never say "Can someone..." as this leads to the [bystander effect](https://en.wikipedia.org/wiki/Bystander_effect){:target="_blank"}. Tasks should always be assigned directly to an individual, and never just thrown out with the hope that someone will pick it up.
 
 > IC: Bob, please investigate the high latency on web app boxes. I'll come back to you for an answer in 3 minutes.
 
@@ -202,19 +200,19 @@ It's important to maintain a cadence during a major incident call. Whenever ther
 
 > While we wait for [X], here's an update of our current situation.
 
-> We are currently in a P1 incident situation, we believe to be caused by [X]. There's an open question to [Y] who will be getting back to us in 2 minutes. In the meantime, we have Tweeted out that we are experiencing issues. Our next Tweet will be in 10 minutes if the incident is still ongoing at that time.
+> We are currently in a SEV-1 situation, we believe to be caused by [X]. There's an open question to [Y] who will be getting back to us in 2 minutes. In the meantime, we have posted it out that we are experiencing issues. Our next post will be in 10 minutes if the incident is still ongoing at that time.
 
 > Are there any additional actions or proposals from anyone else at this time?
 
 ### Reducing Scope
 Once you've identified the cause of an incident, you can take some time to reduce the scope of your call. For example, if you've identified that a bad deploy is the cause, there's no need to keep your network engineering responder on the call. Responders will usually appreciate not having to stick around for something that doesn't involve them, especially when it's 3am. Generally, it's best to list out the people you want to remain on the call (rather than listing those that can leave), as this not only re-affirms who is required, but makes sure you won't forget about anyone who can leave.
 
-> Now that we've identified the primary cause and are on the way to recovery, I need the deputy, scribe, support, and site-reliability experts to stay on the call. Everyone else, thanks very much for your response, feel free to drop-off at your discretion.
+> Now that we've identified the primary cause and are on the way to recovery, I need the Deputy, Scribe, Support, and site-reliability experts to stay on the call. Everyone else, thanks very much for your response, feel free to drop-off at your discretion.
 
 There's no need to forcibly remove anyone from the call, leave the choice open. Sometimes responders prefer to remain to see how the incident eventually resolves, since they're already awake anyway.
 
 ### Spinning Off Sub-Teams
-When handling [complex incidents](/before/complex_incidents.md), it will sometimes be necessary to spin off a sub-team (or multiple sub-teams) to investigate specific issues in more detail before reporting back. This is to ensure that you can maintain an effective span of control. To do this, you should assign a team leader, give them a specific task (time-boxed in the usual way), and re-affirm that they are your primary contact and that all communication from their team should come via the leader. Use our pre-defined team names of Alpha, Bravo, and Charlie to avoid confusion when creating the teams.
+When handling [complex incidents](../before/complex_incidents.md), it will sometimes be necessary to spin off a sub-team (or multiple sub-teams) to investigate specific issues in more detail before reporting back. This is to ensure that you can maintain an effective span of control. To do this, you should assign a team leader, give them a specific task (time-boxed in the usual way), and re-affirm that they are your primary contact and that all communication from their team should come via the leader. Use our pre-defined team names of Alpha, Bravo, and Charlie to avoid confusion when creating the teams.
 
 > IC: Anne, I'd like you to lead a sub-team to investigate the ongoing latency in the web-tier. Please gather your desired team and investigate, get back to me in 20 minutes. All communication from your team should be filtered through you. Use the Alpha team rooms and phone bridge.
 
@@ -239,9 +237,9 @@ The new IC should then announce on the call as if they were joining a new call (
 Note that the arrival of a more qualified person does NOT necessarily mean a change in incident command.
 
 ### End of Call Sign-Off
-At the end of an incident, you should announce to everyone on the call that you are ending the call at this time, and provide information on where followup discussion can take place. It's also customary to thank everyone.
+At the end of an incident, you should announce to everyone on the call that you are ending the call at this time, and provide information on where follow-up discussion can take place. It's also customary to thank everyone.
 
-> Ok everyone, we're ending the call at this time. Please continue any followup discussion on Slack. Thanks everyone.
+> Ok everyone, we're ending the call at this time. Please continue any follow-up discussion on Slack. Thanks everyone.
 
 ## Handling Problems
 Things don't always go smoothly on incident response calls, so as an Incident Commander you need to be prepared for instances where the conversation gets derailed, either intentionally or unintentionally. Here are some procedures and lingo you can follow when things get disruptive, in order to get things back on track.
@@ -285,13 +283,13 @@ This is an extreme example, but illustrates the concept of "Executive Swoop", wh
 
 > Executive: Yes/No
 
-> (If yes) IC: Understood. Everyone on the call, be advised, at this time I am handling over command to [EXECUTIVE]. They are now the incident commander for this call.
+> (If yes) IC: Understood. Everyone on the call, be advised, at this time I am handling over command to [EXECUTIVE]. They are now the Incident Commander for this call.
 
 > (If no) IC: In that case, please cause no further interruptions or I will remove you from the call.
 
 This makes it clear to the executive that they have the option of being in charge and making decisions, but in order to do so they must continue as an Incident Commander. If they refuse, then remind them that you are in charge and disruptive interruptions will not be tolerated. If they continue, remove them from the call.
 
-### Executive Swoop - Anti-Motiviation
+### Executive Swoop - Anti-Motivation
 > Executive: Let's try and resolve this in 10 minutes please!
 
 It's rare for an executive to maliciously derail an incident response call, usually it is done with the best of intentions. However, these good intentions can still derail your response process and demotivate responders. As an Incident Commander you will need to recognize and respond to these situations. In the case above, it seems motivational, however it assumes responders aren't already working as hard as possible to solve the problem, and adds no value to the response process. You can respond to this by reminding the commenter that these things should be kept until after the incident is over.
@@ -301,18 +299,18 @@ It's rare for an executive to maliciously derail an incident response call, usua
 ### Executive Swoop - Wants Information
 > Executive: Can I get a spreadsheet of all affected customers?
 
-The most common case of executive swoop is a request for more information. Unfortunately, when in the middle of an incident, you typically cannot spare the resources to gather such information. As an incident commander you should remind the executive of this, and that the incident takes priority.
+The most common case of executive swoop is a request for more information. Unfortunately, when in the middle of an incident, you typically cannot spare the resources to gather such information. As an Incident Commander you should remind the executive of this, and that the incident takes priority.
 
 > We can either get you that list, or fix the incident. Not both. The incident takes priority.
 
 Note that this isn't phrased as a question, you've already made the decision as Incident Commander, you're just informing the executive of that decision.
 
 ### Executive Swoop - Questioning Severity
-> Executive: Is this really a P1?
+> Executive: Is this really a SEV-1?
 
-Our severity levels determine the scale of response we give to an incident. Conversations on what severity an incident is can very quickly consume the entire call and doesn't change the fact that there is an incident on-going. We do not discuss incident severity during an incident call, as we treat an incident as the highest severity we think it could be. We can downgrade the severity during the post-mortem, however we cannot waste time litigating severities on an incident call. So simply remind folks of this in order to get things back on track,
+Our severity levels determine the scale of response we give to an incident. Conversations on what severity an incident is can very quickly consume the entire call and doesn't change the fact that there is an incident on-going. We do not discuss incident severity during an incident call, as we treat an incident as the highest severity we think it could be. We can downgrade the severity during the postmortem, however we cannot waste time litigating severities on an incident call. So simply remind folks of this in order to get things back on track:
 
-> IC: We do not discuss incident severity during the call. We're treating this as a P1.
+> IC: We do not discuss incident severity during the call. We're treating this as a SEV-1.
 
 ### The Belligerent Responder
 Sometimes you will have a responder who does not follow instructions and/or is being actively disruptive to your response call. Perhaps this is being done intentionally, or it could even be unintentional (an un-muted microphone while in a loud environment, etc). In either case, you need to resolve the situation and get back to the incident at hand. State the fact that the individual is being disruptive, provide them a way to save face, but also state what will happen if they don't stop. No second chances, if they don't follow through, remove them from the call.
@@ -321,7 +319,7 @@ Sometimes you will have a responder who does not follow instructions and/or is b
 
 
 ## Examples From Pop Culture
-Elimu Informatics employees have access to all previous incident calls, and can listen to them at their discretion. We can't release these calls, so for everyone else, here are some short examples from popular culture to show the techniques at work.
+PagerDuty employees have access to all previous incident calls, and can listen to them at their discretion. We can't release these calls, so for everyone else, here are some short examples from popular culture to show the techniques at work.
 
 ---
 

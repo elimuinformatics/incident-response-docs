@@ -1,28 +1,29 @@
 # Project Information
-site_name: Elimu Informatics Incident Response Documentation
-site_description: A collection of information about the Elimu Informatics incident response process. Not only how to prepare new employees for on-call responsibilities, but also how to handle major incidents, both in preparation and after-work.
-site_author: Elimu Informatics
-site_favicon: 'assets/img/favicon.png'
-site_url: https://elimuinformatics.github.io/incident-response-docs/
+site_name: PagerDuty Incident Response Documentation
+site_description: A collection of information about the PagerDuty incident response process. Not only how to prepare new employees for on-call responsibilities, but also how to handle major incidents, both in preparation and after-work.
+site_author: PagerDuty, Inc.
+site_url: https://response.pagerduty.com/
 
 # Repository
-repo_url: https://github.com/elimuinformatics/incident-response-docs
+repo_url: https://github.com/pagerduty/incident-response-docs
+
+# Copyright
+copyright: 'Copyright &copy; PagerDuty, Inc.'
 
 # Theme
-theme: 'material'
-theme_dir: 'theme'
-extra_css: ['assets/css/pagerduty.css','assets/css/custom.css']
-extra_javascript: ['js/github_forks.js']
+theme:
+  name: 'pagerduty'
+  title: 'Incident Response'
+
+# Set default cover image
 extra:
-  favicon: 'assets/img/favicon.png'
-  logo: 'assets/img/icon.png'
-  cover: 'assets/img/covers/default.png'
-  palette:
-    primary: 'green'
-    accent: 'blue grey'
+  cover: assets/img/covers/default.png
+
+# Theme overrides and customizations for this specific site.
+extra_css: ['assets/css/custom.css']
 
 # Contents
-pages:
+nav:
   - Home: 'index.md'
   - Getting Started: 'getting_started.md'
   - On-Call:
@@ -37,14 +38,22 @@ pages:
     - Complex Incidents: 'before/complex_incidents.md'
   - During an Incident:
     - During an Incident: 'during/during_an_incident.md'
+    - External Communication Guidelines: 'during/external_communication_guidelines.md'
     - Security Incident: 'during/security_incident_response.md'
   - After an Incident:
     - After an Incident: 'after/after_an_incident.md'
-    - Post-Mortem Process: 'after/post_mortem_process.md'
-    - Post-Mortem Template: 'after/post_mortem_template.md'
-    - Effective Post-Mortems: 'after/effective_post_mortems.md'
+    - Postmortem Process: 'after/post_mortem_process.md'
+    - Postmortem Template: 'after/post_mortem_template.md'
+    - Effective Postmortems: 'after/effective_post_mortems.md'
+  - Crisis Response:
+    - Crisis Response Introduction: 'crisis/crisis_intro.md'
+    - Terminology: 'crisis/terms.md'
+    - Crisis Leadership: 'crisis/leadership.md'
+    - Crisis Response Operations: 'crisis/operations.md'
+    - Pre-crisis Phase: 'crisis/prework.md'
+    - PagerDuty for CRMOps: 'crisis/pagerduty.md'
   - Training:
-    - Overview: 'training/overview.md'
+    - Training Overview: 'training/overview.md'
     - Incident Commander: 'training/incident_commander.md'
     - Deputy: 'training/deputy.md'
     - Scribe: 'training/scribe.md'
@@ -60,6 +69,9 @@ pages:
     - Anti-Patterns: 'resources/anti_patterns.md'
   - About: 'about.md'
 
+# Analytics
+google_analytics: ['UA-8759953-1', 'auto']
+
 # Extensions
 markdown_extensions:
   - toc:
@@ -71,3 +83,9 @@ markdown_extensions:
   - pymdownx.extra:
   - pymdownx.mark:
   - pymdownx.tilde:
+  - pymdownx.highlight:
+  - pymdownx.superfences:
+  - pymdownx.tabbed:
+
+# Development URL, bind to local only.
+dev_addr: '127.0.0.1:8000'
