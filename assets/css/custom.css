@@ -80,3 +80,27 @@ table.custom-table td.centered {
 #reviewed-dates span {
   padding-left: 1em;
 }
+
+/* Header brand: the upstream theme paints a PagerDuty wordmark as the
+   background of `#logo a`. We render an "Elimu Informatics" text brand instead,
+   so neutralize that background image across all breakpoints. */
+#logo a.brand {
+  background: none !important;
+  width: auto !important;
+  min-height: 0 !important;
+  float: left;
+  display: block;
+  font-size: 1.7em;
+  font-weight: 700;
+  color: #000;
+  text-decoration: none;
+  padding-top: 0.145em;
+  padding-right: 0.4em;
+  white-space: nowrap;
+}
+
+@media only screen and (max-width: 720px) {
+  #logo a.brand {
+    font-size: 1.5em;
+  }
+}
