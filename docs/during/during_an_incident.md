@@ -17,7 +17,7 @@ Information on what to do during a major incident. See our [severity level descr
           <td><a href="#">+1 555 BIG FIRE</a> (+1 555 244 3473) / PIN: 123456</td>
         </tr>
         <tr>
-          <td colspan="3" class="centered">Need an IC? Do <code>!ir page</code> in Slack</td>
+          <td colspan="3" class="centered">Need an IC? Do <code>/ir page</code> in Slack</td>
         </tr>
         <tr>
           <td colspan="3"><em>For executive summary updates only, join <a href="#">#executive-summary-updates</a>.</em></td>
@@ -39,7 +39,7 @@ Information on what to do during a major incident. See our [severity level descr
 
 1. Follow instructions from the Incident Commander.
     * **Is there no IC on the call?**
-        * Manually page them via Slack, with `!ir page` in Slack. This will page the primary and backup IC's at the same time.
+        * Manually page them via Slack, with `/ir page` in Slack. This will page the primary and backup IC's at the same time.
         * Never hesitate to page the IC. It's much better to have them and not need them than the other way around.
 
 ## Steps for Incident Commander
@@ -84,11 +84,6 @@ You are there to document the key information from the incident in Slack.
 
 1. Update the Slack room with who the IC is, who the Deputy is, and that you're the scribe (if not already done).
     * e.g. "IC: Bob Boberson, Deputy: Deputy Deputyson, Scribe: Writer McWriterson"
-
-1. Start our status monitoring bot so that all responders can see the current state without needing to ask.
-    * OfficerURL can help you to monitor the status on Slack,
-        * `!status` - Will tell you the current status.
-        * `!status stalk` - Will continually monitor the status and report it to the room every 30s.
 
 1. You should add notes to Slack when significant actions are taken, or findings are determined. You don't need to wait for the IC to direct this - use your own judgment.
     * You should also add `TODO` notes to the Slack room that indicate follow-ups slated for later.

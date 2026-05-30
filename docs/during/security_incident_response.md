@@ -8,7 +8,7 @@ description: Checklist of actions for responding to a security incident at Elimu
 </div>
 
 !!! warning "Incident Commander Required"
-     As with all major incidents at Elimu Informatics, security incidents will also involve an Incident Commander who will delegate the tasks to relevant responders. Tasks may be performed in parallel as assigned by the IC. Page one at the earliest possible opportunity `!ir page`.
+     As with all major incidents at Elimu Informatics, security incidents will also involve an Incident Commander who will delegate the tasks to relevant responders. Tasks may be performed in parallel as assigned by the IC. Page one at the earliest possible opportunity `/ir page`.
 
 !!! question "Not Sure it's a Security Incident?"
     Trigger the process anyway. It's better to be safe than sorry. The Incident Commander will make a determination on if response is needed.
