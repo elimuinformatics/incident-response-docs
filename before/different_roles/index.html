@@ -1,1512 +1,267 @@
-
-<!doctype html>
-<html lang="en" class="no-js">
+<!DOCTYPE html>
+<html lang="en">
   <head>
-    
-      <meta charset="utf-8">
-      <meta name="viewport" content="width=device-width,initial-scale=1">
-      
-        <meta name="description" content="There are several main roles for our incident response teams at Elimu Informatics. This page describes each of our roles in detail, why it's important to have them, and what their responsibilities are.">
-      
-      
-        <meta name="author" content="Elimu Informatics">
-      
-      
-        <link rel="canonical" href="https://elimuinformatics.github.io/incident-response-docs/before/different_roles/">
-      
-      <link rel="icon" href="../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.3.0, mkdocs-material-8.2.15">
-    
-    
-      
-        <title>Different Roles - Elimu Informatics Incident Response Documentation</title>
-      
-    
-    
-      <link rel="stylesheet" href="../../assets/stylesheets/main.c382b1dc.min.css">
-      
-        
-        <link rel="stylesheet" href="../../assets/stylesheets/palette.cc9b2e1e.min.css">
-        
-      
-    
-    
-    
-      
-        
-        
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
-        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
-      
-    
-    
-      <link rel="stylesheet" href="../../assets/css/pagerduty.css">
-    
-      <link rel="stylesheet" href="../../assets/css/custom.css">
-    
-    <script>__md_scope=new URL("../..",location),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
-    
-      
+    <meta charset="utf-8" />
+    <title>Different Roles - Elimu Informatics Incident Response Documentation</title>
 
+    <!-- Author and License -->
+    <meta name="dcterms.license"      content="http://www.apache.org/licenses/LICENSE-2.0" />
+    <meta name="author"               content="Elimu Informatics" />
+    <meta name="dcterms.rightsHolder" content="Elimu Informatics" />
+    <!-- Page Description -->
+    <meta name="description" content="There are several main roles for our incident response teams at Elimu Informatics. This page describes each of our roles in detail, why it's important to have them, and what their responsibilities are." />
+    <meta name="robots"      content="index, follow, archive" />
+    <meta name="generator"   content="mkdocs-1.6.1, mkdocs-theme-pagerduty" />
+
+    <!-- Canonical Link -->
+    <link rel="canonical" href="https://response.elimuinformatics.com/before/different_roles/">
+
+    <!-- Favicon -->
+    <link rel="shortcut icon"    href="/assets/images/favicon.png" type="image/png" />
+    <link rel="icon"             href="/assets/images/favicon.png" type="image/png" />
+    <link rel="apple-touch-icon" href="/assets/images/favicon.png" />
+
+    <!-- Mobile -->
+    <meta name="viewport"    content="width=device-width, initial-scale=1.0, minimum-scale=1.0" />
+    <meta name="theme-color" content="#005a24" />
+
+    <!-- Apple -->
+    <meta name="apple-mobile-web-app-title"            content="Elimu Informatics Incident Response Documentation" />
+    <meta name="apple-mobile-web-app-capable"          content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+    <!-- Open Graph -->
+    <meta property="og:url"         content="https://response.elimuinformatics.com/before/different_roles/" />
+    <meta property="og:title"       content="Different Roles - Elimu Informatics Incident Response Documentation" />
+    <meta property="og:site_name"   content="Elimu Informatics Incident Response Documentation" />
+    <meta property="og:description" content="There are several main roles for our incident response teams at Elimu Informatics. This page describes each of our roles in detail, why it's important to have them, and what their responsibilities are." />
+    <meta property="og:image"       content="https://response.elimuinformatics.com/assets/img/covers/roles.png" />
+    <meta property="og:locale"      content="en_US" />
+    <meta property="og:type"        content="website" />
+
+    <!-- Twitter -->
+    <meta name="twitter:card"        content="summary_large_image" />
+    <meta name="twitter:title"       content="Different Roles - Elimu Informatics Incident Response Documentation" />
+    <meta name="twitter:description" content="There are several main roles for our incident response teams at Elimu Informatics. This page describes each of our roles in detail, why it's important to have them, and what their responsibilities are." />
+    <meta name="twitter:image"       content="https://response.elimuinformatics.com/assets/img/covers/roles.png" />
+        <!-- Style -->
+    <link rel="stylesheet" href="../../assets/stylesheets/fonts.css" />
+    <link rel="stylesheet" href="../../assets/stylesheets/reset.css" />
+    <link rel="stylesheet" href="../../assets/stylesheets/pagerduty.css" />
+    <link rel="stylesheet" href="../../assets/stylesheets/code.css" />
     
+    
+      <link rel="stylesheet" href="../../../../assets/css/custom.css" />
     
   </head>
-  
-  
-    
-    
-    
-    
-    
-    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="none" data-md-color-accent="none">
-  
-    
-    
-    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
-    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
-    <label class="md-overlay" for="__drawer"></label>
-    <div data-md-component="skip">
-      
-        
-        <a href="#incident-commander-ic" class="md-skip">
-          Skip to content
-        </a>
-      
-    </div>
-    <div data-md-component="announce">
-      
-    </div>
-    
-    
-      
-
-<header class="md-header" data-md-component="header">
-  <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href="../.." title="Elimu Informatics Incident Response Documentation" class="md-header__button md-logo" aria-label="Elimu Informatics Incident Response Documentation" data-md-component="logo">
-      
-  
-  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
-
-    </a>
-    <label class="md-header__button md-icon" for="__drawer">
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
-    </label>
-    <div class="md-header__title" data-md-component="header-title">
-      <div class="md-header__ellipsis">
-        <div class="md-header__topic">
-          <span class="md-ellipsis">
-            Elimu Informatics Incident Response Documentation
-          </span>
-        </div>
-        <div class="md-header__topic" data-md-component="header-topic">
-          <span class="md-ellipsis">
-            
-              Different Roles
-            
-          </span>
-        </div>
-      </div>
-    </div>
-    
-    
-    
-      <label class="md-header__button md-icon" for="__search">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
-      </label>
-      <div class="md-search" data-md-component="search" role="dialog">
-  <label class="md-search__overlay" for="__search"></label>
-  <div class="md-search__inner" role="search">
-    <form class="md-search__form" name="search">
-      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
-      <label class="md-search__icon md-icon" for="__search">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
-      </label>
-      <nav class="md-search__options" aria-label="Search">
-        
-        <button type="reset" class="md-search__icon md-icon" aria-label="Clear" tabindex="-1">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
-        </button>
-      </nav>
-      
-    </form>
-    <div class="md-search__output">
-      <div class="md-search__scrollwrap" data-md-scrollfix>
-        <div class="md-search-result" data-md-component="search-result">
-          <div class="md-search-result__meta">
-            Initializing search
-          </div>
-          <ol class="md-search-result__list"></ol>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-    
-    
-      <div class="md-header__source">
-        <a href="https://github.com/elimuinformatics/incident-response-docs" title="Go to repository" class="md-source" data-md-component="source">
-  <div class="md-source__icon md-icon">
-    
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.1.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
-  </div>
-  <div class="md-source__repository">
-    GitHub
-  </div>
-</a>
-      </div>
-    
-  </nav>
-  
-</header>
-    
-    <div class="md-container" data-md-component="container">
-      
-      
-        
-          
-        
-      
-      <main class="md-main" data-md-component="main">
-        <div class="md-main__inner md-grid">
-          
-            
-              
-              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
-                <div class="md-sidebar__scrollwrap">
-                  <div class="md-sidebar__inner">
-                    
-
-
-<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
-  <label class="md-nav__title" for="__drawer">
-    <a href="../.." title="Elimu Informatics Incident Response Documentation" class="md-nav__button md-logo" aria-label="Elimu Informatics Incident Response Documentation" data-md-component="logo">
-      
-  
-  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
-
-    </a>
-    Elimu Informatics Incident Response Documentation
-  </label>
-  
-    <div class="md-nav__source">
-      <a href="https://github.com/elimuinformatics/incident-response-docs" title="Go to repository" class="md-source" data-md-component="source">
-  <div class="md-source__icon md-icon">
-    
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.1.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
-  </div>
-  <div class="md-source__repository">
-    GitHub
-  </div>
-</a>
-    </div>
-  
-  <ul class="md-nav__list" data-md-scrollfix>
-    
-      
-      
-      
-
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../.." class="md-nav__link">
-        Home
+  <body class="">
+    <header>
+        <div class="content-wrapper">
+    <div id="logo">
+      <a href="../.." title="Go to Incident Response homepage.">
+        <img src="../../assets/images/logo.png" title="PagerDuty" />
       </a>
-    </li>
-  
-
-    
-      
-      
-      
-
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../getting_started/" class="md-nav__link">
-        Getting Started
-      </a>
-    </li>
-  
-
-    
-      
-      
-      
-
-  
-  
-  
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
-      
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" type="checkbox" id="__nav_3" >
-      
-      
-      
-      
-        <label class="md-nav__link" for="__nav_3">
-          On-Call
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <nav class="md-nav" aria-label="On-Call" data-md-level="1">
-        <label class="md-nav__title" for="__nav_3">
-          <span class="md-nav__icon md-icon"></span>
-          On-Call
-        </label>
-        <ul class="md-nav__list" data-md-scrollfix>
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../oncall/being_oncall/" class="md-nav__link">
-        Being On-Call
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../oncall/whos_oncall/" class="md-nav__link">
-        Who's On-Call?
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../oncall/alerting_principles/" class="md-nav__link">
-        Alerting Principles
-      </a>
-    </li>
-  
-
-            
-          
-        </ul>
-      </nav>
-    </li>
-  
-
-    
-      
-      
-      
-
-  
-  
-    
-  
-  
-    
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
-      
-      
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4" type="checkbox" id="__nav_4" checked>
-      
-      
-      
-      
-        <label class="md-nav__link" for="__nav_4">
-          Before an Incident
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <nav class="md-nav" aria-label="Before an Incident" data-md-level="1">
-        <label class="md-nav__title" for="__nav_4">
-          <span class="md-nav__icon md-icon"></span>
-          Before an Incident
-        </label>
-        <ul class="md-nav__list" data-md-scrollfix>
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../what_is_an_incident/" class="md-nav__link">
-        What is an Incident?
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../severity_levels/" class="md-nav__link">
-        Severity Levels
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-    
-  
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
-      
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          Different Roles
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
-        Different Roles
-      </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#incident-commander-ic" class="md-nav__link">
-    Incident Commander (IC)
-  </a>
-  
-    <nav class="md-nav" aria-label="Incident Commander (IC)">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#what-is-it" class="md-nav__link">
-    What is it?
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#why-have-one" class="md-nav__link">
-    Why have one?
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#what-are-the-responsibilities" class="md-nav__link">
-    What are the responsibilities?
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#who-are-they" class="md-nav__link">
-    Who are they?
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#how-can-i-become-one" class="md-nav__link">
-    How can I become one?
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#deputy" class="md-nav__link">
-    Deputy
-  </a>
-  
-    <nav class="md-nav" aria-label="Deputy">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#what-is-it_1" class="md-nav__link">
-    What is it?
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#why-have-one_1" class="md-nav__link">
-    Why have one?
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#what-are-the-responsibilities_1" class="md-nav__link">
-    What are the responsibilities?
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#who-are-they_1" class="md-nav__link">
-    Who are they?
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#how-can-i-become-one_1" class="md-nav__link">
-    How can I become one?
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#scribe" class="md-nav__link">
-    Scribe
-  </a>
-  
-    <nav class="md-nav" aria-label="Scribe">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#what-is-it_2" class="md-nav__link">
-    What is it?
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#why-have-one_2" class="md-nav__link">
-    Why have one?
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#what-are-the-responsibilities_2" class="md-nav__link">
-    What are the responsibilities?
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#who-are-they_2" class="md-nav__link">
-    Who are they?
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#how-can-i-become-one_2" class="md-nav__link">
-    How can I become one?
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#subject-matter-expert" class="md-nav__link">
-    Subject Matter Expert
-  </a>
-  
-    <nav class="md-nav" aria-label="Subject Matter Expert">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#what-is-it_3" class="md-nav__link">
-    What is it?
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#why-have-one_3" class="md-nav__link">
-    Why have one?
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#what-are-the-responsibilities_3" class="md-nav__link">
-    What are the responsibilities?
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#who-are-they_3" class="md-nav__link">
-    Who are they?
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#how-can-i-become-one_3" class="md-nav__link">
-    How can I become one?
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#customer-liaison" class="md-nav__link">
-    Customer Liaison
-  </a>
-  
-    <nav class="md-nav" aria-label="Customer Liaison">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#what-is-it_4" class="md-nav__link">
-    What is it?
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#why-have-one_4" class="md-nav__link">
-    Why have one?
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#what-are-the-responsibilities_4" class="md-nav__link">
-    What are the responsibilities?
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#who-are-they_4" class="md-nav__link">
-    Who are they?
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#how-can-i-become-one_4" class="md-nav__link">
-    How can I become one?
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#internal-liaison" class="md-nav__link">
-    Internal Liaison
-  </a>
-  
-    <nav class="md-nav" aria-label="Internal Liaison">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#what-is-it_5" class="md-nav__link">
-    What is it?
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#why-have-one_5" class="md-nav__link">
-    Why have one?
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#what-are-the-responsibilities_5" class="md-nav__link">
-    What are the responsibilities?
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#who-are-they_5" class="md-nav__link">
-    Who are they?
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#how-can-i-become-one_5" class="md-nav__link">
-    How can I become one?
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../call_etiquette/" class="md-nav__link">
-        Call Etiquette
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../complex_incidents/" class="md-nav__link">
-        Complex Incidents
-      </a>
-    </li>
-  
-
-            
-          
-        </ul>
-      </nav>
-    </li>
-  
-
-    
-      
-      
-      
-
-  
-  
-  
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
-      
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5" type="checkbox" id="__nav_5" >
-      
-      
-      
-      
-        <label class="md-nav__link" for="__nav_5">
-          During an Incident
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <nav class="md-nav" aria-label="During an Incident" data-md-level="1">
-        <label class="md-nav__title" for="__nav_5">
-          <span class="md-nav__icon md-icon"></span>
-          During an Incident
-        </label>
-        <ul class="md-nav__list" data-md-scrollfix>
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../during/during_an_incident/" class="md-nav__link">
-        During an Incident
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../during/security_incident_response/" class="md-nav__link">
-        Security Incident
-      </a>
-    </li>
-  
-
-            
-          
-        </ul>
-      </nav>
-    </li>
-  
-
-    
-      
-      
-      
-
-  
-  
-  
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
-      
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6" type="checkbox" id="__nav_6" >
-      
-      
-      
-      
-        <label class="md-nav__link" for="__nav_6">
-          After an Incident
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <nav class="md-nav" aria-label="After an Incident" data-md-level="1">
-        <label class="md-nav__title" for="__nav_6">
-          <span class="md-nav__icon md-icon"></span>
-          After an Incident
-        </label>
-        <ul class="md-nav__list" data-md-scrollfix>
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../after/after_an_incident/" class="md-nav__link">
-        After an Incident
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../after/post_mortem_process/" class="md-nav__link">
-        Post-Mortem Process
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../after/post_mortem_template/" class="md-nav__link">
-        Post-Mortem Template
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../after/effective_post_mortems/" class="md-nav__link">
-        Effective Post-Mortems
-      </a>
-    </li>
-  
-
-            
-          
-        </ul>
-      </nav>
-    </li>
-  
-
-    
-      
-      
-      
-
-  
-  
-  
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
-      
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_7" type="checkbox" id="__nav_7" >
-      
-      
-      
-      
-        <label class="md-nav__link" for="__nav_7">
-          Training
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <nav class="md-nav" aria-label="Training" data-md-level="1">
-        <label class="md-nav__title" for="__nav_7">
-          <span class="md-nav__icon md-icon"></span>
-          Training
-        </label>
-        <ul class="md-nav__list" data-md-scrollfix>
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../training/overview/" class="md-nav__link">
-        Overview
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../training/incident_commander/" class="md-nav__link">
-        Incident Commander
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../training/deputy/" class="md-nav__link">
-        Deputy
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../training/scribe/" class="md-nav__link">
-        Scribe
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../training/subject_matter_expert/" class="md-nav__link">
-        Subject Matter Expert
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../training/customer_liaison/" class="md-nav__link">
-        Customer Liaison
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../training/internal_liaison/" class="md-nav__link">
-        Internal Liaison
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../training/glossary/" class="md-nav__link">
-        Glossary
-      </a>
-    </li>
-  
-
-            
-          
-        </ul>
-      </nav>
-    </li>
-  
-
-    
-      
-      
-      
-
-  
-  
-  
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
-      
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_8" type="checkbox" id="__nav_8" >
-      
-      
-      
-      
-        <label class="md-nav__link" for="__nav_8">
-          Training Courses
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <nav class="md-nav" aria-label="Training Courses" data-md-level="1">
-        <label class="md-nav__title" for="__nav_8">
-          <span class="md-nav__icon md-icon"></span>
-          Training Courses
-        </label>
-        <ul class="md-nav__list" data-md-scrollfix>
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../training/courses/incident_response/" class="md-nav__link">
+      <span class="subtitle">
         Incident Response
-      </a>
-    </li>
-  
+      </span>
+    </div>
 
-            
+    
+<!-- This is a cheat for mobile search, allowing us to store state in a checkbox. -->
+<input id="mobile-search-link" type="checkbox"  />
+<label id="mobile-search-link-selector" for="mobile-search-link" role="button"></label>
+<div id="search">
+  <input name="q" id="mkdocs-search-query" type="search" placeholder="Search..." />
+  <div id="mkdocs-search-results"><p>No results found</p></div>
+</div>
+
+<!-- This is used for MkDocs search. Hardcoding to '/' so CSP is easier. -->
+<script>var base_url = '/';</script>
+
+  </div>
+    </header>
+
+      <nav id="breadcrumbs">
+    <div class="content-wrapper">
+      <p><a href="../..">Incident Response</a></p>
+      
+        
           
+            <p>Before an Incident</p>
+          
+        
+        <h1>Different Roles</h1>
+      
+    </div>
+  </nav>
+    
+
+    <main>
+      <!-- This is a cheat for mobile navigation, allowing us to store state in a checkbox. -->
+<input id="mobile-nav-link" type="checkbox"  />
+<label id="mobile-nav-link-selector" for="mobile-nav-link" role="button"></label>
+<nav>
+  <div id="nav-title">Incident Response</div>
+<ul>
+          <li>
+          <a title="Home" href="../..">Home</a>
+          </li>
+            <li>
+          <a title="Getting Started" href="../../getting_started/">Getting Started</a>
+          </li>
+    <li>
+        <span class="subsection">On-Call</span>
+        <ul>
+                <li>
+          <a title="Being On-Call" href="../../oncall/being_oncall/">Being On-Call</a>
+          </li>
+                <li>
+          <a title="Who's On-Call?" href="../../oncall/whos_oncall/">Who's On-Call?</a>
+          </li>
+                <li>
+          <a title="Alerting Principles" href="../../oncall/alerting_principles/">Alerting Principles</a>
+          </li>
         </ul>
-      </nav>
-    </li>
-  
-
-    
-      
-      
-      
-
-  
-  
-  
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
-      
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_9" type="checkbox" id="__nav_9" >
-      
-      
-      
-      
-        <label class="md-nav__link" for="__nav_9">
-          Additional Resources
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <nav class="md-nav" aria-label="Additional Resources" data-md-level="1">
-        <label class="md-nav__title" for="__nav_9">
-          <span class="md-nav__icon md-icon"></span>
-          Additional Resources
-        </label>
-        <ul class="md-nav__list" data-md-scrollfix>
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../resources/reading/" class="md-nav__link">
-        Reading
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../resources/chatops/" class="md-nav__link">
-        ChatOps
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../resources/anti_patterns/" class="md-nav__link">
-        Anti-Patterns
-      </a>
-    </li>
-  
-
-            
-          
+      </li>
+    <li>
+        <span class="subsection">Before an Incident</span>
+        <ul>
+                <li>
+          <a title="What is an Incident?" href="../what_is_an_incident/">What is an Incident?</a>
+          </li>
+                <li>
+          <a title="Severity Levels" href="../severity_levels/">Severity Levels</a>
+          </li>
+                <li class="active">
+          <a title="Different Roles" href="./">Different Roles</a>
+          <ul id="toc">
+            <li class="anchor">
+                  <a title="Incident Commander (IC)" href="#incident-commander-ic">Incident Commander (IC)</a>
+                </li>
+            <li class="anchor">
+                  <a title="Deputy" href="#deputy">Deputy</a>
+                </li>
+            <li class="anchor">
+                  <a title="Scribe" href="#scribe">Scribe</a>
+                </li>
+            <li class="anchor">
+                  <a title="Subject Matter Expert" href="#subject-matter-expert">Subject Matter Expert</a>
+                </li>
+            <li class="anchor">
+                  <a title="Customer Liaison" href="#customer-liaison">Customer Liaison</a>
+                </li>
+            <li class="anchor">
+                  <a title="Internal Liaison" href="#internal-liaison">Internal Liaison</a>
+                </li>
+            </ul>
+          </li>
+                <li>
+          <a title="Call Etiquette" href="../call_etiquette/">Call Etiquette</a>
+          </li>
+                <li>
+          <a title="Complex Incidents" href="../complex_incidents/">Complex Incidents</a>
+          </li>
         </ul>
-      </nav>
-    </li>
-  
-
-    
-      
-      
-      
-
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../about/" class="md-nav__link">
-        About
-      </a>
-    </li>
-  
-
-    
-  </ul>
-</nav>
-                  </div>
-                </div>
-              </div>
-            
-            
-              
-              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
-                <div class="md-sidebar__scrollwrap">
-                  <div class="md-sidebar__inner">
-                    
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#incident-commander-ic" class="md-nav__link">
-    Incident Commander (IC)
-  </a>
-  
-    <nav class="md-nav" aria-label="Incident Commander (IC)">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#what-is-it" class="md-nav__link">
-    What is it?
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#why-have-one" class="md-nav__link">
-    Why have one?
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#what-are-the-responsibilities" class="md-nav__link">
-    What are the responsibilities?
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#who-are-they" class="md-nav__link">
-    Who are they?
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#how-can-i-become-one" class="md-nav__link">
-    How can I become one?
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#deputy" class="md-nav__link">
-    Deputy
-  </a>
-  
-    <nav class="md-nav" aria-label="Deputy">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#what-is-it_1" class="md-nav__link">
-    What is it?
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#why-have-one_1" class="md-nav__link">
-    Why have one?
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#what-are-the-responsibilities_1" class="md-nav__link">
-    What are the responsibilities?
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#who-are-they_1" class="md-nav__link">
-    Who are they?
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#how-can-i-become-one_1" class="md-nav__link">
-    How can I become one?
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#scribe" class="md-nav__link">
-    Scribe
-  </a>
-  
-    <nav class="md-nav" aria-label="Scribe">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#what-is-it_2" class="md-nav__link">
-    What is it?
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#why-have-one_2" class="md-nav__link">
-    Why have one?
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#what-are-the-responsibilities_2" class="md-nav__link">
-    What are the responsibilities?
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#who-are-they_2" class="md-nav__link">
-    Who are they?
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#how-can-i-become-one_2" class="md-nav__link">
-    How can I become one?
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#subject-matter-expert" class="md-nav__link">
-    Subject Matter Expert
-  </a>
-  
-    <nav class="md-nav" aria-label="Subject Matter Expert">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#what-is-it_3" class="md-nav__link">
-    What is it?
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#why-have-one_3" class="md-nav__link">
-    Why have one?
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#what-are-the-responsibilities_3" class="md-nav__link">
-    What are the responsibilities?
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#who-are-they_3" class="md-nav__link">
-    Who are they?
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#how-can-i-become-one_3" class="md-nav__link">
-    How can I become one?
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#customer-liaison" class="md-nav__link">
-    Customer Liaison
-  </a>
-  
-    <nav class="md-nav" aria-label="Customer Liaison">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#what-is-it_4" class="md-nav__link">
-    What is it?
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#why-have-one_4" class="md-nav__link">
-    Why have one?
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#what-are-the-responsibilities_4" class="md-nav__link">
-    What are the responsibilities?
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#who-are-they_4" class="md-nav__link">
-    Who are they?
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#how-can-i-become-one_4" class="md-nav__link">
-    How can I become one?
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#internal-liaison" class="md-nav__link">
-    Internal Liaison
-  </a>
-  
-    <nav class="md-nav" aria-label="Internal Liaison">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#what-is-it_5" class="md-nav__link">
-    What is it?
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#why-have-one_5" class="md-nav__link">
-    Why have one?
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#what-are-the-responsibilities_5" class="md-nav__link">
-    What are the responsibilities?
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#who-are-they_5" class="md-nav__link">
-    Who are they?
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#how-can-i-become-one_5" class="md-nav__link">
-    How can I become one?
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
+      </li>
+    <li>
+        <span class="subsection">During an Incident</span>
+        <ul>
+                <li>
+          <a title="During an Incident" href="../../during/during_an_incident/">During an Incident</a>
+          </li>
+                <li>
+          <a title="External Communication Guidelines" href="../../during/external_communication_guidelines/">External Communication Guidelines</a>
+          </li>
+                <li>
+          <a title="Security Incident" href="../../during/security_incident_response/">Security Incident</a>
+          </li>
+        </ul>
+      </li>
+    <li>
+        <span class="subsection">After an Incident</span>
+        <ul>
+                <li>
+          <a title="After an Incident" href="../../after/after_an_incident/">After an Incident</a>
+          </li>
+                <li>
+          <a title="Postmortem Process" href="../../after/post_mortem_process/">Postmortem Process</a>
+          </li>
+                <li>
+          <a title="Postmortem Template" href="../../after/post_mortem_template/">Postmortem Template</a>
+          </li>
+                <li>
+          <a title="Effective Postmortems" href="../../after/effective_post_mortems/">Effective Postmortems</a>
+          </li>
+        </ul>
+      </li>
+    <li>
+        <span class="subsection">Training</span>
+        <ul>
+                <li>
+          <a title="Training Overview" href="../../training/overview/">Training Overview</a>
+          </li>
+                <li>
+          <a title="Incident Commander" href="../../training/incident_commander/">Incident Commander</a>
+          </li>
+                <li>
+          <a title="Deputy" href="../../training/deputy/">Deputy</a>
+          </li>
+                <li>
+          <a title="Scribe" href="../../training/scribe/">Scribe</a>
+          </li>
+                <li>
+          <a title="Subject Matter Expert" href="../../training/subject_matter_expert/">Subject Matter Expert</a>
+          </li>
+                <li>
+          <a title="Customer Liaison" href="../../training/customer_liaison/">Customer Liaison</a>
+          </li>
+                <li>
+          <a title="Internal Liaison" href="../../training/internal_liaison/">Internal Liaison</a>
+          </li>
+                <li>
+          <a title="Glossary" href="../../training/glossary/">Glossary</a>
+          </li>
+        </ul>
+      </li>
+    <li>
+        <span class="subsection">Training Courses</span>
+        <ul>
+                <li>
+          <a title="Incident Response" href="../../training/courses/incident_response/">Incident Response</a>
+          </li>
+        </ul>
+      </li>
+    <li>
+        <span class="subsection">Additional Resources</span>
+        <ul>
+                <li>
+          <a title="Reading" href="../../resources/reading/">Reading</a>
+          </li>
+                <li>
+          <a title="ChatOps" href="../../resources/chatops/">ChatOps</a>
+          </li>
+                <li>
+          <a title="Anti-Patterns" href="../../resources/anti_patterns/">Anti-Patterns</a>
+          </li>
+        </ul>
+      </li>
+            <li>
+          <a title="About" href="../../about/">About</a>
+          </li>
     </ul>
-  
 </nav>
-                  </div>
-                </div>
-              </div>
-            
-          
-          <div class="md-content" data-md-component="content">
-            <article class="md-content__inner md-typeset">
-              
-                
-  <a href="https://github.com/elimuinformatics/incident-response-docs/edit/master/docs/before/different_roles.md" title="Edit this page" class="md-content__button md-icon">
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25Z"/></svg>
-  </a>
 
-
-
-  <h1>Different Roles</h1>
-
-<p>There are several main roles for our incident response teams at Elimu Informatics. Certain roles only have one person per incident (e.g. IC), whereas other roles can have multiple people (e.g. Subject Matter Expert, SME). It's all about coming together as a team, working the problem, and getting a solution quickly.</p>
-<p>Here is a rough outline of our role hierarchy, with each role discussed in more detail on the rest of this page.</p>
+      <article>
+        <h1>Different Roles</h1>
+        <section id="downloads">
+  
+  
+</section>
+        
+        <p>There are several main roles for our incident response teams at Elimu Informatics. Certain roles only have one person per incident (e.g. IC), whereas other roles can have multiple people (e.g. Subject Matter Expert, SME). It's all about coming together as a team, working the problem, and getting a solution quickly.</p>
+<p>Here is a rough outline of our role hierarchy with each role discussed in more detail on the rest of this page.</p>
 <p><img alt="Incident Response Structure" src="../../assets/img/misc/incident_response_roles.png" /></p>
-<p>During larger complex incidents, the role structure may be adjusted to account for the creation of sub-teams. Read about how we handle <a href="/before/complex_incidents.md">complex incidents</a> for more information.</p>
+<p>During larger complex incidents, the role structure may be adjusted to account for the creation of sub-teams. Read about how we handle <a href="../complex_incidents/">complex incidents</a> for more information.</p>
 <div class="admonition tip">
 <p class="admonition-title">Flexible Structure</p>
 <p>It is not intended that every role be filled by a different person for every incident. For example, if the incident is small enough in scope, the Deputy might also take on the responsibilities of the Scribe and Internal Liaison for that specific incident. The structure should be flexible and scale based on the size and scope of the incident.</p>
@@ -1514,7 +269,7 @@
 <hr />
 <h2 id="incident-commander-ic">Incident Commander (IC)<a class="headerlink" href="#incident-commander-ic" title="Permanent link">#</a></h2>
 <h3 id="what-is-it">What is it?<a class="headerlink" href="#what-is-it" title="Permanent link">#</a></h3>
-<p>An Incident Commander acts as the single source of truth of what is currently happening and what is going to happen during an major incident. They come in all shapes, sizes, and colors.</p>
+<p>An Incident Commander acts as the single source of truth of what is currently happening and what is going to happen during a major incident. They come in all shapes, sizes, and colors.</p>
 <h3 id="why-have-one">Why have one?<a class="headerlink" href="#why-have-one" title="Permanent link">#</a></h3>
 <p>As any software system grows in size and complexity, things break and cause incidents. The Incident Commander is needed to help drive major incidents to resolution.</p>
 <h3 id="what-are-the-responsibilities">What are the responsibilities?<a class="headerlink" href="#what-are-the-responsibilities" title="Permanent link">#</a></h3>
@@ -1528,14 +283,23 @@
 <li>Drive major incidents to resolution,<ul>
 <li>Get everyone on the same communication channel.</li>
 <li>Collect information from team members for their services/area of ownership status.</li>
-<li>Collect proposed repair actions, then recommend repair actions to be taken.</li>
+<li>Collect proposed repair actions and then recommend repair actions to be taken.</li>
 <li>Delegate all repair actions, the Incident Commander is NOT a resolver.</li>
 <li>Be the single authority on system status</li>
 </ul>
 </li>
-<li>Post Mortem,<ul>
+<li>Communication during major incidents,<ul>
+<li>Timely reminders to Customer Liaison to draft external communication messages when needed. </li>
+<li>Reviewing, giving feedback and approving draft external communication </li>
+<li>Asking Customer Liaison to post the reviewed draft external communication</li>
+<li>Asking all responders if there are strong objections to posting the external communication is a good practice but is not mandatory</li>
+<li>Approving the removal of an ephemeral investigation message if there has been no customer impact and the major incident turns out to be a false alarm</li>
+<li>If Customer Liaison is not available to post on the status page, the IC is responsible for delegating somebody to post publicly in their stead. </li>
+</ul>
+</li>
+<li>Postmortem,<ul>
 <li>Creating the initial template right after the incident so people can put in their thoughts while fresh.</li>
-<li>Assigning the post-mortem after the event is over, this can be done after the call.</li>
+<li>Assigning the postmortem after the event is over, this can be done after the call.</li>
 <li>Work with Team Leads/Managers on scheduling preventive actions.</li>
 </ul>
 </li>
@@ -1543,30 +307,30 @@
 <h3 id="who-are-they">Who are they?<a class="headerlink" href="#who-are-they" title="Permanent link">#</a></h3>
 <p>Anyone on the Incident Commander on-call schedule. Trainees are typically on the Incident Commander Shadow schedule.</p>
 <h3 id="how-can-i-become-one">How can I become one?<a class="headerlink" href="#how-can-i-become-one" title="Permanent link">#</a></h3>
-<p>Take a look at our <a href="/training/incident_commander.md">Incident Commander training guide</a>.</p>
+<p>Take a look at our <a href="../../training/incident_commander/">Incident Commander training guide</a>.</p>
 <hr />
 <h2 id="deputy">Deputy<a class="headerlink" href="#deputy" title="Permanent link">#</a></h2>
 <h3 id="what-is-it_1">What is it?<a class="headerlink" href="#what-is-it_1" title="Permanent link">#</a></h3>
-<p>A Deputy is a direct support role for the Incident Commander. This is not a shadow where the person just observes, the Deputy is expected to perform important tasks during an incident.</p>
+<p>A Deputy is a direct support role for the Incident Commander. This is not a shadow where the person just observes. The Deputy is expected to perform important tasks during an incident.</p>
 <h3 id="why-have-one_1">Why have one?<a class="headerlink" href="#why-have-one_1" title="Permanent link">#</a></h3>
-<p>It's important for the IC to focus on the problem at hand, rather than worrying about documenting the steps or monitoring timers. The deputy helps to support the IC and keep them focussed on the incident.</p>
+<p>It's important for the IC to focus on the problem at hand rather than worrying about documenting the steps or monitoring timers. The Deputy helps to support the IC and keep them focussed on the incident.</p>
 <h3 id="what-are-the-responsibilities_1">What are the responsibilities?<a class="headerlink" href="#what-are-the-responsibilities_1" title="Permanent link">#</a></h3>
 <p>The Deputy is expected to:</p>
 <ol>
 <li>Bring up issues to the Incident Commander that may otherwise not be addressed (keeping an eye on timers that have been started, circling back around to missed items from a roll call, etc).</li>
 <li>Be a "hot standby" Incident Commander, should the primary need to either transition to a SME, or otherwise have to step away from the IC role.</li>
-<li>Manage the incident call, and be prepared to remove people from the call if instructed by the Incident Commander.</li>
+<li>Manage the incident call and be prepared to remove people from the call if instructed by the Incident Commander.</li>
 </ol>
 <h3 id="who-are-they_1">Who are they?<a class="headerlink" href="#who-are-they_1" title="Permanent link">#</a></h3>
-<p>Any Incident Commander can act as a deputy. Deputies need to be trained as an Incident Commander as they may be required to take over command.</p>
+<p>Any Incident Commander can act as a Deputy. Deputies need to be trained as an Incident Commander as they may be required to take over command.</p>
 <h3 id="how-can-i-become-one_1">How can I become one?<a class="headerlink" href="#how-can-i-become-one_1" title="Permanent link">#</a></h3>
-<p>Take a look at our <a href="/training/deputy.md">Deputy training guide</a>. Deputies also need to be <a href="/training/incident_commander.md">trained as an Incident Commander</a>.</p>
+<p>Take a look at our <a href="../../training/deputy/">Deputy training guide</a>. Deputies also need to be <a href="../../training/incident_commander/">trained as an Incident Commander</a>.</p>
 <hr />
 <h2 id="scribe">Scribe<a class="headerlink" href="#scribe" title="Permanent link">#</a></h2>
 <h3 id="what-is-it_2">What is it?<a class="headerlink" href="#what-is-it_2" title="Permanent link">#</a></h3>
-<p>A Scribe documents the timeline of an incident as it progresses, and makes sure all important decisions and data are captured for later review.</p>
+<p>A Scribe documents the timeline of an incident as it progresses and makes sure all important decisions and data are captured for later review.</p>
 <h3 id="why-have-one_2">Why have one?<a class="headerlink" href="#why-have-one_2" title="Permanent link">#</a></h3>
-<p>The incident commander will need to focus on the problem at hand, and the subject matter experts will need to focus on resolving the incident. It is important to capture a timeline of events as they happen so that they can be reviewed during the post-mortem to determine how well we performed, and so we can accurately determine any additional impact that we might not have noticed at the time.</p>
+<p>The Incident Commander will need to focus on the problem at hand and the subject matter experts will need to focus on resolving the incident. It is important to capture a timeline of events as they happen so that they can be reviewed during the postmortem to determine how well we performed, and so we can accurately determine any additional impact that we might not have noticed at the time.</p>
 <h3 id="what-are-the-responsibilities_2">What are the responsibilities?<a class="headerlink" href="#what-are-the-responsibilities_2" title="Permanent link">#</a></h3>
 <p>The Scribe is expected to:</p>
 <ol>
@@ -1579,15 +343,15 @@
 </li>
 </ol>
 <h3 id="who-are-they_2">Who are they?<a class="headerlink" href="#who-are-they_2" title="Permanent link">#</a></h3>
-<p>Anyone can act as a scribe during an incident, and are chosen by the Incident Commander at the start of the call. Typically the Deputy will act as the Scribe, but that doesn't necessarily need to happen, and for larger incidents may not be possible.</p>
+<p>Anyone can act as a Scribe during an incident, and are chosen by the Incident Commander at the start of the call. Typically the Deputy will act as the Scribe, but that doesn't necessarily need to happen, and for larger incidents may not be possible.</p>
 <h3 id="how-can-i-become-one_2">How can I become one?<a class="headerlink" href="#how-can-i-become-one_2" title="Permanent link">#</a></h3>
-<p>Follow our <a href="/training/scribe.md">Scribe training guide</a>, and then notify the Incident Commanders that you would like to be considered for scribing for the next incident.</p>
+<p>Follow our <a href="../../training/scribe/">Scribe training guide</a>, and then notify the Incident Commanders that you would like to be considered for scribing for the next incident.</p>
 <hr />
 <h2 id="subject-matter-expert">Subject Matter Expert<a class="headerlink" href="#subject-matter-expert" title="Permanent link">#</a></h2>
 <h3 id="what-is-it_3">What is it?<a class="headerlink" href="#what-is-it_3" title="Permanent link">#</a></h3>
 <p>A Subject Matter Expert (SME), sometimes called a "Resolver", is a domain expert or designated owner of a component or service that is part of the Elimu Informatics software stack.</p>
 <h3 id="why-have-one_3">Why have one?<a class="headerlink" href="#why-have-one_3" title="Permanent link">#</a></h3>
-<p>The IC and deputy are not all-knowing super beings. When there is a problem with a service, an expert in that service is needed to be able to quickly help identify and fix issues.</p>
+<p>The IC and Deputy are not all-knowing super beings. When there is a problem with a service, an expert in that service is needed to be able to quickly help identify and fix issues.</p>
 <h3 id="what-are-the-responsibilities_3">What are the responsibilities?<a class="headerlink" href="#what-are-the-responsibilities_3" title="Permanent link">#</a></h3>
 <ol>
 <li>Being able to diagnose common problems with the service.</li>
@@ -1602,7 +366,7 @@
 <h3 id="who-are-they_3">Who are they?<a class="headerlink" href="#who-are-they_3" title="Permanent link">#</a></h3>
 <p>Anyone who is considered a "domain expert" can act as a resolver for an incident. Typically the service's primary on-call will act as the SME for that service.</p>
 <h3 id="how-can-i-become-one_3">How can I become one?<a class="headerlink" href="#how-can-i-become-one_3" title="Permanent link">#</a></h3>
-<p>Take a look at our <a href="/training/subject_matter_expert.md">Subject Matter Expert training guide</a>. You should also discuss with your team and service owner to determine what the requirements are for your particular service.</p>
+<p>Take a look at our <a href="../../training/subject_matter_expert/">Subject Matter Expert training guide</a>. You should also discuss with your team and service owner to determine what the requirements are for your particular service.</p>
 <hr />
 <h2 id="customer-liaison">Customer Liaison<a class="headerlink" href="#customer-liaison" title="Permanent link">#</a></h2>
 <h3 id="what-is-it_4">What is it?<a class="headerlink" href="#what-is-it_4" title="Permanent link">#</a></h3>
@@ -1611,103 +375,174 @@
 <p>All of the other roles will be actively working on identifying the cause and resolving the issue, we need a role which is focused purely on the customer interaction side of things so that it can be done properly, with the due care and attention it needs.</p>
 <h3 id="what-are-the-responsibilities_4">What are the responsibilities?<a class="headerlink" href="#what-are-the-responsibilities_4" title="Permanent link">#</a></h3>
 <ol>
-<li>Post any publicly facing messages regarding the incident (Twitter, StatusPage, etc).</li>
-<li>Notify the IC of any customers reporting that they are affected by the incident.</li>
-<li>Provide customers with the external message from the post-mortem once it is completed.</li>
+<li>Drafting <a href="../../during/external_communication_guidelines/">external communication</a> messages when needed, picking the appropriate template, either when asked by the IC or at own initiative</li>
+<li>Asking for more information / clarification if needed for clear communication</li>
+<li>Regularly notify the IC of the number of customers reporting that they are affected by the incident. This can include providing specific customer references or examples for investigation purposes.</li>
+<li>Post any publicly facing messages regarding the incident (X, StatusPage, etc) once approved by the IC</li>
+<li>Removing an ephemeral investigation message once approved by the IC</li>
+<li>Provide customers with the external message from the postmortem once it is completed.</li>
 </ol>
 <h3 id="who-are-they_4">Who are they?<a class="headerlink" href="#who-are-they_4" title="Permanent link">#</a></h3>
 <p>Any member of the Support Team can act as a customer liaison.</p>
 <h3 id="how-can-i-become-one_4">How can I become one?<a class="headerlink" href="#how-can-i-become-one_4" title="Permanent link">#</a></h3>
-<p>Follow our <a href="/training/customer_liaison.md">Customer Liaison training guide</a>, and discuss with the Support Team about becoming our next Customer Liaison.</p>
+<p>Follow our <a href="../../training/customer_liaison/">Customer Liaison training guide</a>, and discuss with the Support Team about becoming our next Customer Liaison.</p>
+<h3 id="where-can-i-find-out-more-about-external-communications">Where can I find out more about external communications?<a class="headerlink" href="#where-can-i-find-out-more-about-external-communications" title="Permanent link">#</a></h3>
+<p>Review our <a href="../../during/external_communication_guidelines/">external communication guidelines</a>.</p>
 <hr />
 <h2 id="internal-liaison">Internal Liaison<a class="headerlink" href="#internal-liaison" title="Permanent link">#</a></h2>
 <h3 id="what-is-it_5">What is it?<a class="headerlink" href="#what-is-it_5" title="Permanent link">#</a></h3>
 <p>A person responsible for interacting with internal stakeholders. Whether it's notifying an internal team of the incident, or mobilizing additional responders within the organization.</p>
 <h3 id="why-have-one_5">Why have one?<a class="headerlink" href="#why-have-one_5" title="Permanent link">#</a></h3>
-<p>For larger incidents, we may have multiple teams across the organization involved. Having a dedicated liaison to mobilize those teams and bring them up to speed free's up the rest of the responders to handle the incident.</p>
+<p>For larger incidents, we may have multiple teams across the organization involved. Having a dedicated liaison to mobilize those teams and bring them up to speed frees up the rest of the responders to handle the incident.</p>
 <h3 id="what-are-the-responsibilities_5">What are the responsibilities?<a class="headerlink" href="#what-are-the-responsibilities_5" title="Permanent link">#</a></h3>
 <ol>
 <li>Page SME's or other on-call engineers as instructed by the Incident Commander.</li>
-<li>Notify other teams within the organization (e.g. Finance, Legal, Marketing), as instructed by the Incident Commander.</li>
+<li>Notify other teams within the organization (e.g. Finance, Legal, Marketing) as instructed by the Incident Commander.</li>
 <li>Liaise with stakeholders and provide status updates as necessary.</li>
 <li>Interact with internal stakeholders to answer their questions, to keep the primary call distraction free.</li>
 </ol>
 <h3 id="who-are-they_5">Who are they?<a class="headerlink" href="#who-are-they_5" title="Permanent link">#</a></h3>
 <p>Anyone designated by the Incident Commander during incident response.</p>
 <h3 id="how-can-i-become-one_5">How can I become one?<a class="headerlink" href="#how-can-i-become-one_5" title="Permanent link">#</a></h3>
-<p>Follow our <a href="/training/internal_liaison.md">Internal Liaison training</a>.</p>
+<p>Follow our <a href="../../training/internal_liaison/">Internal Liaison training</a>.</p>
+        
+      </article>
+    </main>
 
-              
-            </article>
-          </div>
-        </div>
+      <nav id="pagination">
+    <div class="content-wrapper">
+      <div class="previous">
         
-      </main>
-      
-        <footer class="md-footer">
-  
-    <nav class="md-footer__inner md-grid" aria-label="Footer">
-      
-        
-        <a href="../severity_levels/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Severity Levels" rel="prev">
-          <div class="md-footer__button md-icon">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
-          </div>
-          <div class="md-footer__title">
-            <div class="md-ellipsis">
-              <span class="md-footer__direction">
-                Previous
-              </span>
-              Severity Levels
+          <a href="../severity_levels/" title="Severity Levels">
+            <span class="label">Previous</span>
+            <div class="page">
+              <div class="button" role="button" aria-label="Previous">
+                <i class="icon icon-previous"></i>
+              </div>
+              <div class="title">
+                Severity Levels
+              </div>
             </div>
-          </div>
-        </a>
-      
-      
+          </a>
         
-        <a href="../call_etiquette/" class="md-footer__link md-footer__link--next" aria-label="Next: Call Etiquette" rel="next">
-          <div class="md-footer__title">
-            <div class="md-ellipsis">
-              <span class="md-footer__direction">
-                Next
-              </span>
-              Call Etiquette
+      </div>
+
+      <div class="next">
+        
+          <a href="../call_etiquette/" title="Call Etiquette">
+            <span class="label">Next</span>
+            <div class="page">
+              <div class="title">
+                Call Etiquette
+              </div>
+              <div class="button" role="button" aria-label="Next">
+                <i class="icon icon-next"></i>
+              </div>
             </div>
-          </div>
-          <div class="md-footer__button md-icon">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"/></svg>
-          </div>
-        </a>
-      
-    </nav>
-  
-  <div class="md-footer-meta md-typeset">
-    <div class="md-footer-meta__inner md-grid">
-      <div class="md-copyright">
-  
-  
-    Made with
-    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
-      Material for MkDocs
-    </a>
-  
-</div>
-      
+          </a>
+        
+      </div>
     </div>
+  </nav>
+
+    <footer>
+        <div class="content-wrapper">
+        <ul id="ops-guides">
+      <h2>Ops Guides</h2>
+      <p>Explore our other guides!</p>
+      <li id="og-incident-response" class="ops-guide">
+        <a href="https://response.pagerduty.com">Incident Response</a>
+        <p>A detailed outline of response processes for technical incidents practices by PagerDuty and our leading customers.</p>
+      </li>
+
+      <li id="og-security-training" class="ops-guide">
+        <a href="https://sudo.pagerduty.com">Security Training</a>
+        <p>Open source security training used at PagerDuty - adaptable for your own technical and non-technical teams.</p>
+      </li>
+
+      <li id="og-postmortems" class="ops-guide">
+        <a href="https://postmortems.pagerduty.com/">Postmortems</a>
+        <p>Comprehensive guide on how to conduct effective postmortems. Learn how to build a culture of blamelessness.</p>
+      </li>
+
+      <li id="og-operational-reviews" class="ops-guide">
+        <a href="https://reviews.pagerduty.com/">Operational Reviews</a>
+        <p>Gauge incident impact using data-driven regularly scheduled reviews to better manage the hidden cost of real-time ops.</p>
+      </li>
+
+      <li id="og-business-response" class="ops-guide">
+        <a href="https://business-response.pagerduty.com/">Business Response</a>
+        <p>Learn how to align the business needs with technical needs when severe technical incidents occur.</p>
+      </li>
+
+      <li id="og-stakeholder-comms" class="ops-guide">
+        <a href="https://stakeholders.pagerduty.com/">Stakeholder Comms</a>
+        <p>Build an effective communiction strategy for your internal stakeholders during major incidents.</p>
+      </li>
+
+      <li id="og-retrospectives" class="ops-guide">
+        <a href="https://retrospectives.pagerduty.com/">Retrospectives</a>
+        <p>Iteratively learn from working processes and behaviors while cultivating a culture of continuous improvement.</p>
+      </li>
+
+      <li id="og-ownership" class="ops-guide">
+        <a href="https://ownership.pagerduty.com">Ownership</a>
+        <p>Ensure the reliability of systems & services through a deeper understanding of how code functions in production.</p>
+      </li>
+
+      <li id="og-devsecops" class="ops-guide">
+        <a href="https://devsecops.pagerduty.com/">DevSecOps</a>
+        <p>New to DevSecOps, or wondering what it is and how to implement it? This guide will help you get started.</p>
+      </li>
+
+      <li id="og-goingoncall" class="ops-guide">
+        <a href="https://goingoncall.pagerduty.com/">Going On-Call</a>
+        <p>The complete resource to going on call for teams and managers.</p>
+      </li>
+
+      <li id="og-autoremediation" class="ops-guide">
+        <a href="https://autoremediation.pagerduty.com/">Auto Remediation</a>
+        <p>This guide will help you to leverage automation in your Incident Response process.</p>
+      </li>
+
+      <li id="og-customerservice" class="ops-guide">
+        <a href="https://customerserviceops.pagerduty.com/">Customer Service</a>
+        <p>Excellent Customer Service means excellent customer experience, even during incidents.</p>
+      </li>
+    </ul>
+
+    <p id="outro">
+      Made with <span class="material-icons love" aria-label="Love">favorite</span> at PagerDuty.
+    </p>
+
+    <p id="github-repo-link">
+      <a target="_blank"
+         title="View the source for this documentation on GitHub."
+         href="https://github.com/elimuinformatics/incident-response-docs">View Source on GitHub</a>
+    </p>
+
+    <!-- It's our theme, so we can just hardcode these :p -->
+    <ul id="social-links">
+      <li class="twitter">
+        <a title="View the @PagerDuty Twitter feed."
+           href="https://twitter.com/PagerDuty">Twitter</a>
+      </li>
+      <li class="github">
+        <a title="View PagerDuty on GitHub"
+           href="https://github.com/PagerDuty">GitHub</a>
+      </li>
+      <li class="pagerduty">
+        <a title="View the PagerDuty website."
+          href="https://www.pagerduty.com/">PagerDuty</a>
+      </li>
+    </ul>
   </div>
-</footer>
-      
-    </div>
-    <div class="md-dialog" data-md-component="dialog">
-      <div class="md-dialog__inner md-typeset"></div>
-    </div>
-    <script id="__config" type="application/json">{"base": "../..", "features": [], "search": "../../assets/javascripts/workers/search.2a1c317c.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}}</script>
+    </footer>
+
+        
+      <script src="../../../../search/main.js"></script>
     
     
-      <script src="../../assets/javascripts/bundle.a6c66575.min.js"></script>
-      
-        <script src="../../js/github_forks.js"></script>
-      
     
   </body>
 </html>

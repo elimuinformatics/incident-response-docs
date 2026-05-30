@@ -1,1163 +1,286 @@
-
-<!doctype html>
-<html lang="en" class="no-js">
+<!DOCTYPE html>
+<html lang="en">
   <head>
-    
-      <meta charset="utf-8">
-      <meta name="viewport" content="width=device-width,initial-scale=1">
-      
-        <meta name="description" content="This is a standard template we use for post-mortems at Elimu Informatics. Each section describes the type of information you will want to put in that section.">
-      
-      
-        <meta name="author" content="Elimu Informatics">
-      
-      
-        <link rel="canonical" href="https://elimuinformatics.github.io/incident-response-docs/after/post_mortem_template/">
-      
-      <link rel="icon" href="../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.3.0, mkdocs-material-8.2.15">
-    
-    
-      
-        <title>Post-Mortem Template - Elimu Informatics Incident Response Documentation</title>
-      
-    
-    
-      <link rel="stylesheet" href="../../assets/stylesheets/main.c382b1dc.min.css">
-      
-        
-        <link rel="stylesheet" href="../../assets/stylesheets/palette.cc9b2e1e.min.css">
-        
-      
-    
-    
-    
-      
-        
-        
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
-        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
-      
-    
-    
-      <link rel="stylesheet" href="../../assets/css/pagerduty.css">
-    
-      <link rel="stylesheet" href="../../assets/css/custom.css">
-    
-    <script>__md_scope=new URL("../..",location),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
-    
-      
+    <meta charset="utf-8" />
+    <title>Postmortem Template - Elimu Informatics Incident Response Documentation</title>
 
+    <!-- Author and License -->
+    <meta name="dcterms.license"      content="http://www.apache.org/licenses/LICENSE-2.0" />
+    <meta name="author"               content="Elimu Informatics" />
+    <meta name="dcterms.rightsHolder" content="Elimu Informatics" />
+    <!-- Page Description -->
+    <meta name="description" content="This is a standard template we use for postmortems at Elimu Informatics. Each section describes the type of information you will want to put in that section." />
+    <meta name="robots"      content="index, follow, archive" />
+    <meta name="generator"   content="mkdocs-1.6.1, mkdocs-theme-pagerduty" />
+
+    <!-- Canonical Link -->
+    <link rel="canonical" href="https://response.elimuinformatics.com/after/post_mortem_template/">
+
+    <!-- Favicon -->
+    <link rel="shortcut icon"    href="/assets/images/favicon.png" type="image/png" />
+    <link rel="icon"             href="/assets/images/favicon.png" type="image/png" />
+    <link rel="apple-touch-icon" href="/assets/images/favicon.png" />
+
+    <!-- Mobile -->
+    <meta name="viewport"    content="width=device-width, initial-scale=1.0, minimum-scale=1.0" />
+    <meta name="theme-color" content="#005a24" />
+
+    <!-- Apple -->
+    <meta name="apple-mobile-web-app-title"            content="Elimu Informatics Incident Response Documentation" />
+    <meta name="apple-mobile-web-app-capable"          content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+    <!-- Open Graph -->
+    <meta property="og:url"         content="https://response.elimuinformatics.com/after/post_mortem_template/" />
+    <meta property="og:title"       content="Postmortem Template - Elimu Informatics Incident Response Documentation" />
+    <meta property="og:site_name"   content="Elimu Informatics Incident Response Documentation" />
+    <meta property="og:description" content="This is a standard template we use for postmortems at Elimu Informatics. Each section describes the type of information you will want to put in that section." />
+    <meta property="og:image"       content="https://response.elimuinformatics.com/assets/img/covers/post-mortem_template.png" />
+    <meta property="og:locale"      content="en_US" />
+    <meta property="og:type"        content="website" />
+
+    <!-- Twitter -->
+    <meta name="twitter:card"        content="summary_large_image" />
+    <meta name="twitter:title"       content="Postmortem Template - Elimu Informatics Incident Response Documentation" />
+    <meta name="twitter:description" content="This is a standard template we use for postmortems at Elimu Informatics. Each section describes the type of information you will want to put in that section." />
+    <meta name="twitter:image"       content="https://response.elimuinformatics.com/assets/img/covers/post-mortem_template.png" />
+        <!-- Style -->
+    <link rel="stylesheet" href="../../assets/stylesheets/fonts.css" />
+    <link rel="stylesheet" href="../../assets/stylesheets/reset.css" />
+    <link rel="stylesheet" href="../../assets/stylesheets/pagerduty.css" />
+    <link rel="stylesheet" href="../../assets/stylesheets/code.css" />
     
+    
+      <link rel="stylesheet" href="../../../../assets/css/custom.css" />
     
   </head>
-  
-  
-    
-    
-    
-    
-    
-    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="none" data-md-color-accent="none">
-  
-    
-    
-    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
-    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
-    <label class="md-overlay" for="__drawer"></label>
-    <div data-md-component="skip">
-      
-        
-        <a href="#overview" class="md-skip">
-          Skip to content
-        </a>
-      
-    </div>
-    <div data-md-component="announce">
-      
-    </div>
-    
-    
-      
-
-<header class="md-header" data-md-component="header">
-  <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href="../.." title="Elimu Informatics Incident Response Documentation" class="md-header__button md-logo" aria-label="Elimu Informatics Incident Response Documentation" data-md-component="logo">
-      
-  
-  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
-
-    </a>
-    <label class="md-header__button md-icon" for="__drawer">
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
-    </label>
-    <div class="md-header__title" data-md-component="header-title">
-      <div class="md-header__ellipsis">
-        <div class="md-header__topic">
-          <span class="md-ellipsis">
-            Elimu Informatics Incident Response Documentation
-          </span>
-        </div>
-        <div class="md-header__topic" data-md-component="header-topic">
-          <span class="md-ellipsis">
-            
-              Post-Mortem Template
-            
-          </span>
-        </div>
-      </div>
-    </div>
-    
-    
-    
-      <label class="md-header__button md-icon" for="__search">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
-      </label>
-      <div class="md-search" data-md-component="search" role="dialog">
-  <label class="md-search__overlay" for="__search"></label>
-  <div class="md-search__inner" role="search">
-    <form class="md-search__form" name="search">
-      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
-      <label class="md-search__icon md-icon" for="__search">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
-      </label>
-      <nav class="md-search__options" aria-label="Search">
-        
-        <button type="reset" class="md-search__icon md-icon" aria-label="Clear" tabindex="-1">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
-        </button>
-      </nav>
-      
-    </form>
-    <div class="md-search__output">
-      <div class="md-search__scrollwrap" data-md-scrollfix>
-        <div class="md-search-result" data-md-component="search-result">
-          <div class="md-search-result__meta">
-            Initializing search
-          </div>
-          <ol class="md-search-result__list"></ol>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-    
-    
-      <div class="md-header__source">
-        <a href="https://github.com/elimuinformatics/incident-response-docs" title="Go to repository" class="md-source" data-md-component="source">
-  <div class="md-source__icon md-icon">
-    
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.1.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
-  </div>
-  <div class="md-source__repository">
-    GitHub
-  </div>
-</a>
-      </div>
-    
-  </nav>
-  
-</header>
-    
-    <div class="md-container" data-md-component="container">
-      
-      
-        
-          
-        
-      
-      <main class="md-main" data-md-component="main">
-        <div class="md-main__inner md-grid">
-          
-            
-              
-              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
-                <div class="md-sidebar__scrollwrap">
-                  <div class="md-sidebar__inner">
-                    
-
-
-<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
-  <label class="md-nav__title" for="__drawer">
-    <a href="../.." title="Elimu Informatics Incident Response Documentation" class="md-nav__button md-logo" aria-label="Elimu Informatics Incident Response Documentation" data-md-component="logo">
-      
-  
-  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
-
-    </a>
-    Elimu Informatics Incident Response Documentation
-  </label>
-  
-    <div class="md-nav__source">
-      <a href="https://github.com/elimuinformatics/incident-response-docs" title="Go to repository" class="md-source" data-md-component="source">
-  <div class="md-source__icon md-icon">
-    
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.1.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
-  </div>
-  <div class="md-source__repository">
-    GitHub
-  </div>
-</a>
-    </div>
-  
-  <ul class="md-nav__list" data-md-scrollfix>
-    
-      
-      
-      
-
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../.." class="md-nav__link">
-        Home
+  <body class="">
+    <header>
+        <div class="content-wrapper">
+    <div id="logo">
+      <a href="../.." title="Go to Incident Response homepage.">
+        <img src="../../assets/images/logo.png" title="PagerDuty" />
       </a>
-    </li>
-  
-
-    
-      
-      
-      
-
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../getting_started/" class="md-nav__link">
-        Getting Started
-      </a>
-    </li>
-  
-
-    
-      
-      
-      
-
-  
-  
-  
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
-      
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" type="checkbox" id="__nav_3" >
-      
-      
-      
-      
-        <label class="md-nav__link" for="__nav_3">
-          On-Call
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <nav class="md-nav" aria-label="On-Call" data-md-level="1">
-        <label class="md-nav__title" for="__nav_3">
-          <span class="md-nav__icon md-icon"></span>
-          On-Call
-        </label>
-        <ul class="md-nav__list" data-md-scrollfix>
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../oncall/being_oncall/" class="md-nav__link">
-        Being On-Call
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../oncall/whos_oncall/" class="md-nav__link">
-        Who's On-Call?
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../oncall/alerting_principles/" class="md-nav__link">
-        Alerting Principles
-      </a>
-    </li>
-  
-
-            
-          
-        </ul>
-      </nav>
-    </li>
-  
-
-    
-      
-      
-      
-
-  
-  
-  
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
-      
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4" type="checkbox" id="__nav_4" >
-      
-      
-      
-      
-        <label class="md-nav__link" for="__nav_4">
-          Before an Incident
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <nav class="md-nav" aria-label="Before an Incident" data-md-level="1">
-        <label class="md-nav__title" for="__nav_4">
-          <span class="md-nav__icon md-icon"></span>
-          Before an Incident
-        </label>
-        <ul class="md-nav__list" data-md-scrollfix>
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../before/what_is_an_incident/" class="md-nav__link">
-        What is an Incident?
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../before/severity_levels/" class="md-nav__link">
-        Severity Levels
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../before/different_roles/" class="md-nav__link">
-        Different Roles
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../before/call_etiquette/" class="md-nav__link">
-        Call Etiquette
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../before/complex_incidents/" class="md-nav__link">
-        Complex Incidents
-      </a>
-    </li>
-  
-
-            
-          
-        </ul>
-      </nav>
-    </li>
-  
-
-    
-      
-      
-      
-
-  
-  
-  
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
-      
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5" type="checkbox" id="__nav_5" >
-      
-      
-      
-      
-        <label class="md-nav__link" for="__nav_5">
-          During an Incident
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <nav class="md-nav" aria-label="During an Incident" data-md-level="1">
-        <label class="md-nav__title" for="__nav_5">
-          <span class="md-nav__icon md-icon"></span>
-          During an Incident
-        </label>
-        <ul class="md-nav__list" data-md-scrollfix>
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../during/during_an_incident/" class="md-nav__link">
-        During an Incident
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../during/security_incident_response/" class="md-nav__link">
-        Security Incident
-      </a>
-    </li>
-  
-
-            
-          
-        </ul>
-      </nav>
-    </li>
-  
-
-    
-      
-      
-      
-
-  
-  
-    
-  
-  
-    
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
-      
-      
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6" type="checkbox" id="__nav_6" checked>
-      
-      
-      
-      
-        <label class="md-nav__link" for="__nav_6">
-          After an Incident
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <nav class="md-nav" aria-label="After an Incident" data-md-level="1">
-        <label class="md-nav__title" for="__nav_6">
-          <span class="md-nav__icon md-icon"></span>
-          After an Incident
-        </label>
-        <ul class="md-nav__list" data-md-scrollfix>
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../after_an_incident/" class="md-nav__link">
-        After an Incident
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../post_mortem_process/" class="md-nav__link">
-        Post-Mortem Process
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-    
-  
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
-      
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          Post-Mortem Template
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
-        Post-Mortem Template
-      </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#overview" class="md-nav__link">
-    Overview
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#what-happened" class="md-nav__link">
-    What Happened
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#contributing-factors" class="md-nav__link">
-    Contributing Factors
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#resolution" class="md-nav__link">
-    Resolution
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#impact" class="md-nav__link">
-    Impact
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#responders" class="md-nav__link">
-    Responders
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#timeline" class="md-nav__link">
-    Timeline
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#howd-we-do" class="md-nav__link">
-    How'd We Do?
-  </a>
-  
-    <nav class="md-nav" aria-label="How'd We Do?">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#what-went-well" class="md-nav__link">
-    What Went Well?
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#what-didnt-go-so-well" class="md-nav__link">
-    What Didn't Go So Well?
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#action-items" class="md-nav__link">
-    Action Items
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#messaging" class="md-nav__link">
-    Messaging
-  </a>
-  
-    <nav class="md-nav" aria-label="Messaging">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#internal-email" class="md-nav__link">
-    Internal Email
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#external-message" class="md-nav__link">
-    External Message
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../effective_post_mortems/" class="md-nav__link">
-        Effective Post-Mortems
-      </a>
-    </li>
-  
-
-            
-          
-        </ul>
-      </nav>
-    </li>
-  
-
-    
-      
-      
-      
-
-  
-  
-  
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
-      
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_7" type="checkbox" id="__nav_7" >
-      
-      
-      
-      
-        <label class="md-nav__link" for="__nav_7">
-          Training
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <nav class="md-nav" aria-label="Training" data-md-level="1">
-        <label class="md-nav__title" for="__nav_7">
-          <span class="md-nav__icon md-icon"></span>
-          Training
-        </label>
-        <ul class="md-nav__list" data-md-scrollfix>
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../training/overview/" class="md-nav__link">
-        Overview
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../training/incident_commander/" class="md-nav__link">
-        Incident Commander
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../training/deputy/" class="md-nav__link">
-        Deputy
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../training/scribe/" class="md-nav__link">
-        Scribe
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../training/subject_matter_expert/" class="md-nav__link">
-        Subject Matter Expert
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../training/customer_liaison/" class="md-nav__link">
-        Customer Liaison
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../training/internal_liaison/" class="md-nav__link">
-        Internal Liaison
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../training/glossary/" class="md-nav__link">
-        Glossary
-      </a>
-    </li>
-  
-
-            
-          
-        </ul>
-      </nav>
-    </li>
-  
-
-    
-      
-      
-      
-
-  
-  
-  
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
-      
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_8" type="checkbox" id="__nav_8" >
-      
-      
-      
-      
-        <label class="md-nav__link" for="__nav_8">
-          Training Courses
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <nav class="md-nav" aria-label="Training Courses" data-md-level="1">
-        <label class="md-nav__title" for="__nav_8">
-          <span class="md-nav__icon md-icon"></span>
-          Training Courses
-        </label>
-        <ul class="md-nav__list" data-md-scrollfix>
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../training/courses/incident_response/" class="md-nav__link">
+      <span class="subtitle">
         Incident Response
-      </a>
-    </li>
-  
+      </span>
+    </div>
 
-            
+    
+<!-- This is a cheat for mobile search, allowing us to store state in a checkbox. -->
+<input id="mobile-search-link" type="checkbox"  />
+<label id="mobile-search-link-selector" for="mobile-search-link" role="button"></label>
+<div id="search">
+  <input name="q" id="mkdocs-search-query" type="search" placeholder="Search..." />
+  <div id="mkdocs-search-results"><p>No results found</p></div>
+</div>
+
+<!-- This is used for MkDocs search. Hardcoding to '/' so CSP is easier. -->
+<script>var base_url = '/';</script>
+
+  </div>
+    </header>
+
+      <nav id="breadcrumbs">
+    <div class="content-wrapper">
+      <p><a href="../..">Incident Response</a></p>
+      
+        
           
+            <p>After an Incident</p>
+          
+        
+        <h1>Postmortem Template</h1>
+      
+    </div>
+  </nav>
+    
+
+    <main>
+      <!-- This is a cheat for mobile navigation, allowing us to store state in a checkbox. -->
+<input id="mobile-nav-link" type="checkbox"  />
+<label id="mobile-nav-link-selector" for="mobile-nav-link" role="button"></label>
+<nav>
+  <div id="nav-title">Incident Response</div>
+<ul>
+          <li>
+          <a title="Home" href="../..">Home</a>
+          </li>
+            <li>
+          <a title="Getting Started" href="../../getting_started/">Getting Started</a>
+          </li>
+    <li>
+        <span class="subsection">On-Call</span>
+        <ul>
+                <li>
+          <a title="Being On-Call" href="../../oncall/being_oncall/">Being On-Call</a>
+          </li>
+                <li>
+          <a title="Who's On-Call?" href="../../oncall/whos_oncall/">Who's On-Call?</a>
+          </li>
+                <li>
+          <a title="Alerting Principles" href="../../oncall/alerting_principles/">Alerting Principles</a>
+          </li>
         </ul>
-      </nav>
-    </li>
-  
-
-    
-      
-      
-      
-
-  
-  
-  
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
-      
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_9" type="checkbox" id="__nav_9" >
-      
-      
-      
-      
-        <label class="md-nav__link" for="__nav_9">
-          Additional Resources
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <nav class="md-nav" aria-label="Additional Resources" data-md-level="1">
-        <label class="md-nav__title" for="__nav_9">
-          <span class="md-nav__icon md-icon"></span>
-          Additional Resources
-        </label>
-        <ul class="md-nav__list" data-md-scrollfix>
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../resources/reading/" class="md-nav__link">
-        Reading
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../resources/chatops/" class="md-nav__link">
-        ChatOps
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../resources/anti_patterns/" class="md-nav__link">
-        Anti-Patterns
-      </a>
-    </li>
-  
-
-            
-          
+      </li>
+    <li>
+        <span class="subsection">Before an Incident</span>
+        <ul>
+                <li>
+          <a title="What is an Incident?" href="../../before/what_is_an_incident/">What is an Incident?</a>
+          </li>
+                <li>
+          <a title="Severity Levels" href="../../before/severity_levels/">Severity Levels</a>
+          </li>
+                <li>
+          <a title="Different Roles" href="../../before/different_roles/">Different Roles</a>
+          </li>
+                <li>
+          <a title="Call Etiquette" href="../../before/call_etiquette/">Call Etiquette</a>
+          </li>
+                <li>
+          <a title="Complex Incidents" href="../../before/complex_incidents/">Complex Incidents</a>
+          </li>
         </ul>
-      </nav>
-    </li>
-  
-
-    
-      
-      
-      
-
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../about/" class="md-nav__link">
-        About
-      </a>
-    </li>
-  
-
-    
-  </ul>
-</nav>
-                  </div>
-                </div>
-              </div>
-            
-            
-              
-              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
-                <div class="md-sidebar__scrollwrap">
-                  <div class="md-sidebar__inner">
-                    
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#overview" class="md-nav__link">
-    Overview
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#what-happened" class="md-nav__link">
-    What Happened
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#contributing-factors" class="md-nav__link">
-    Contributing Factors
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#resolution" class="md-nav__link">
-    Resolution
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#impact" class="md-nav__link">
-    Impact
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#responders" class="md-nav__link">
-    Responders
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#timeline" class="md-nav__link">
-    Timeline
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#howd-we-do" class="md-nav__link">
-    How'd We Do?
-  </a>
-  
-    <nav class="md-nav" aria-label="How'd We Do?">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#what-went-well" class="md-nav__link">
-    What Went Well?
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#what-didnt-go-so-well" class="md-nav__link">
-    What Didn't Go So Well?
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#action-items" class="md-nav__link">
-    Action Items
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#messaging" class="md-nav__link">
-    Messaging
-  </a>
-  
-    <nav class="md-nav" aria-label="Messaging">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#internal-email" class="md-nav__link">
-    Internal Email
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#external-message" class="md-nav__link">
-    External Message
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
+      </li>
+    <li>
+        <span class="subsection">During an Incident</span>
+        <ul>
+                <li>
+          <a title="During an Incident" href="../../during/during_an_incident/">During an Incident</a>
+          </li>
+                <li>
+          <a title="External Communication Guidelines" href="../../during/external_communication_guidelines/">External Communication Guidelines</a>
+          </li>
+                <li>
+          <a title="Security Incident" href="../../during/security_incident_response/">Security Incident</a>
+          </li>
+        </ul>
+      </li>
+    <li>
+        <span class="subsection">After an Incident</span>
+        <ul>
+                <li>
+          <a title="After an Incident" href="../after_an_incident/">After an Incident</a>
+          </li>
+                <li>
+          <a title="Postmortem Process" href="../post_mortem_process/">Postmortem Process</a>
+          </li>
+                <li class="active">
+          <a title="Postmortem Template" href="./">Postmortem Template</a>
+          <ul id="toc">
+            <li class="anchor">
+                  <a title="Overview" href="#overview">Overview</a>
+                </li>
+            <li class="anchor">
+                  <a title="What Happened" href="#what-happened">What Happened</a>
+                </li>
+            <li class="anchor">
+                  <a title="Contributing Factors" href="#contributing-factors">Contributing Factors</a>
+                </li>
+            <li class="anchor">
+                  <a title="Resolution" href="#resolution">Resolution</a>
+                </li>
+            <li class="anchor">
+                  <a title="Impact" href="#impact">Impact</a>
+                </li>
+            <li class="anchor">
+                  <a title="Responders" href="#responders">Responders</a>
+                </li>
+            <li class="anchor">
+                  <a title="Timeline" href="#timeline">Timeline</a>
+                </li>
+            <li class="anchor">
+                  <a title="How'd We Do?" href="#howd-we-do">How'd We Do?</a>
+                </li>
+            <li class="anchor">
+                  <a title="Action Items" href="#action-items">Action Items</a>
+                </li>
+            <li class="anchor">
+                  <a title="Messaging" href="#messaging">Messaging</a>
+                </li>
+            </ul>
+          </li>
+                <li>
+          <a title="Effective Postmortems" href="../effective_post_mortems/">Effective Postmortems</a>
+          </li>
+        </ul>
+      </li>
+    <li>
+        <span class="subsection">Training</span>
+        <ul>
+                <li>
+          <a title="Training Overview" href="../../training/overview/">Training Overview</a>
+          </li>
+                <li>
+          <a title="Incident Commander" href="../../training/incident_commander/">Incident Commander</a>
+          </li>
+                <li>
+          <a title="Deputy" href="../../training/deputy/">Deputy</a>
+          </li>
+                <li>
+          <a title="Scribe" href="../../training/scribe/">Scribe</a>
+          </li>
+                <li>
+          <a title="Subject Matter Expert" href="../../training/subject_matter_expert/">Subject Matter Expert</a>
+          </li>
+                <li>
+          <a title="Customer Liaison" href="../../training/customer_liaison/">Customer Liaison</a>
+          </li>
+                <li>
+          <a title="Internal Liaison" href="../../training/internal_liaison/">Internal Liaison</a>
+          </li>
+                <li>
+          <a title="Glossary" href="../../training/glossary/">Glossary</a>
+          </li>
+        </ul>
+      </li>
+    <li>
+        <span class="subsection">Training Courses</span>
+        <ul>
+                <li>
+          <a title="Incident Response" href="../../training/courses/incident_response/">Incident Response</a>
+          </li>
+        </ul>
+      </li>
+    <li>
+        <span class="subsection">Additional Resources</span>
+        <ul>
+                <li>
+          <a title="Reading" href="../../resources/reading/">Reading</a>
+          </li>
+                <li>
+          <a title="ChatOps" href="../../resources/chatops/">ChatOps</a>
+          </li>
+                <li>
+          <a title="Anti-Patterns" href="../../resources/anti_patterns/">Anti-Patterns</a>
+          </li>
+        </ul>
+      </li>
+            <li>
+          <a title="About" href="../../about/">About</a>
+          </li>
     </ul>
-  
 </nav>
-                  </div>
-                </div>
-              </div>
-            
-          
-          <div class="md-content" data-md-component="content">
-            <article class="md-content__inner md-typeset">
-              
-                
-  <a href="https://github.com/elimuinformatics/incident-response-docs/edit/master/docs/after/post_mortem_template.md" title="Edit this page" class="md-content__button md-icon">
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25Z"/></svg>
-  </a>
 
-
-
-  <h1>Post-Mortem Template</h1>
-
-<p>This is a standard template we use for post-mortems at Elimu Informatics. Each section describes the type of information you will want to put in that section.</p>
+      <article>
+        <h1>Postmortem Template</h1>
+        <section id="downloads">
+  
+  
+</section>
+        
+        <p>This is a standard template we use for postmortems at Elimu Informatics. Each section describes the type of information you will want to put in that section.</p>
 <hr />
 <div class="admonition note">
 <p class="admonition-title">Guidelines</p>
-<p>This page is intended to be reviewed during a post-mortem meeting that should be scheduled within 5 business days of any event.
-Your first step should be to schedule the post-mortem meeting in the shared calendar for within 5 business days after the incident.
-Don't wait until you've filled in the info to schedule the meeting, however make sure the page is completed by the meeting.</p>
+<p>This page is intended to be reviewed during a postmortem meeting that should be scheduled within 5 business days of any event.
+Your first step should be to schedule the postmortem meeting in the shared calendar for within 5 business days after the incident.
+Don't wait until you've filled in the info to schedule the meeting. Make sure the page is completed by the meeting.</p>
 </div>
-<p>** Post-Mortem Owner:** <em>Your name goes here.</em></p>
-<p>** Meeting Scheduled For:** <em>Schedule the meeting on the "Incident Post-Mortem Meetings" shared calendar, for within 5 business days after the incident. Put the date/time here.</em></p>
-<p>** Call Recording:** <em>Link to the incident call recording.</em></p>
+<p><strong>Postmortem Owner:</strong> <em>Your name goes here.</em></p>
+<p><strong>Meeting Scheduled For:</strong> <em>Schedule the meeting on the "Incident Postmortem Meetings" shared calendar, for within 5 business days after the incident. Put the date/time here.</em></p>
+<p><strong>Call Recording:</strong> <em>Link to the incident call recording.</em></p>
 <h2 id="overview">Overview<a class="headerlink" href="#overview" title="Permanent link">#</a></h2>
 <p><em>Include a <strong>short</strong> sentence or two summarizing the contributing factors, timeline summary, and the impact. E.g. "On the morning of August 99th, we suffered a 1 minute P1 due to a runaway process on our primary database machine. This slowness caused roughly 0.024% of alerts that had begun during this time to be delivered out of SLA."</em></p>
 <h2 id="what-happened">What Happened<a class="headerlink" href="#what-happened" title="Permanent link">#</a></h2>
@@ -1165,9 +288,9 @@ Don't wait until you've filled in the info to schedule the meeting, however make
 <h2 id="contributing-factors">Contributing Factors<a class="headerlink" href="#contributing-factors" title="Permanent link">#</a></h2>
 <p><em>Include a description of any conditions that contributed to the issue. If there were any actions taken that exacerbated the issue, also include them here with the intention of learning from any mistakes made during the resolution process.</em></p>
 <h2 id="resolution">Resolution<a class="headerlink" href="#resolution" title="Permanent link">#</a></h2>
-<p><em>Include a description what solved the problem. If there was a temporary fix in place, describe that along with the long-term solution.</em></p>
+<p><em>Include a description of what solved the problem. If there was a temporary fix in place, describe that along with the long-term solution.</em></p>
 <h2 id="impact">Impact<a class="headerlink" href="#impact" title="Permanent link">#</a></h2>
-<p><em>Be very specific here, include exact numbers.</em></p>
+<p><em>Be very specific here and include exact numbers.</em></p>
 <table>
 <thead>
 <tr>
@@ -1240,12 +363,12 @@ Don't wait until you've filled in the info to schedule the meeting, however make
 <li><em>List anything you think we didn't do very well. The intent is that we should follow up on all points here to improve our processes.</em></li>
 </ul>
 <h2 id="action-items">Action Items<a class="headerlink" href="#action-items" title="Permanent link">#</a></h2>
-<p><em>Each action item should be in the form of a JIRA ticket, and each ticket should have the same set of two tags:  “sev1_YYYYMMDD” (such as sev1_20150911) and simply “sev1”. Include action items such as: (1) any fixes required to prevent the contributing factor in the future, (2) any preparedness tasks that could help mitigate the problem if it came up again, (3) remaining post-mortem steps, such as the internal email, as well as the status-page public post, (4) any improvements to our incident response process.</em></p>
+<p><em>Each action item should be in the form of a JIRA ticket, and each ticket should have the same set of two tags:  “sev1_YYYYMMDD” (such as sev1_20150911) and simply “sev1”. Include action items such as: (1) any fixes required to prevent the contributing factor in the future, (2) any preparedness tasks that could help mitigate the problem if it came up again, (3) remaining postmortem steps, such as the internal email, as well as the status-page public post, (4) any improvements to our incident response process.</em></p>
 <h2 id="messaging">Messaging<a class="headerlink" href="#messaging" title="Permanent link">#</a></h2>
 <h3 id="internal-email">Internal Email<a class="headerlink" href="#internal-email" title="Permanent link">#</a></h3>
-<p><em>This is a follow-up for employees. It should be sent out right after the post-mortem meeting is over. It only needs a short paragraph summarizing the incident and a link to this wiki page.</em></p>
+<p><em>This is a follow-up for employees. It should be sent out right after the postmortem meeting is over. It only needs a short paragraph summarizing the incident and a link to this wiki page.</em></p>
 <blockquote>
-<p>Briefly summarize what happened and where the post-mortem page (this page) can be found.</p>
+<p>Briefly summarize what happened and where the postmortem page (this page) can be found.</p>
 </blockquote>
 <h3 id="external-message">External Message<a class="headerlink" href="#external-message" title="Permanent link">#</a></h3>
 <p><em>This is what will be included on the status.elimu.io website regarding this incident. What are we telling customers, including an apology? (The apology should be genuine, not rote.)</em></p>
@@ -1254,78 +377,144 @@ Don't wait until you've filled in the info to schedule the meeting, however make
 <p>What Happened?</p>
 <p>What Are We Doing About This?</p>
 </blockquote>
+        
+      </article>
+    </main>
 
-              
-            </article>
-          </div>
-        </div>
+      <nav id="pagination">
+    <div class="content-wrapper">
+      <div class="previous">
         
-      </main>
-      
-        <footer class="md-footer">
-  
-    <nav class="md-footer__inner md-grid" aria-label="Footer">
-      
-        
-        <a href="../post_mortem_process/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Post-Mortem Process" rel="prev">
-          <div class="md-footer__button md-icon">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
-          </div>
-          <div class="md-footer__title">
-            <div class="md-ellipsis">
-              <span class="md-footer__direction">
-                Previous
-              </span>
-              Post-Mortem Process
+          <a href="../post_mortem_process/" title="Postmortem Process">
+            <span class="label">Previous</span>
+            <div class="page">
+              <div class="button" role="button" aria-label="Previous">
+                <i class="icon icon-previous"></i>
+              </div>
+              <div class="title">
+                Postmortem Process
+              </div>
             </div>
-          </div>
-        </a>
-      
-      
+          </a>
         
-        <a href="../effective_post_mortems/" class="md-footer__link md-footer__link--next" aria-label="Next: Effective Post-Mortems" rel="next">
-          <div class="md-footer__title">
-            <div class="md-ellipsis">
-              <span class="md-footer__direction">
-                Next
-              </span>
-              Effective Post-Mortems
+      </div>
+
+      <div class="next">
+        
+          <a href="../effective_post_mortems/" title="Effective Postmortems">
+            <span class="label">Next</span>
+            <div class="page">
+              <div class="title">
+                Effective Postmortems
+              </div>
+              <div class="button" role="button" aria-label="Next">
+                <i class="icon icon-next"></i>
+              </div>
             </div>
-          </div>
-          <div class="md-footer__button md-icon">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"/></svg>
-          </div>
-        </a>
-      
-    </nav>
-  
-  <div class="md-footer-meta md-typeset">
-    <div class="md-footer-meta__inner md-grid">
-      <div class="md-copyright">
-  
-  
-    Made with
-    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
-      Material for MkDocs
-    </a>
-  
-</div>
-      
+          </a>
+        
+      </div>
     </div>
+  </nav>
+
+    <footer>
+        <div class="content-wrapper">
+        <ul id="ops-guides">
+      <h2>Ops Guides</h2>
+      <p>Explore our other guides!</p>
+      <li id="og-incident-response" class="ops-guide">
+        <a href="https://response.pagerduty.com">Incident Response</a>
+        <p>A detailed outline of response processes for technical incidents practices by PagerDuty and our leading customers.</p>
+      </li>
+
+      <li id="og-security-training" class="ops-guide">
+        <a href="https://sudo.pagerduty.com">Security Training</a>
+        <p>Open source security training used at PagerDuty - adaptable for your own technical and non-technical teams.</p>
+      </li>
+
+      <li id="og-postmortems" class="ops-guide">
+        <a href="https://postmortems.pagerduty.com/">Postmortems</a>
+        <p>Comprehensive guide on how to conduct effective postmortems. Learn how to build a culture of blamelessness.</p>
+      </li>
+
+      <li id="og-operational-reviews" class="ops-guide">
+        <a href="https://reviews.pagerduty.com/">Operational Reviews</a>
+        <p>Gauge incident impact using data-driven regularly scheduled reviews to better manage the hidden cost of real-time ops.</p>
+      </li>
+
+      <li id="og-business-response" class="ops-guide">
+        <a href="https://business-response.pagerduty.com/">Business Response</a>
+        <p>Learn how to align the business needs with technical needs when severe technical incidents occur.</p>
+      </li>
+
+      <li id="og-stakeholder-comms" class="ops-guide">
+        <a href="https://stakeholders.pagerduty.com/">Stakeholder Comms</a>
+        <p>Build an effective communiction strategy for your internal stakeholders during major incidents.</p>
+      </li>
+
+      <li id="og-retrospectives" class="ops-guide">
+        <a href="https://retrospectives.pagerduty.com/">Retrospectives</a>
+        <p>Iteratively learn from working processes and behaviors while cultivating a culture of continuous improvement.</p>
+      </li>
+
+      <li id="og-ownership" class="ops-guide">
+        <a href="https://ownership.pagerduty.com">Ownership</a>
+        <p>Ensure the reliability of systems & services through a deeper understanding of how code functions in production.</p>
+      </li>
+
+      <li id="og-devsecops" class="ops-guide">
+        <a href="https://devsecops.pagerduty.com/">DevSecOps</a>
+        <p>New to DevSecOps, or wondering what it is and how to implement it? This guide will help you get started.</p>
+      </li>
+
+      <li id="og-goingoncall" class="ops-guide">
+        <a href="https://goingoncall.pagerduty.com/">Going On-Call</a>
+        <p>The complete resource to going on call for teams and managers.</p>
+      </li>
+
+      <li id="og-autoremediation" class="ops-guide">
+        <a href="https://autoremediation.pagerduty.com/">Auto Remediation</a>
+        <p>This guide will help you to leverage automation in your Incident Response process.</p>
+      </li>
+
+      <li id="og-customerservice" class="ops-guide">
+        <a href="https://customerserviceops.pagerduty.com/">Customer Service</a>
+        <p>Excellent Customer Service means excellent customer experience, even during incidents.</p>
+      </li>
+    </ul>
+
+    <p id="outro">
+      Made with <span class="material-icons love" aria-label="Love">favorite</span> at PagerDuty.
+    </p>
+
+    <p id="github-repo-link">
+      <a target="_blank"
+         title="View the source for this documentation on GitHub."
+         href="https://github.com/elimuinformatics/incident-response-docs">View Source on GitHub</a>
+    </p>
+
+    <!-- It's our theme, so we can just hardcode these :p -->
+    <ul id="social-links">
+      <li class="twitter">
+        <a title="View the @PagerDuty Twitter feed."
+           href="https://twitter.com/PagerDuty">Twitter</a>
+      </li>
+      <li class="github">
+        <a title="View PagerDuty on GitHub"
+           href="https://github.com/PagerDuty">GitHub</a>
+      </li>
+      <li class="pagerduty">
+        <a title="View the PagerDuty website."
+          href="https://www.pagerduty.com/">PagerDuty</a>
+      </li>
+    </ul>
   </div>
-</footer>
-      
-    </div>
-    <div class="md-dialog" data-md-component="dialog">
-      <div class="md-dialog__inner md-typeset"></div>
-    </div>
-    <script id="__config" type="application/json">{"base": "../..", "features": [], "search": "../../assets/javascripts/workers/search.2a1c317c.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}}</script>
+    </footer>
+
+        
+      <script src="../../../../search/main.js"></script>
     
     
-      <script src="../../assets/javascripts/bundle.a6c66575.min.js"></script>
-      
-        <script src="../../js/github_forks.js"></script>
-      
     
   </body>
 </html>

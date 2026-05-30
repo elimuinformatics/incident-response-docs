@@ -1,1129 +1,288 @@
-
-<!doctype html>
-<html lang="en" class="no-js">
+<!DOCTYPE html>
+<html lang="en">
   <head>
-    
-      <meta charset="utf-8">
-      <meta name="viewport" content="width=device-width,initial-scale=1">
-      
-        <meta name="description" content="These are some processes that we've found do not work well. We've either tried them in the past and regretted it, or spent considerable time thinking about them and ultimately rejected them. We want to document them to make sure we don't repeat mistakes or wonder why a decision was made later down the line.">
-      
-      
-        <meta name="author" content="Elimu Informatics">
-      
-      
-        <link rel="canonical" href="https://elimuinformatics.github.io/incident-response-docs/resources/anti_patterns/">
-      
-      <link rel="icon" href="../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.3.0, mkdocs-material-8.2.15">
-    
-    
-      
-        <title>Anti-Patterns - Elimu Informatics Incident Response Documentation</title>
-      
-    
-    
-      <link rel="stylesheet" href="../../assets/stylesheets/main.c382b1dc.min.css">
-      
-        
-        <link rel="stylesheet" href="../../assets/stylesheets/palette.cc9b2e1e.min.css">
-        
-      
-    
-    
-    
-      
-        
-        
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
-        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
-      
-    
-    
-      <link rel="stylesheet" href="../../assets/css/pagerduty.css">
-    
-      <link rel="stylesheet" href="../../assets/css/custom.css">
-    
-    <script>__md_scope=new URL("../..",location),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
-    
-      
+    <meta charset="utf-8" />
+    <title>Anti-Patterns - Elimu Informatics Incident Response Documentation</title>
 
+    <!-- Author and License -->
+    <meta name="dcterms.license"      content="http://www.apache.org/licenses/LICENSE-2.0" />
+    <meta name="author"               content="Elimu Informatics" />
+    <meta name="dcterms.rightsHolder" content="Elimu Informatics" />
+    <!-- Page Description -->
+    <meta name="description" content="These are some processes that we've found do not work well. We've either tried them in the past and regretted it, or spent considerable time thinking about them and ultimately rejected them. We want to document them to make sure we don't repeat mistakes or wonder why a decision was made later down the line." />
+    <meta name="robots"      content="index, follow, archive" />
+    <meta name="generator"   content="mkdocs-1.6.1, mkdocs-theme-pagerduty" />
+
+    <!-- Canonical Link -->
+    <link rel="canonical" href="https://response.elimuinformatics.com/resources/anti_patterns/">
+
+    <!-- Favicon -->
+    <link rel="shortcut icon"    href="/assets/images/favicon.png" type="image/png" />
+    <link rel="icon"             href="/assets/images/favicon.png" type="image/png" />
+    <link rel="apple-touch-icon" href="/assets/images/favicon.png" />
+
+    <!-- Mobile -->
+    <meta name="viewport"    content="width=device-width, initial-scale=1.0, minimum-scale=1.0" />
+    <meta name="theme-color" content="#005a24" />
+
+    <!-- Apple -->
+    <meta name="apple-mobile-web-app-title"            content="Elimu Informatics Incident Response Documentation" />
+    <meta name="apple-mobile-web-app-capable"          content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+    <!-- Open Graph -->
+    <meta property="og:url"         content="https://response.elimuinformatics.com/resources/anti_patterns/" />
+    <meta property="og:title"       content="Anti-Patterns - Elimu Informatics Incident Response Documentation" />
+    <meta property="og:site_name"   content="Elimu Informatics Incident Response Documentation" />
+    <meta property="og:description" content="These are some processes that we've found do not work well. We've either tried them in the past and regretted it, or spent considerable time thinking about them and ultimately rejected them. We want to document them to make sure we don't repeat mistakes or wonder why a decision was made later down the line." />
+    <meta property="og:image"       content="https://response.elimuinformatics.com/assets/img/covers/anti-patterns.png" />
+    <meta property="og:locale"      content="en_US" />
+    <meta property="og:type"        content="website" />
+
+    <!-- Twitter -->
+    <meta name="twitter:card"        content="summary_large_image" />
+    <meta name="twitter:title"       content="Anti-Patterns - Elimu Informatics Incident Response Documentation" />
+    <meta name="twitter:description" content="These are some processes that we've found do not work well. We've either tried them in the past and regretted it, or spent considerable time thinking about them and ultimately rejected them. We want to document them to make sure we don't repeat mistakes or wonder why a decision was made later down the line." />
+    <meta name="twitter:image"       content="https://response.elimuinformatics.com/assets/img/covers/anti-patterns.png" />
+        <!-- Style -->
+    <link rel="stylesheet" href="../../assets/stylesheets/fonts.css" />
+    <link rel="stylesheet" href="../../assets/stylesheets/reset.css" />
+    <link rel="stylesheet" href="../../assets/stylesheets/pagerduty.css" />
+    <link rel="stylesheet" href="../../assets/stylesheets/code.css" />
     
+    
+      <link rel="stylesheet" href="../../../../assets/css/custom.css" />
     
   </head>
-  
-  
-    
-    
-    
-    
-    
-    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="none" data-md-color-accent="none">
-  
-    
-    
-    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
-    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
-    <label class="md-overlay" for="__drawer"></label>
-    <div data-md-component="skip">
-      
-        
-        <a href="#getting-everyone-on-the-call" class="md-skip">
-          Skip to content
-        </a>
-      
-    </div>
-    <div data-md-component="announce">
-      
-    </div>
-    
-    
-      
-
-<header class="md-header" data-md-component="header">
-  <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href="../.." title="Elimu Informatics Incident Response Documentation" class="md-header__button md-logo" aria-label="Elimu Informatics Incident Response Documentation" data-md-component="logo">
-      
-  
-  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
-
-    </a>
-    <label class="md-header__button md-icon" for="__drawer">
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
-    </label>
-    <div class="md-header__title" data-md-component="header-title">
-      <div class="md-header__ellipsis">
-        <div class="md-header__topic">
-          <span class="md-ellipsis">
-            Elimu Informatics Incident Response Documentation
-          </span>
-        </div>
-        <div class="md-header__topic" data-md-component="header-topic">
-          <span class="md-ellipsis">
-            
-              Anti-Patterns
-            
-          </span>
-        </div>
-      </div>
-    </div>
-    
-    
-    
-      <label class="md-header__button md-icon" for="__search">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
-      </label>
-      <div class="md-search" data-md-component="search" role="dialog">
-  <label class="md-search__overlay" for="__search"></label>
-  <div class="md-search__inner" role="search">
-    <form class="md-search__form" name="search">
-      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
-      <label class="md-search__icon md-icon" for="__search">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
-      </label>
-      <nav class="md-search__options" aria-label="Search">
-        
-        <button type="reset" class="md-search__icon md-icon" aria-label="Clear" tabindex="-1">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
-        </button>
-      </nav>
-      
-    </form>
-    <div class="md-search__output">
-      <div class="md-search__scrollwrap" data-md-scrollfix>
-        <div class="md-search-result" data-md-component="search-result">
-          <div class="md-search-result__meta">
-            Initializing search
-          </div>
-          <ol class="md-search-result__list"></ol>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-    
-    
-      <div class="md-header__source">
-        <a href="https://github.com/elimuinformatics/incident-response-docs" title="Go to repository" class="md-source" data-md-component="source">
-  <div class="md-source__icon md-icon">
-    
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.1.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
-  </div>
-  <div class="md-source__repository">
-    GitHub
-  </div>
-</a>
-      </div>
-    
-  </nav>
-  
-</header>
-    
-    <div class="md-container" data-md-component="container">
-      
-      
-        
-          
-        
-      
-      <main class="md-main" data-md-component="main">
-        <div class="md-main__inner md-grid">
-          
-            
-              
-              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
-                <div class="md-sidebar__scrollwrap">
-                  <div class="md-sidebar__inner">
-                    
-
-
-<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
-  <label class="md-nav__title" for="__drawer">
-    <a href="../.." title="Elimu Informatics Incident Response Documentation" class="md-nav__button md-logo" aria-label="Elimu Informatics Incident Response Documentation" data-md-component="logo">
-      
-  
-  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
-
-    </a>
-    Elimu Informatics Incident Response Documentation
-  </label>
-  
-    <div class="md-nav__source">
-      <a href="https://github.com/elimuinformatics/incident-response-docs" title="Go to repository" class="md-source" data-md-component="source">
-  <div class="md-source__icon md-icon">
-    
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.1.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
-  </div>
-  <div class="md-source__repository">
-    GitHub
-  </div>
-</a>
-    </div>
-  
-  <ul class="md-nav__list" data-md-scrollfix>
-    
-      
-      
-      
-
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../.." class="md-nav__link">
-        Home
+  <body class="">
+    <header>
+        <div class="content-wrapper">
+    <div id="logo">
+      <a href="../.." title="Go to Incident Response homepage.">
+        <img src="../../assets/images/logo.png" title="PagerDuty" />
       </a>
-    </li>
-  
-
-    
-      
-      
-      
-
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../getting_started/" class="md-nav__link">
-        Getting Started
-      </a>
-    </li>
-  
-
-    
-      
-      
-      
-
-  
-  
-  
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
-      
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" type="checkbox" id="__nav_3" >
-      
-      
-      
-      
-        <label class="md-nav__link" for="__nav_3">
-          On-Call
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <nav class="md-nav" aria-label="On-Call" data-md-level="1">
-        <label class="md-nav__title" for="__nav_3">
-          <span class="md-nav__icon md-icon"></span>
-          On-Call
-        </label>
-        <ul class="md-nav__list" data-md-scrollfix>
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../oncall/being_oncall/" class="md-nav__link">
-        Being On-Call
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../oncall/whos_oncall/" class="md-nav__link">
-        Who's On-Call?
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../oncall/alerting_principles/" class="md-nav__link">
-        Alerting Principles
-      </a>
-    </li>
-  
-
-            
-          
-        </ul>
-      </nav>
-    </li>
-  
-
-    
-      
-      
-      
-
-  
-  
-  
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
-      
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4" type="checkbox" id="__nav_4" >
-      
-      
-      
-      
-        <label class="md-nav__link" for="__nav_4">
-          Before an Incident
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <nav class="md-nav" aria-label="Before an Incident" data-md-level="1">
-        <label class="md-nav__title" for="__nav_4">
-          <span class="md-nav__icon md-icon"></span>
-          Before an Incident
-        </label>
-        <ul class="md-nav__list" data-md-scrollfix>
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../before/what_is_an_incident/" class="md-nav__link">
-        What is an Incident?
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../before/severity_levels/" class="md-nav__link">
-        Severity Levels
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../before/different_roles/" class="md-nav__link">
-        Different Roles
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../before/call_etiquette/" class="md-nav__link">
-        Call Etiquette
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../before/complex_incidents/" class="md-nav__link">
-        Complex Incidents
-      </a>
-    </li>
-  
-
-            
-          
-        </ul>
-      </nav>
-    </li>
-  
-
-    
-      
-      
-      
-
-  
-  
-  
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
-      
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5" type="checkbox" id="__nav_5" >
-      
-      
-      
-      
-        <label class="md-nav__link" for="__nav_5">
-          During an Incident
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <nav class="md-nav" aria-label="During an Incident" data-md-level="1">
-        <label class="md-nav__title" for="__nav_5">
-          <span class="md-nav__icon md-icon"></span>
-          During an Incident
-        </label>
-        <ul class="md-nav__list" data-md-scrollfix>
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../during/during_an_incident/" class="md-nav__link">
-        During an Incident
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../during/security_incident_response/" class="md-nav__link">
-        Security Incident
-      </a>
-    </li>
-  
-
-            
-          
-        </ul>
-      </nav>
-    </li>
-  
-
-    
-      
-      
-      
-
-  
-  
-  
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
-      
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6" type="checkbox" id="__nav_6" >
-      
-      
-      
-      
-        <label class="md-nav__link" for="__nav_6">
-          After an Incident
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <nav class="md-nav" aria-label="After an Incident" data-md-level="1">
-        <label class="md-nav__title" for="__nav_6">
-          <span class="md-nav__icon md-icon"></span>
-          After an Incident
-        </label>
-        <ul class="md-nav__list" data-md-scrollfix>
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../after/after_an_incident/" class="md-nav__link">
-        After an Incident
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../after/post_mortem_process/" class="md-nav__link">
-        Post-Mortem Process
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../after/post_mortem_template/" class="md-nav__link">
-        Post-Mortem Template
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../after/effective_post_mortems/" class="md-nav__link">
-        Effective Post-Mortems
-      </a>
-    </li>
-  
-
-            
-          
-        </ul>
-      </nav>
-    </li>
-  
-
-    
-      
-      
-      
-
-  
-  
-  
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
-      
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_7" type="checkbox" id="__nav_7" >
-      
-      
-      
-      
-        <label class="md-nav__link" for="__nav_7">
-          Training
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <nav class="md-nav" aria-label="Training" data-md-level="1">
-        <label class="md-nav__title" for="__nav_7">
-          <span class="md-nav__icon md-icon"></span>
-          Training
-        </label>
-        <ul class="md-nav__list" data-md-scrollfix>
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../training/overview/" class="md-nav__link">
-        Overview
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../training/incident_commander/" class="md-nav__link">
-        Incident Commander
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../training/deputy/" class="md-nav__link">
-        Deputy
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../training/scribe/" class="md-nav__link">
-        Scribe
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../training/subject_matter_expert/" class="md-nav__link">
-        Subject Matter Expert
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../training/customer_liaison/" class="md-nav__link">
-        Customer Liaison
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../training/internal_liaison/" class="md-nav__link">
-        Internal Liaison
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../training/glossary/" class="md-nav__link">
-        Glossary
-      </a>
-    </li>
-  
-
-            
-          
-        </ul>
-      </nav>
-    </li>
-  
-
-    
-      
-      
-      
-
-  
-  
-  
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
-      
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_8" type="checkbox" id="__nav_8" >
-      
-      
-      
-      
-        <label class="md-nav__link" for="__nav_8">
-          Training Courses
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <nav class="md-nav" aria-label="Training Courses" data-md-level="1">
-        <label class="md-nav__title" for="__nav_8">
-          <span class="md-nav__icon md-icon"></span>
-          Training Courses
-        </label>
-        <ul class="md-nav__list" data-md-scrollfix>
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../training/courses/incident_response/" class="md-nav__link">
+      <span class="subtitle">
         Incident Response
-      </a>
-    </li>
-  
-
-            
-          
-        </ul>
-      </nav>
-    </li>
-  
+      </span>
+    </div>
 
     
-      
-      
-      
+<!-- This is a cheat for mobile search, allowing us to store state in a checkbox. -->
+<input id="mobile-search-link" type="checkbox"  />
+<label id="mobile-search-link-selector" for="mobile-search-link" role="button"></label>
+<div id="search">
+  <input name="q" id="mkdocs-search-query" type="search" placeholder="Search..." />
+  <div id="mkdocs-search-results"><p>No results found</p></div>
+</div>
 
-  
-  
-    
-  
-  
-    
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
-      
-      
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_9" type="checkbox" id="__nav_9" checked>
-      
-      
-      
-      
-        <label class="md-nav__link" for="__nav_9">
-          Additional Resources
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <nav class="md-nav" aria-label="Additional Resources" data-md-level="1">
-        <label class="md-nav__title" for="__nav_9">
-          <span class="md-nav__icon md-icon"></span>
-          Additional Resources
-        </label>
-        <ul class="md-nav__list" data-md-scrollfix>
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../reading/" class="md-nav__link">
-        Reading
-      </a>
-    </li>
-  
+<!-- This is used for MkDocs search. Hardcoding to '/' so CSP is easier. -->
+<script>var base_url = '/';</script>
 
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../chatops/" class="md-nav__link">
-        ChatOps
-      </a>
-    </li>
-  
+  </div>
+    </header>
 
-            
-          
-            
-              
-  
-  
-    
-  
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
-      
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          Anti-Patterns
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
-        Anti-Patterns
-      </a>
+      <nav id="breadcrumbs">
+    <div class="content-wrapper">
+      <p><a href="../..">Incident Response</a></p>
       
         
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#getting-everyone-on-the-call" class="md-nav__link">
-    Getting everyone on the call.
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#forcing-everyone-to-stay-on-the-call" class="md-nav__link">
-    Forcing everyone to stay on the call.
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#too-frequent-status-updates" class="md-nav__link">
-    Too frequent status updates.
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#assuming-silence-means-no-progress" class="md-nav__link">
-    Assuming silence means no progress.
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#litigating-severities-during-the-incident-call" class="md-nav__link">
-    Litigating severities during the incident call.
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#hesitating-to-escalate-to-other-responders" class="md-nav__link">
-    Hesitating to escalate to other responders.
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#discussing-process-and-policy-decisions-during-the-incident-call" class="md-nav__link">
-    Discussing process and policy decisions during the incident call.
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#neglecting-the-post-mortem-and-followup-activities" class="md-nav__link">
-    Neglecting the post-mortem and followup activities.
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#being-too-focussed-on-the-problem-in-front-of-you" class="md-nav__link">
-    Being too focussed on the problem in front of you.
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#being-averse-to-policy-and-process-changes" class="md-nav__link">
-    Being averse to policy and process changes.
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#trying-to-take-on-multiple-roles" class="md-nav__link">
-    Trying to take on multiple roles.
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#trying-to-be-a-hero" class="md-nav__link">
-    Trying to be a hero.
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#not-disseminating-policy-changes-to-responders" class="md-nav__link">
-    Not disseminating policy changes to responders.
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#requiring-incident-commanders-to-have-deep-technical-knowledge" class="md-nav__link">
-    Requiring Incident Commanders to have deep technical knowledge.
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
-    </li>
-  
-
-            
           
+            <p>Additional Resources</p>
+          
+        
+        <h1>Anti-Patterns</h1>
+      
+    </div>
+  </nav>
+    
+
+    <main>
+      <!-- This is a cheat for mobile navigation, allowing us to store state in a checkbox. -->
+<input id="mobile-nav-link" type="checkbox"  />
+<label id="mobile-nav-link-selector" for="mobile-nav-link" role="button"></label>
+<nav>
+  <div id="nav-title">Incident Response</div>
+<ul>
+          <li>
+          <a title="Home" href="../..">Home</a>
+          </li>
+            <li>
+          <a title="Getting Started" href="../../getting_started/">Getting Started</a>
+          </li>
+    <li>
+        <span class="subsection">On-Call</span>
+        <ul>
+                <li>
+          <a title="Being On-Call" href="../../oncall/being_oncall/">Being On-Call</a>
+          </li>
+                <li>
+          <a title="Who's On-Call?" href="../../oncall/whos_oncall/">Who's On-Call?</a>
+          </li>
+                <li>
+          <a title="Alerting Principles" href="../../oncall/alerting_principles/">Alerting Principles</a>
+          </li>
         </ul>
-      </nav>
-    </li>
-  
-
-    
-      
-      
-      
-
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../about/" class="md-nav__link">
-        About
-      </a>
-    </li>
-  
-
-    
-  </ul>
-</nav>
-                  </div>
-                </div>
-              </div>
-            
-            
-              
-              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
-                <div class="md-sidebar__scrollwrap">
-                  <div class="md-sidebar__inner">
-                    
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#getting-everyone-on-the-call" class="md-nav__link">
-    Getting everyone on the call.
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#forcing-everyone-to-stay-on-the-call" class="md-nav__link">
-    Forcing everyone to stay on the call.
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#too-frequent-status-updates" class="md-nav__link">
-    Too frequent status updates.
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#assuming-silence-means-no-progress" class="md-nav__link">
-    Assuming silence means no progress.
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#litigating-severities-during-the-incident-call" class="md-nav__link">
-    Litigating severities during the incident call.
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#hesitating-to-escalate-to-other-responders" class="md-nav__link">
-    Hesitating to escalate to other responders.
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#discussing-process-and-policy-decisions-during-the-incident-call" class="md-nav__link">
-    Discussing process and policy decisions during the incident call.
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#neglecting-the-post-mortem-and-followup-activities" class="md-nav__link">
-    Neglecting the post-mortem and followup activities.
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#being-too-focussed-on-the-problem-in-front-of-you" class="md-nav__link">
-    Being too focussed on the problem in front of you.
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#being-averse-to-policy-and-process-changes" class="md-nav__link">
-    Being averse to policy and process changes.
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#trying-to-take-on-multiple-roles" class="md-nav__link">
-    Trying to take on multiple roles.
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#trying-to-be-a-hero" class="md-nav__link">
-    Trying to be a hero.
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#not-disseminating-policy-changes-to-responders" class="md-nav__link">
-    Not disseminating policy changes to responders.
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#requiring-incident-commanders-to-have-deep-technical-knowledge" class="md-nav__link">
-    Requiring Incident Commanders to have deep technical knowledge.
-  </a>
-  
-</li>
-      
+      </li>
+    <li>
+        <span class="subsection">Before an Incident</span>
+        <ul>
+                <li>
+          <a title="What is an Incident?" href="../../before/what_is_an_incident/">What is an Incident?</a>
+          </li>
+                <li>
+          <a title="Severity Levels" href="../../before/severity_levels/">Severity Levels</a>
+          </li>
+                <li>
+          <a title="Different Roles" href="../../before/different_roles/">Different Roles</a>
+          </li>
+                <li>
+          <a title="Call Etiquette" href="../../before/call_etiquette/">Call Etiquette</a>
+          </li>
+                <li>
+          <a title="Complex Incidents" href="../../before/complex_incidents/">Complex Incidents</a>
+          </li>
+        </ul>
+      </li>
+    <li>
+        <span class="subsection">During an Incident</span>
+        <ul>
+                <li>
+          <a title="During an Incident" href="../../during/during_an_incident/">During an Incident</a>
+          </li>
+                <li>
+          <a title="External Communication Guidelines" href="../../during/external_communication_guidelines/">External Communication Guidelines</a>
+          </li>
+                <li>
+          <a title="Security Incident" href="../../during/security_incident_response/">Security Incident</a>
+          </li>
+        </ul>
+      </li>
+    <li>
+        <span class="subsection">After an Incident</span>
+        <ul>
+                <li>
+          <a title="After an Incident" href="../../after/after_an_incident/">After an Incident</a>
+          </li>
+                <li>
+          <a title="Postmortem Process" href="../../after/post_mortem_process/">Postmortem Process</a>
+          </li>
+                <li>
+          <a title="Postmortem Template" href="../../after/post_mortem_template/">Postmortem Template</a>
+          </li>
+                <li>
+          <a title="Effective Postmortems" href="../../after/effective_post_mortems/">Effective Postmortems</a>
+          </li>
+        </ul>
+      </li>
+    <li>
+        <span class="subsection">Training</span>
+        <ul>
+                <li>
+          <a title="Training Overview" href="../../training/overview/">Training Overview</a>
+          </li>
+                <li>
+          <a title="Incident Commander" href="../../training/incident_commander/">Incident Commander</a>
+          </li>
+                <li>
+          <a title="Deputy" href="../../training/deputy/">Deputy</a>
+          </li>
+                <li>
+          <a title="Scribe" href="../../training/scribe/">Scribe</a>
+          </li>
+                <li>
+          <a title="Subject Matter Expert" href="../../training/subject_matter_expert/">Subject Matter Expert</a>
+          </li>
+                <li>
+          <a title="Customer Liaison" href="../../training/customer_liaison/">Customer Liaison</a>
+          </li>
+                <li>
+          <a title="Internal Liaison" href="../../training/internal_liaison/">Internal Liaison</a>
+          </li>
+                <li>
+          <a title="Glossary" href="../../training/glossary/">Glossary</a>
+          </li>
+        </ul>
+      </li>
+    <li>
+        <span class="subsection">Training Courses</span>
+        <ul>
+                <li>
+          <a title="Incident Response" href="../../training/courses/incident_response/">Incident Response</a>
+          </li>
+        </ul>
+      </li>
+    <li>
+        <span class="subsection">Additional Resources</span>
+        <ul>
+                <li>
+          <a title="Reading" href="../reading/">Reading</a>
+          </li>
+                <li>
+          <a title="ChatOps" href="../chatops/">ChatOps</a>
+          </li>
+                <li class="active">
+          <a title="Anti-Patterns" href="./">Anti-Patterns</a>
+          <ul id="toc">
+            <li class="anchor">
+                  <a title="Getting everyone on the call." href="#getting-everyone-on-the-call">Getting everyone on the call.</a>
+                </li>
+            <li class="anchor">
+                  <a title="Forcing everyone to stay on the call." href="#forcing-everyone-to-stay-on-the-call">Forcing everyone to stay on the call.</a>
+                </li>
+            <li class="anchor">
+                  <a title="Too frequent status updates." href="#too-frequent-status-updates">Too frequent status updates.</a>
+                </li>
+            <li class="anchor">
+                  <a title="Assuming silence means no progress." href="#assuming-silence-means-no-progress">Assuming silence means no progress.</a>
+                </li>
+            <li class="anchor">
+                  <a title="Litigating severities during the incident call." href="#litigating-severities-during-the-incident-call">Litigating severities during the incident call.</a>
+                </li>
+            <li class="anchor">
+                  <a title="Hesitating to escalate to other responders." href="#hesitating-to-escalate-to-other-responders">Hesitating to escalate to other responders.</a>
+                </li>
+            <li class="anchor">
+                  <a title="Discussing process and policy decisions during the incident call." href="#discussing-process-and-policy-decisions-during-the-incident-call">Discussing process and policy decisions during the incident call.</a>
+                </li>
+            <li class="anchor">
+                  <a title="Neglecting the postmortem and followup activities." href="#neglecting-the-postmortem-and-followup-activities">Neglecting the postmortem and followup activities.</a>
+                </li>
+            <li class="anchor">
+                  <a title="Being too focussed on the problem in front of you." href="#being-too-focussed-on-the-problem-in-front-of-you">Being too focussed on the problem in front of you.</a>
+                </li>
+            <li class="anchor">
+                  <a title="Being averse to policy and process changes." href="#being-averse-to-policy-and-process-changes">Being averse to policy and process changes.</a>
+                </li>
+            <li class="anchor">
+                  <a title="Trying to take on multiple roles." href="#trying-to-take-on-multiple-roles">Trying to take on multiple roles.</a>
+                </li>
+            <li class="anchor">
+                  <a title="Trying to be a hero." href="#trying-to-be-a-hero">Trying to be a hero.</a>
+                </li>
+            <li class="anchor">
+                  <a title="Not disseminating policy changes to responders." href="#not-disseminating-policy-changes-to-responders">Not disseminating policy changes to responders.</a>
+                </li>
+            <li class="anchor">
+                  <a title="Requiring Incident Commanders to have deep technical knowledge." href="#requiring-incident-commanders-to-have-deep-technical-knowledge">Requiring Incident Commanders to have deep technical knowledge.</a>
+                </li>
+            </ul>
+          </li>
+        </ul>
+      </li>
+            <li>
+          <a title="About" href="../../about/">About</a>
+          </li>
     </ul>
-  
 </nav>
-                  </div>
-                </div>
-              </div>
-            
-          
-          <div class="md-content" data-md-component="content">
-            <article class="md-content__inner md-typeset">
-              
-                
-  <a href="https://github.com/elimuinformatics/incident-response-docs/edit/master/docs/resources/anti_patterns.md" title="Edit this page" class="md-content__button md-icon">
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25Z"/></svg>
-  </a>
 
-
-
-  <h1>Anti-Patterns</h1>
-
-<div class="admonition warning">
+      <article>
+        <h1>Anti-Patterns</h1>
+        <section id="downloads">
+  
+  
+</section>
+        
+        <div class="admonition warning">
 <p class="admonition-title">Process Anti-Patterns</p>
 <p>These are some processes that we've found do not work well. We've either tried them in the past and regretted it, or spent considerable time thinking about them and ultimately rejected them. We want to document them to make sure we don't repeat mistakes or wonder why a decision was made later down the line. The list is in no particular order.</p>
 </div>
@@ -1133,13 +292,13 @@
 <li>When the company was smaller, there were only a few engineers. So this process worked well, since you really did need every engineer on the call.</li>
 <li>Rather than triaging an incident and then having to page in additional people, if everyone is on the call to begin with then the thinking was that we'd get a faster response.</li>
 </ol>
-<p>As we grew our engineering department, this did not scale well at all, and problems quickly became apparent,</p>
+<p>As we grew our engineer department, this did not scale well at all, and problems quickly became apparent,</p>
 <ol>
 <li>Most of the people on the call had nothing to do. They'd been woken up for no reason.</li>
 <li>Paging people has a cost impact. Both in employee health, and in finance. Waking up your entire engineering department at 3am means nothing productive is going to be done the next day, across the entire department.</li>
 <li>People who weren't on-call would still get paged.</li>
 </ol>
-<p>It's important to maintain an <strong>effective span of control</strong> on any incident response. If you have more than 7 or 8 people directly reporting to the <a href="">Incident Commander</a> things can quickly get overwhelming. We now will only page the engineers who are on-call for a specific service, rather than the entire team. If more responders are required, then they will be mobilized by the <a href="">Internal Liaison</a> to join the response. 9 times out of 10 we don't need additional responders, so the rest of the engineering department can get some rest without interference. This results in a happier engineering department and a more streamlined response process.</p>
+<p>It's important to maintain an <strong>effective span of control</strong> on any incident response. If you have more than 7 or 8 people directly reporting to the <a href="/before/different_roles/#incident-commander-ic">Incident Commander</a> things can quickly get overwhelming. We now will only page the engineers who are on-call for a specific service, rather than the entire team. If more responders are required, then they will be mobilized by the <a href="">Internal Liaison</a> to join the response. 9 times out of 10 we don't need additional responders, so the rest of the engineering department can get some rest without interference. This results in a happier engineering department and a more streamlined response process.</p>
 <h2 id="forcing-everyone-to-stay-on-the-call">Forcing everyone to stay on the call.<a class="headerlink" href="#forcing-everyone-to-stay-on-the-call" title="Permanent link">#</a></h2>
 <p>Our original thinking was that if you've been mobilized onto a response call, then we would need you to stick around until the end, since if you were needed at one point, chances are you'll be needed again before the incident is resolved. Unfortunately, we've since found that that's never really the case. Typically someone will be mobilized to investigate a specific system, or perform a specific action, after which time there would be nothing further required from them. We'd have a call full of people who weren't doing anything and could've gone back to sleep. This can also encourage 'hero' mentalities where individuals feel pressured that they have to stay on a call.</p>
 <p>Now we ask people to leave the call if they're no longer needed. Once the Incident Commander has ascertained which systems are impacted, they let representatives for the other systems leave the call so they can get some rest. You can always mobilize them again if they're really needed. Most of the time they won't be needed again, so we're optimizing for the 99% case.</p>
@@ -1147,7 +306,7 @@
 <p>Executives need to know what's going on and want to be provided status updates every 5 minutes to keep them in the loop. The problem with this is that you'll spend the entire time providing status updates rather than resolving the incident.</p>
 <p>We've found that providing status updates every 20-30 minutes during a major incident is a typical cadence that works. This ensures we're not just providing updates for the sake of providing updates, but that they're more likely to have some actual useful information in them. That's not to say you can't provide updates more frequently if there really is new information to share, but it shouldn't be a requirement. We want to spend as much time fixing the incident as we can, but we also want to make sure we keep stakeholders in the loop. It's a delicate balance that's easy to get wrong.</p>
 <h2 id="assuming-silence-means-no-progress">Assuming silence means no progress.<a class="headerlink" href="#assuming-silence-means-no-progress" title="Permanent link">#</a></h2>
-<p>It can be common to assume silence on an incident call means that nothing is being done, however this is rarely the case. When joining a call, be aware that a chatterless session can be acceptable and reasonable. Silence usually means everyone is working on fixing the problem rather than talking and providing updates. We're not playing a game of "Keep talking and nobody gets fired". The Incident Commander is the one who should be doing most of the talking on a call. They will typically fill silence with a status update if appropriate, but others within the organization need to be trained to know that silence on a call isn't a bad thing, and doesn't mean that progress has stalled. Making sure staff are aware of this ahead of time will prevent awkward conversations during an incident call, which would be ultimately distracting from resolving the incident.</p>
+<p>It can be common to assume silence on an incident call means that nothing is being done, however this is rarely the case. When joining a call, be aware that a chatterless session can be acceptable and reasonable. Silence usually means everyone is working on fixing the problem rather than talking and providing updates. We're not playing a game of "Keep Talking and Nobody gets Fired." The Incident Commander is the one who should be doing most of the talking on a call. They will typically fill silence with a status update if appropriate, but others within the organization need to be trained to know that silence on a call isn't a bad thing, and doesn't mean that progress has stalled. Making sure staff are aware of this ahead of time will prevent awkward conversations during an incident call, which would be ultimately distracting from resolving the incident.</p>
 <h2 id="litigating-severities-during-the-incident-call">Litigating severities during the incident call.<a class="headerlink" href="#litigating-severities-during-the-incident-call" title="Permanent link">#</a></h2>
 <p>The start of a lot of incident calls in Elimu Informatics' past consisted of a discussion around whether we were really in a P2 situation, or whether it was a smaller issue that could be handled without an incident call. This discussion would usually take up quite a bit of time, as everyone wanted to weigh in. The problem was that while you're having this discussion, the incident is still going on behind the scenes, and by the time you've finished it has become a P1 and you've just wasted 10 minutes discussing severities.</p>
 <p>We now have a rule: <strong>We do not discuss incident severity during an incident call</strong>, we always assume it's the higher severity and treat it as such. So if we're not sure if it's a P2 or P3, we treat it like a P2 and move on. We've already spun up the gears of incident response and paged responders, so even if it turns out to be a P3, we may as well continue with the process and treat it as practice if nothing else.</p>
@@ -1157,17 +316,17 @@
 <h2 id="discussing-process-and-policy-decisions-during-the-incident-call">Discussing process and policy decisions during the incident call.<a class="headerlink" href="#discussing-process-and-policy-decisions-during-the-incident-call" title="Permanent link">#</a></h2>
 <p>There are occasions where responders don't agree with the incident response policies and processes we might use. Sometimes this will cause a discussion during the incident call, which ends up derailing the process for everyone and causing the underlying incident to last longer, hindering the response. It is absolutely OK to have disagreements with the process and to want to make changes (in fact, this is something we encourage, as it allows us to iteratively improve our process), however during an incident is not the time to have that discussion.</p>
 <p><strong>Policy and processes should not be discussed during an incident</strong>, just like with severities. The current process should be followed during an incident, and any concerns should be raised afterwards, either during a post-mortem or directly to the team managing the incident response process.</p>
-<h2 id="neglecting-the-post-mortem-and-followup-activities">Neglecting the post-mortem and followup activities.<a class="headerlink" href="#neglecting-the-post-mortem-and-followup-activities" title="Permanent link">#</a></h2>
-<p>It's tempting once an incident is resolved to not bother with the post-mortem. Either you feel like the cause is well known, or you don't feel that it's worth it. Don't fall into this trap! A post-mortem is always worthwhile. People were mobilized to respond to an incident, which had a cost associated with it. We want to be sure that we understand why that happened, so we can avoid that cost in future.</p>
-<p>Don't make the mistake of neglecting a post-mortem after an incident. Without a post-mortem you fail to recognize what you're doing right, where you could improve, and most importantly, how to avoid making the same exact mistakes next time around. A well-designed, blameless post-mortem allows teams to continuously learn, and serves as a way to iteratively improve your infrastructure and incident response process.</p>
+<h2 id="neglecting-the-postmortem-and-followup-activities">Neglecting the postmortem and followup activities.<a class="headerlink" href="#neglecting-the-postmortem-and-followup-activities" title="Permanent link">#</a></h2>
+<p>It's tempting once an incident is resolved to not bother with the postmortem. Either you feel like the cause is well known, or you don't feel that it's worth it. Don't fall into this trap! A postmortem is always worthwhile. People were mobilized to respond to an incident, which had a cost associated with it. We want to be sure that we understand why that happened, so we can avoid that cost in future.</p>
+<p>Don't make the mistake of neglecting a postmortem after an incident. Without a postmortem you fail to recognize what you're doing right, where you could improve, and most importantly, how to avoid making the same exact mistakes next time around. A well-designed, blameless postmortem allows teams to continuously learn, and serves as a way to iteratively improve your infrastructure and incident response process.</p>
 <p>If you mobilize responders and determine it's not a "real" incident, you should still conduct a post-mortem. Because the next time you're going to mobilize responders again and waste time. Find out why incident response was triggered when it may not have been needed, and fix that problem.</p>
 <h2 id="being-too-focussed-on-the-problem-in-front-of-you">Being too focussed on the problem in front of you.<a class="headerlink" href="#being-too-focussed-on-the-problem-in-front-of-you" title="Permanent link">#</a></h2>
-<p>As a responder to an incident, you would typically be focussed on the specific task in front of you. The Incident Commander generally being the person who has the bigger picture of what is going on. There can be a tendency for SME's to become too focussed on the problem they see in front of them, rather than taking the bigger picture into account. This usually presents itself on an incident call with an SME constantly bringing up the same issue without listening to instructions from the incident commander, and having tunnel vision for the specific issue on their system.</p>
+<p>As a responder to an incident, you would typically be focussed on the specific task in front of you. The Incident Commander generally being the person who has the bigger picture of what is going on. There can be a tendency for SME's to become too focussed on the problem they see in front of them, rather than taking the bigger picture into account. This usually presents itself on an incident call with an SME constantly bringing up the same issue without listening to instructions from the Incident Commander, and having tunnel vision for the specific issue on their system.</p>
 <p>Instructions from the Incident Commander should always be followed, as they will typically have more overall context on what is going on. Try not to fall into the trap of being hyper-focused on the problem in front of you, so much so that you derail the process. We want to treat the cause, not a symptom of the incident.</p>
 <h2 id="being-averse-to-policy-and-process-changes">Being averse to policy and process changes.<a class="headerlink" href="#being-averse-to-policy-and-process-changes" title="Permanent link">#</a></h2>
 <p>Once a stable process is in place, and incidents are getting resolved, there can be lots of hesitation and resistance to changing that process. "If it ain't broke don't fix it", etc. As your company grows, your response will need to change. Holding on to your old processes and practices for too long can hinder your incident response going forward. Don't be reckless, of course, but try to introduce sensible changes and <strong>don't be afraid to make changes which might slow things down in the short-term, but will make things faster in the long-run</strong>. These are the hardest changes to make, but usually the most worthwhile.</p>
 <h2 id="trying-to-take-on-multiple-roles">Trying to take on multiple roles.<a class="headerlink" href="#trying-to-take-on-multiple-roles" title="Permanent link">#</a></h2>
-<p>In past Elimu Informatics incidents, we've had instances where the Incident Commander has started to assume the Subject Matter Expert role and attempted to solve the problem themselves. This usually happens when the IC is an engineer in their day-to-day role. They are in an incident where the cause appears to be a system they know very well and have the requisite knowledge to fix. Wanting to solve the incident quickly, the IC will start to try and solve the problem. Sometimes you might get lucky and it will resolve the incident, but most of the time the immediately visible issue isn't necessarily the underlying cause of the incident. By the time that becomes apparent, you have an Incident Commander who is not paying attention to the other systems and is just focussed on the one problem in front of them. This effectively means there's no incident commander, as they would be busy trying to fix the problem. Inevitably, the problem turns out to be much bigger than anticipated and the response has become completely derailed.</p>
+<p>In past Elimu Informatics incidents, we've had instances where the Incident Commander has started to assume the Subject Matter Expert role and attempted to solve the problem themselves. This usually happens when the IC is an engineer in their day-to-day role. They are in an incident where the cause appears to be a system they know very well and have the requisite knowledge to fix. Wanting to solve the incident quickly, the IC will start to try and solve the problem. Sometimes you might get lucky and it will resolve the incident, but most of the time the immediately visible issue isn't necessarily the underlying cause of the incident. By the time that becomes apparent, you have an Incident Commander who is not paying attention to the other systems and is just focussed on the one problem in front of them. This effectively means there's no Incident Commander, as they would be busy trying to fix the problem. Inevitably, the problem turns out to be much bigger than anticipated and the response has become completely derailed.</p>
 <p><strong>You cannot take on another role at the same time as being an Incident Commander</strong>. It can be a difficult to be an IC when you want to jump in as an SME, but you must resist the temptation to abandon the role of IC. If you really are the only person able to solve the problem, you should handover to another Incident Commander and then assume the role of SME. This ensures that the response process remains on track with a dedicated Incident Commander.</p>
 <p>Remember that the job of an IC also includes preparing backup plans in case the current action doesn't resolve the incident. If you're acting as an SME fixing on a particular issue, you're not considering the backup plan.</p>
 <h2 id="trying-to-be-a-hero">Trying to be a hero.<a class="headerlink" href="#trying-to-be-a-hero" title="Permanent link">#</a></h2>
@@ -1180,78 +339,144 @@
 <p>This is a trap we fell into in our early days of incident response. We had several strong technical requirements for any new Incident Commanders, aiming to only have IC's with deep technical expertise, the intention being that they could diagnose issues very quickly. When it became apparent that we would need a large selection of IC's in order to maintain an effective on-call rotation, we soon realised that we had artificially restricted our pool of potential IC candidates.</p>
 <p><strong>Incident Commanders can come from all across your organization, and don't need to be technical experts</strong>. Since Incident Commanders only coordinate the response, they don't need deep technical knowledge of the system in order to perform their role. The Subject Matter Experts are the ones who need the deep technical knowledge. The Incident Commanders only require a high-level knowledge of how the system works. Where data flows in, how systems use it, and where data flows out. The technical details can be left to the SMEs, with the IC asking relevant questions.</p>
 <p>By dropping our strong technical requirements for Incident Commanders, we've been able to dramatically increase our pool of IC's, maintain a high level of quality and efficiency in our response, and help spread empathy for on-call workload to a larger portion of the company.</p>
+        
+      </article>
+    </main>
 
-              
-            </article>
-          </div>
-        </div>
+      <nav id="pagination">
+    <div class="content-wrapper">
+      <div class="previous">
         
-      </main>
-      
-        <footer class="md-footer">
-  
-    <nav class="md-footer__inner md-grid" aria-label="Footer">
-      
-        
-        <a href="../chatops/" class="md-footer__link md-footer__link--prev" aria-label="Previous: ChatOps" rel="prev">
-          <div class="md-footer__button md-icon">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
-          </div>
-          <div class="md-footer__title">
-            <div class="md-ellipsis">
-              <span class="md-footer__direction">
-                Previous
-              </span>
-              ChatOps
+          <a href="../chatops/" title="ChatOps">
+            <span class="label">Previous</span>
+            <div class="page">
+              <div class="button" role="button" aria-label="Previous">
+                <i class="icon icon-previous"></i>
+              </div>
+              <div class="title">
+                ChatOps
+              </div>
             </div>
-          </div>
-        </a>
-      
-      
+          </a>
         
-        <a href="../../about/" class="md-footer__link md-footer__link--next" aria-label="Next: About" rel="next">
-          <div class="md-footer__title">
-            <div class="md-ellipsis">
-              <span class="md-footer__direction">
-                Next
-              </span>
-              About
+      </div>
+
+      <div class="next">
+        
+          <a href="../../about/" title="About">
+            <span class="label">Next</span>
+            <div class="page">
+              <div class="title">
+                About
+              </div>
+              <div class="button" role="button" aria-label="Next">
+                <i class="icon icon-next"></i>
+              </div>
             </div>
-          </div>
-          <div class="md-footer__button md-icon">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"/></svg>
-          </div>
-        </a>
-      
-    </nav>
-  
-  <div class="md-footer-meta md-typeset">
-    <div class="md-footer-meta__inner md-grid">
-      <div class="md-copyright">
-  
-  
-    Made with
-    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
-      Material for MkDocs
-    </a>
-  
-</div>
-      
+          </a>
+        
+      </div>
     </div>
+  </nav>
+
+    <footer>
+        <div class="content-wrapper">
+        <ul id="ops-guides">
+      <h2>Ops Guides</h2>
+      <p>Explore our other guides!</p>
+      <li id="og-incident-response" class="ops-guide">
+        <a href="https://response.pagerduty.com">Incident Response</a>
+        <p>A detailed outline of response processes for technical incidents practices by PagerDuty and our leading customers.</p>
+      </li>
+
+      <li id="og-security-training" class="ops-guide">
+        <a href="https://sudo.pagerduty.com">Security Training</a>
+        <p>Open source security training used at PagerDuty - adaptable for your own technical and non-technical teams.</p>
+      </li>
+
+      <li id="og-postmortems" class="ops-guide">
+        <a href="https://postmortems.pagerduty.com/">Postmortems</a>
+        <p>Comprehensive guide on how to conduct effective postmortems. Learn how to build a culture of blamelessness.</p>
+      </li>
+
+      <li id="og-operational-reviews" class="ops-guide">
+        <a href="https://reviews.pagerduty.com/">Operational Reviews</a>
+        <p>Gauge incident impact using data-driven regularly scheduled reviews to better manage the hidden cost of real-time ops.</p>
+      </li>
+
+      <li id="og-business-response" class="ops-guide">
+        <a href="https://business-response.pagerduty.com/">Business Response</a>
+        <p>Learn how to align the business needs with technical needs when severe technical incidents occur.</p>
+      </li>
+
+      <li id="og-stakeholder-comms" class="ops-guide">
+        <a href="https://stakeholders.pagerduty.com/">Stakeholder Comms</a>
+        <p>Build an effective communiction strategy for your internal stakeholders during major incidents.</p>
+      </li>
+
+      <li id="og-retrospectives" class="ops-guide">
+        <a href="https://retrospectives.pagerduty.com/">Retrospectives</a>
+        <p>Iteratively learn from working processes and behaviors while cultivating a culture of continuous improvement.</p>
+      </li>
+
+      <li id="og-ownership" class="ops-guide">
+        <a href="https://ownership.pagerduty.com">Ownership</a>
+        <p>Ensure the reliability of systems & services through a deeper understanding of how code functions in production.</p>
+      </li>
+
+      <li id="og-devsecops" class="ops-guide">
+        <a href="https://devsecops.pagerduty.com/">DevSecOps</a>
+        <p>New to DevSecOps, or wondering what it is and how to implement it? This guide will help you get started.</p>
+      </li>
+
+      <li id="og-goingoncall" class="ops-guide">
+        <a href="https://goingoncall.pagerduty.com/">Going On-Call</a>
+        <p>The complete resource to going on call for teams and managers.</p>
+      </li>
+
+      <li id="og-autoremediation" class="ops-guide">
+        <a href="https://autoremediation.pagerduty.com/">Auto Remediation</a>
+        <p>This guide will help you to leverage automation in your Incident Response process.</p>
+      </li>
+
+      <li id="og-customerservice" class="ops-guide">
+        <a href="https://customerserviceops.pagerduty.com/">Customer Service</a>
+        <p>Excellent Customer Service means excellent customer experience, even during incidents.</p>
+      </li>
+    </ul>
+
+    <p id="outro">
+      Made with <span class="material-icons love" aria-label="Love">favorite</span> at PagerDuty.
+    </p>
+
+    <p id="github-repo-link">
+      <a target="_blank"
+         title="View the source for this documentation on GitHub."
+         href="https://github.com/elimuinformatics/incident-response-docs">View Source on GitHub</a>
+    </p>
+
+    <!-- It's our theme, so we can just hardcode these :p -->
+    <ul id="social-links">
+      <li class="twitter">
+        <a title="View the @PagerDuty Twitter feed."
+           href="https://twitter.com/PagerDuty">Twitter</a>
+      </li>
+      <li class="github">
+        <a title="View PagerDuty on GitHub"
+           href="https://github.com/PagerDuty">GitHub</a>
+      </li>
+      <li class="pagerduty">
+        <a title="View the PagerDuty website."
+          href="https://www.pagerduty.com/">PagerDuty</a>
+      </li>
+    </ul>
   </div>
-</footer>
-      
-    </div>
-    <div class="md-dialog" data-md-component="dialog">
-      <div class="md-dialog__inner md-typeset"></div>
-    </div>
-    <script id="__config" type="application/json">{"base": "../..", "features": [], "search": "../../assets/javascripts/workers/search.2a1c317c.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}}</script>
+    </footer>
+
+        
+      <script src="../../../../search/main.js"></script>
     
     
-      <script src="../../assets/javascripts/bundle.a6c66575.min.js"></script>
-      
-        <script src="../../js/github_forks.js"></script>
-      
     
   </body>
 </html>
