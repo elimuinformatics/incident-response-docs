@@ -2,13 +2,13 @@
 cover: assets/img/covers/severity_levels.png
 description: Incidents are typically classified by severity or priority. At Elimu Informatics we use 'P' levels, with lower numbered severities being more urgent. Operational issues can be classified at one of these severity levels, and in general you are able to take more risky moves to resolve a higher severity issue.
 ---
-The first step in any incident response process is to determine what actually [constitutes an incident](/before/what_is_an_incident.md). Incidents can then be classified by severity, usually done by using "SEV" definitions, with lower numbered severities being more urgent. Operational issues can be classified at one of these severity levels, and in general you are able to take more risky moves to resolve a higher severity issue. Anything above a P3 is automatically considered a "major incident" and gets a more intensive response than a normal incident.
+The first step in any incident response process is to determine what actually [constitutes an incident](../before/what_is_an_incident.md). Incidents can then be classified by severity, usually done by using "SEV" definitions, with the lower numbered severities being more urgent. Operational issues can be classified at one of these severity levels, and in general you are able to take more risky moves to resolve a higher severity issue. Anything above a P3 is automatically considered a "major incident" and gets a more intensive response than a normal incident.
 
 !!! tip "Always Assume The Worst"
-     If you are unsure which level an incident is (e.g. not sure if P2 or P1), **treat it as the higher one**. During an incident is not the time to discuss or litigate severities, just assume the highest and review during a post-mortem.
+     If you are unsure which level an incident is (e.g. not sure if P2 or P1), **treat it as the higher one**. During an incident is not the time to discuss or litigate severities, just assume the highest and review during a postmortem.
 
 !!! question "Can a P3 be a major incident?"
-     All P2's are major incidents, but not all major incidents need to be P2's. If you require co-ordinated response, even for lower severity issues, then trigger our incident response process. The IC can make a determination on whether full incident response is necessary.
+     All P2's are major incidents, but not all major incidents need to be P2's. If you require coordinated response, even for lower severity issues, trigger our incident response process. The Incident Commander can make a determination on whether full incident response is necessary.
 
 <table class="custom-table">
   <thead>
@@ -48,7 +48,7 @@ The first step in any incident response process is to determine what actually [c
           <li>Incident response functionality (ack, resolve, etc) is severely impaired.</li>
           <li>Web app is unavailable or experiencing severe performance degradation for most/all users.</li>
           <li>Monitoring of OpsGenie systems for major incident conditions is impaired.</li>
-          <li>Any other event to which an Elimu Informatics employee deems necessary of incident response.</li>
+          <li>Any other event to which an Elimu Informatics employee deems necessary of an incident response.</li>
         </ul>
       </td>
       <td>
@@ -74,7 +74,7 @@ The first step in any incident response process is to determine what actually [c
       <td>
         <p class="response">High-Urgency page to service team.</p>
         <ul>
-          <li>Work on issue as your top priority.</li>
+          <li>Work on issues as your top priority.</li>
           <li>Liaise with engineers of affected systems to identify cause.</li>
           <li>If related to recent deployment, rollback.</li>
           <li>Monitor status and notice if/when it escalates.</li>
@@ -105,7 +105,7 @@ The first step in any incident response process is to determine what actually [c
     <tr>
       <td class="p5">P5</td>
       <td>
-        <p class="intent">Cosmetic issues or bugs, not affecting customer ability to use the product.</li>
+        <p class="intent">Cosmetic issues or bugs, not affecting customer ability to use the product.</p>
         <ul>
           <li>Bugs not impacting the immediate ability to use the system.</li>
         </ul>

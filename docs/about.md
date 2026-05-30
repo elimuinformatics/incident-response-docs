@@ -1,7 +1,8 @@
 ---
 cover: assets/img/covers/incident_response_docs.png
+hero: assets/img/headers/iStock-1097331490-3992x2242-e4f3f2d.png
+hero_alt_text: Elimu Informatics
 ---
-
 This site documents parts of the Elimu Informatics Incident Response process. It is a cut-down version of our internal documentation, used at Elimu Informatics for any major incidents, and to prepare new employees for on-call responsibilities. It provides information not only on preparing for an incident, but also what to do during and after.
 
 Few companies seem to talk about their internal processes for dealing with major incidents. We would like to change that by opening up our documentation to the community, in the hopes that it proves useful to others who may want to formalize their own processes. Additionally, it provides an opportunity for others to suggest improvements, which ends up helping everyone.
@@ -20,7 +21,7 @@ Incident response is something you hope to never need, but when you do, you want
 
 ## What is covered?
 
-Anything from preparing to [go on-call](/oncall/being_oncall.md), definitions of [severities](/before/severity_levels.md), incident [call etiquette](/before/call_etiquette.md), all the way to how to run a [post-mortem](/after/post_mortem_process.md), and providing our [post-mortem template](/after/post_mortem_template.md). We even include our [security incident response process](/during/security_incident_response.md).
+Anything from preparing to [go on-call](oncall/being_oncall.md), definitions of [severities](before/severity_levels.md), incident [call etiquette](before/call_etiquette.md), all the way to how to run a [postmortem](after/post_mortem_process.md), and providing our [postmortem template](after/post_mortem_template.md). We even include our [security incident response process](during/security_incident_response.md).
 
 ## What is missing?
 
