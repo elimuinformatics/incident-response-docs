@@ -1,0 +1,10 @@
+  <div class="content-wrapper">
+    <div id="logo">
+      <a href="{{ base_url }}" class="brand" title="Go to {{ config.theme.title | default(config.site_name, true) }} homepage.">Elimu Informatics</a>
+      <span class="subtitle">
+        {{ config.theme.title | default(config.site_name, true) }}
+      </span>
+    </div>
+
+    {% include "_search.html" %}
+  </div>

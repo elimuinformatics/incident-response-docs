@@ -11,6 +11,8 @@ repo_url: https://github.com/elimuinformatics/incident-response-docs
 theme:
   name: 'pagerduty'
   title: 'Incident Response'
+  # Override the upstream theme's PagerDuty-branded header/footer partials.
+  custom_dir: 'theme_overrides'
 
 # Set default cover image
 extra:
