@@ -20,7 +20,7 @@ This is the command we use to manually trigger our incident response process. It
 
 When you submit the form, the bot:
 
-* pages the on-call Incident Commander,
+* pages the on-call Incident Commanders,
 * creates an incident in Jira that will be used for reporting purposes, and
 * creates a Slack channel for discussions about the incident, named after the Jira key. For example, the Jira incident `IR-99` gets the channel `#ir-99`.
 
@@ -28,11 +28,11 @@ Links to the Jira incident and the new Slack channel are posted in the channel w
 
 ![Paging Incident Commanders](../assets/img/chatops/ir_page.png)
 
-The bot adds the Incident Commander to the new channel and posts a message there for responders. The message links to the Jira incident and to these docs, lists the Incident Commander's first actions, and shows the most common `/ir` commands.
+The bot adds the Incident Commanders who were paged to the new channel and posts a message there for responders. The message links to the Jira incident and to these docs, lists the Incident Commander's first actions, and shows the most common `/ir` commands.
 
 ![Incident Channel](../assets/img/chatops/ir_incident_channel.png)
 
-If the bot can't page the Incident Commander, it shows you an error message. Run `/ir` to see the Incident Commander's phone number and call them.
+If the bot can't page the Incident Commanders, it shows you an error message. Run `/ir` to see the on-call Incident Commanders' phone numbers and call them.
 
 ### `/ir responders`
 This works similarly to the `/ir` command, but it uses all of the team schedules instead of just the Incident Commander schedules. It will list out all the current people who are on-call for each team. This is useful to also know who will likely be joining the incident call momentarily.
@@ -40,7 +40,7 @@ This works similarly to the `/ir` command, but it uses all of the team schedules
 ![Listing Responders](../assets/img/chatops/ir_responders.png)
 
 ### `/ir page responders`
-This pages the on-call responder for every team instead of the Incident Commander. This is rarely used, since generally only the relevant team will get paged. However, sometimes we require an "all hands on deck" response, and need the ability to quickly page all the current on-calls. If a team's page fails, the bot posts a warning that names the team.
+This pages the on-call responders for every team instead of the Incident Commanders. This is rarely used, since generally only the relevant team will get paged. However, sometimes we require an "all hands on deck" response, and need the ability to quickly page all the current on-calls. If a team's page fails, the bot posts a warning that names the team.
 
 ![Paging Responders](../assets/img/chatops/ir_page_responders.png)
 
@@ -52,7 +52,7 @@ For example, `/ir who hank` shows:
 ![Identifying Users](../assets/img/chatops/ir_who_hank.png)
 
 ### `/ir page <team>`
-This pages the on-call responder for one team. Team names are not case-sensitive. If the page fails, the bot posts a warning that names the team.
+This pages the on-call responders for one team. Team names are not case-sensitive. If the page fails, the bot posts a warning that names the team.
 
 ### `/ir page <user>`
 This will page a specific person. If the bot is in the channel where you run the command, it also adds that person to the channel.
