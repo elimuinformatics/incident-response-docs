@@ -39,7 +39,7 @@ Information on what to do during a major incident. See our [severity level descr
 
 1. Follow instructions from the Incident Commander.
     * **Is there no IC on the call?**
-        * Manually page them via Slack, with `/ir page` in Slack. This will page the primary and backup IC's at the same time.
+        * Manually page them via Slack, with `/ir page` in Slack, then submit the form. This will page the on-call Incident Commander.
         * Never hesitate to page the IC. It's much better to have them and not need them than the other way around.
 
 ## Steps for Incident Commander
