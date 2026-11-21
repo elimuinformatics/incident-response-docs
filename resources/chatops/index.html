@@ -9,7 +9,7 @@
     <meta name="author"               content="Elimu Informatics" />
     <meta name="dcterms.rightsHolder" content="Elimu Informatics" />
     <!-- Page Description -->
-    <meta name="description" content="Throughout this documentation references are made to various chat commands, all starting with an exclamation (e.g. 'ir page'). We have bots running in our Slack rooms which watch for these commands and execute various actions for us when they're detected. This page gives an overview of the commands we've referenced in this documentation, and what they do behind the scenes." />
+    <meta name="description" content="Throughout this documentation references are made to various chat commands. Incident response uses Slack slash commands (e.g. '/ir page'). This page gives an overview of the commands we've referenced in this documentation, and what they do behind the scenes." />
     <meta name="robots"      content="index, follow, archive" />
     <meta name="generator"   content="mkdocs-1.6.1, mkdocs-theme-pagerduty" />
 
@@ -34,7 +34,7 @@
     <meta property="og:url"         content="https://response.elimuinformatics.com/resources/chatops/" />
     <meta property="og:title"       content="ChatOps - Elimu Informatics Incident Response Documentation" />
     <meta property="og:site_name"   content="Elimu Informatics Incident Response Documentation" />
-    <meta property="og:description" content="Throughout this documentation references are made to various chat commands, all starting with an exclamation (e.g. 'ir page'). We have bots running in our Slack rooms which watch for these commands and execute various actions for us when they're detected. This page gives an overview of the commands we've referenced in this documentation, and what they do behind the scenes." />
+    <meta property="og:description" content="Throughout this documentation references are made to various chat commands. Incident response uses Slack slash commands (e.g. '/ir page'). This page gives an overview of the commands we've referenced in this documentation, and what they do behind the scenes." />
     <meta property="og:image"       content="https://response.elimuinformatics.com/assets/img/covers/chatops.png" />
     <meta property="og:locale"      content="en_US" />
     <meta property="og:type"        content="website" />
@@ -42,7 +42,7 @@
     <!-- Twitter -->
     <meta name="twitter:card"        content="summary_large_image" />
     <meta name="twitter:title"       content="ChatOps - Elimu Informatics Incident Response Documentation" />
-    <meta name="twitter:description" content="Throughout this documentation references are made to various chat commands, all starting with an exclamation (e.g. 'ir page'). We have bots running in our Slack rooms which watch for these commands and execute various actions for us when they're detected. This page gives an overview of the commands we've referenced in this documentation, and what they do behind the scenes." />
+    <meta name="twitter:description" content="Throughout this documentation references are made to various chat commands. Incident response uses Slack slash commands (e.g. '/ir page'). This page gives an overview of the commands we've referenced in this documentation, and what they do behind the scenes." />
     <meta name="twitter:image"       content="https://response.elimuinformatics.com/assets/img/covers/chatops.png" />
         <!-- Style -->
     <link rel="stylesheet" href="../../assets/stylesheets/fonts.css" />
@@ -221,9 +221,6 @@
             <li class="anchor">
                   <a title="Incident Response" href="#incident-response">Incident Response</a>
                 </li>
-            <li class="anchor">
-                  <a title="Status" href="#status">Status</a>
-                </li>
             </ul>
           </li>
                 <li>
@@ -244,37 +241,46 @@
   
 </section>
         
-        <p>Throughout this documentation, references are made to various chat commands, all starting with an exclamation (e.g. <code>!ir page</code>). We have bots running in our Slack rooms which watch for these commands and execute various actions for us when they're detected. This page gives an overview of the commands we've referenced in this documentation, and what they do behind the scenes.</p>
+        <p>Throughout this documentation, references are made to various chat commands. Incident response actions use Slack slash commands (e.g. <code>/ir page</code>), handled by our incident response bot. This page gives an overview of the commands we've referenced in this documentation, and what they do behind the scenes.</p>
 <h2 id="incident-response">Incident Response<a class="headerlink" href="#incident-response" title="Permanent link">#</a></h2>
-<p>Our <code>!ir</code> commands poll the OpsGenie API behind the scenes for various on-call schedules we specify. It caches the names and contact details for the current on-call users, so that if there's any issue in making API requests, the funtionality isn't impacted.</p>
-<h3 id="ir"><code>!ir</code><a class="headerlink" href="#ir" title="Permanent link">#</a></h3>
+<p>Our <code>/ir</code> commands look up on-call schedules in OpsGenie and show each on-call person's name, with their phone number when their Slack profile has one.</p>
+<h3 id="ir"><code>/ir</code><a class="headerlink" href="#ir" title="Permanent link">#</a></h3>
 <p>This command lists out the current Incident Commander(s) on-call, their phone numbers, and a message telling users how to page them.</p>
 <p><img alt="Incident Commander List" src="../../assets/img/chatops/ir.png" /></p>
-<h3 id="ir-page"><code>!ir page</code><a class="headerlink" href="#ir-page" title="Permanent link">#</a></h3>
-<p>This is the command we use to manually trigger our incident response process. It will page the current Incident Commander(s) on-call (the primary, the backup, and any trainees who are shadowing). It will also create a new incident in Jira that will be used for reporting purposes and a new Slack channel for discussions about the incident (aka an incident war room). Links to the Jira incident and new Slack channel will be displayed in the channel where the command was entered.</p>
+<h3 id="ir-page"><code>/ir page</code><a class="headerlink" href="#ir-page" title="Permanent link">#</a></h3>
+<p>This is the command we use to manually trigger our incident response process. It opens a form with three fields: Title, Severity and Description.</p>
+<p><img alt="Creating an Incident" src="../../assets/img/chatops/ir_page_form.png" /></p>
+<p>When you submit the form, the bot:</p>
+<ul>
+<li>pages the on-call Incident Commanders,</li>
+<li>creates an incident in Jira that will be used for reporting purposes, and</li>
+<li>creates a Slack channel for discussions about the incident, named after the Jira key. For example, the Jira incident <code>IR-99</code> gets the channel <code>#ir-99</code>.</li>
+</ul>
+<p>Links to the Jira incident and the new Slack channel are posted in the channel where you ran the command.</p>
 <p><img alt="Paging Incident Commanders" src="../../assets/img/chatops/ir_page.png" /></p>
-<p>If for any reason we are unable to page the Incident Commanders automatically, the bot will let us know that it has failed, and give us the phone numbers for the relevant people so we can manually call them. Here is some example output from our test bot, where we have simulated being unable to page via OpsGenie due to an unresponsive API call.</p>
-<p><img alt="Testing for Failure" src="../../assets/img/chatops/test_for_failure.png" /></p>
-<h3 id="ir-responders"><code>!ir responders</code><a class="headerlink" href="#ir-responders" title="Permanent link">#</a></h3>
-<p>This works similarly to the <code>!ir</code> command, but it uses all of the team schedules instead of just the Incident Commander schedules. It will list out all the current people who are on-call for each team. This is useful to also know who will likely be joining the incident call momentarily.</p>
+<p>The bot adds the Incident Commanders who were paged to the new channel and posts a message there for responders. The message links to the Jira incident and to these docs, lists the Incident Commander's first actions, and shows the most common <code>/ir</code> commands.</p>
+<p><img alt="Incident Channel" src="../../assets/img/chatops/ir_incident_channel.png" /></p>
+<p>If the bot can't page the Incident Commanders, it shows you an error message. Run <code>/ir</code> to see the on-call Incident Commanders' phone numbers and call them.</p>
+<h3 id="ir-responders"><code>/ir responders</code><a class="headerlink" href="#ir-responders" title="Permanent link">#</a></h3>
+<p>This works similarly to the <code>/ir</code> command, but it uses all of the team schedules instead of just the Incident Commander schedules. It will list out all the current people who are on-call for each team. This is useful to also know who will likely be joining the incident call momentarily.</p>
 <p><img alt="Listing Responders" src="../../assets/img/chatops/ir_responders.png" /></p>
-<h3 id="ir-page-responders"><code>!ir page responders</code><a class="headerlink" href="#ir-page-responders" title="Permanent link">#</a></h3>
-<p>This works similarly to <code>!ir page</code>, but it pages all of the team responders instead of the Incident Commander(s). This is rarely used, since generally only the relevant team will get paged. However, sometimes we require an "all hands on deck" response, and need the ability to quickly page all the current on-calls.</p>
+<h3 id="ir-page-responders"><code>/ir page responders</code><a class="headerlink" href="#ir-page-responders" title="Permanent link">#</a></h3>
+<p>This pages the on-call responders for every team instead of the Incident Commanders. This is rarely used, since generally only the relevant team will get paged. However, sometimes we require an "all hands on deck" response, and need the ability to quickly page all the current on-calls. If a team's page fails, the bot posts a warning that names the team.</p>
 <p><img alt="Paging Responders" src="../../assets/img/chatops/ir_page_responders.png" /></p>
-<h3 id="ir-who-user"><code>!ir who &lt;user&gt;</code><a class="headerlink" href="#ir-who-user" title="Permanent link">#</a></h3>
-<p>Sometimes we may need to identify a specific individual to bring them onto a call. This command lists out the contact info for a specific user, and a message telling users how to page them.</p>
-<p><img alt="Identifying Users" src="../../assets/img/chatops/ir_who_rich.png" /></p>
-<h3 id="ir-page-user"><code>!ir page &lt;user&gt;</code><a class="headerlink" href="#ir-page-user" title="Permanent link">#</a></h3>
-<p>This will page a specific person by username.</p>
-<p><img alt="Paging a User" src="../../assets/img/chatops/ir_page_rich.png" /></p>
-<h2 id="status">Status<a class="headerlink" href="#status" title="Permanent link">#</a></h2>
-<p>Our <code>!status</code> commands look at our internal monitoring systems to determine the current system state, as reported by the systems themselves. This is the status our alerting tooling uses to automatically notify us of issues.</p>
-<h3 id="status_1"><code>!status</code><a class="headerlink" href="#status_1" title="Permanent link">#</a></h3>
-<p>This will tell us the current overview of our system state. It will also alert us if it is unable to check for the status, since that could also be an indication of an issue. Typically though, it will hopefully show a status of <code>NORMAL</code>.</p>
-<p><img alt="Displaying Status" src="../../assets/img/chatops/status.png" /></p>
-<h3 id="status-stalk"><code>!status stalk</code><a class="headerlink" href="#status-stalk" title="Permanent link">#</a></h3>
-<p>This does the same as the above, only it polls every 30s until we stop it (with <code>!status unstalk</code>). It will only report the status into the chat room if it has changed since the last time it checked. We have this running during an incident so we can easily see if our system is getting worse or recovering without having to manually check our monitoring.</p>
-<p><img alt="Stalking Status" src="../../assets/img/chatops/status_stalk.png" /></p>
+<h3 id="ir-who-target"><code>/ir who &lt;target&gt;</code><a class="headerlink" href="#ir-who-target" title="Permanent link">#</a></h3>
+<p>If <code>&lt;target&gt;</code> is a team name, this lists that team's current on-call. Otherwise it's treated as a user search — it lists the contact info for the matched person, along with a message telling users how to page them.</p>
+<p>For example, <code>/ir who hank</code> shows:</p>
+<p><img alt="Identifying Users" src="../../assets/img/chatops/ir_who_hank.png" /></p>
+<h3 id="ir-page-team"><code>/ir page &lt;team&gt;</code><a class="headerlink" href="#ir-page-team" title="Permanent link">#</a></h3>
+<p>This pages the on-call responders for one team. Team names are not case-sensitive. If the page fails, the bot posts a warning that names the team.</p>
+<h3 id="ir-page-user"><code>/ir page &lt;user&gt;</code><a class="headerlink" href="#ir-page-user" title="Permanent link">#</a></h3>
+<p>This will page a specific person. If the bot is in the channel where you run the command, it also adds that person to the channel.</p>
+<p>For example, <code>/ir page hank</code> shows:</p>
+<p><img alt="Paging a User" src="../../assets/img/chatops/ir_page_hank.png" /></p>
+<p>Pages sent with <code>/ir page &lt;user&gt;</code>, <code>/ir page &lt;team&gt;</code> and <code>/ir page responders</code> tell the person being paged who paged them and which channel the page came from.</p>
+<h3 id="ir-help"><code>/ir help</code><a class="headerlink" href="#ir-help" title="Permanent link">#</a></h3>
+<p>This lists every <code>/ir</code> command. Only you can see the list.</p>
+<p><img alt="Listing Commands" src="../../assets/img/chatops/ir_help.png" /></p>
         
       </article>
     </main>
