@@ -1,57 +1,69 @@
 ---
 cover: assets/img/covers/chatops.png
-description: Throughout this documentation references are made to various chat commands, all starting with an exclamation (e.g. 'ir page'). We have bots running in our Slack rooms which watch for these commands and execute various actions for us when they're detected. This page gives an overview of the commands we've referenced in this documentation, and what they do behind the scenes.
+description: Throughout this documentation references are made to various chat commands. Incident response uses Slack slash commands (e.g. '/ir page'). This page gives an overview of the commands we've referenced in this documentation, and what they do behind the scenes.
 ---
-Throughout this documentation, references are made to various chat commands, all starting with an exclamation (e.g. `!ir page`). We have bots running in our Slack rooms which watch for these commands and execute various actions for us when they're detected. This page gives an overview of the commands we've referenced in this documentation, and what they do behind the scenes.
+Throughout this documentation, references are made to various chat commands. Incident response actions use Slack slash commands (e.g. `/ir page`), handled by our incident response bot. This page gives an overview of the commands we've referenced in this documentation, and what they do behind the scenes.
 
 ## Incident Response
 
-Our `!ir` commands poll the OpsGenie API behind the scenes for various on-call schedules we specify. It caches the names and contact details for the current on-call users, so that if there's any issue in making API requests, the funtionality isn't impacted.
+Our `/ir` commands look up on-call schedules in OpsGenie and show each on-call person's name, with their phone number when their Slack profile has one.
 
-### `!ir`
+### `/ir`
 This command lists out the current Incident Commander(s) on-call, their phone numbers, and a message telling users how to page them.
 
 ![Incident Commander List](../assets/img/chatops/ir.png)
 
-### `!ir page`
-This is the command we use to manually trigger our incident response process. It will page the current Incident Commander(s) on-call (the primary, the backup, and any trainees who are shadowing). It will also create a new incident in Jira that will be used for reporting purposes and a new Slack channel for discussions about the incident (aka an incident war room). Links to the Jira incident and new Slack channel will be displayed in the channel where the command was entered.
+### `/ir page`
+This is the command we use to manually trigger our incident response process. It opens a form with three fields: Title, Severity and Description.
+
+![Creating an Incident](../assets/img/chatops/ir_page_form.png)
+
+When you submit the form, the bot:
+
+* pages the on-call Incident Commanders,
+* creates an incident in Jira that will be used for reporting purposes, and
+* creates a Slack channel for discussions about the incident, named after the Jira key. For example, the Jira incident `IR-99` gets the channel `#ir-99`.
+
+Links to the Jira incident and the new Slack channel are posted in the channel where you ran the command.
 
 ![Paging Incident Commanders](../assets/img/chatops/ir_page.png)
 
-If for any reason we are unable to page the Incident Commanders automatically, the bot will let us know that it has failed, and give us the phone numbers for the relevant people so we can manually call them. Here is some example output from our test bot, where we have simulated being unable to page via OpsGenie due to an unresponsive API call.
+The bot adds the Incident Commanders who were paged to the new channel and posts a message there for responders. The message links to the Jira incident and to these docs, lists the Incident Commander's first actions, and shows the most common `/ir` commands.
 
-![Testing for Failure](../assets/img/chatops/test_for_failure.png)
+![Incident Channel](../assets/img/chatops/ir_incident_channel.png)
 
-### `!ir responders`
-This works similarly to the `!ir` command, but it uses all of the team schedules instead of just the Incident Commander schedules. It will list out all the current people who are on-call for each team. This is useful to also know who will likely be joining the incident call momentarily.
+If the bot can't page the Incident Commanders, it shows you an error message. Run `/ir` to see the on-call Incident Commanders' phone numbers and call them.
+
+### `/ir responders`
+This works similarly to the `/ir` command, but it uses all of the team schedules instead of just the Incident Commander schedules. It will list out all the current people who are on-call for each team. This is useful to also know who will likely be joining the incident call momentarily.
 
 ![Listing Responders](../assets/img/chatops/ir_responders.png)
 
-### `!ir page responders`
-This works similarly to `!ir page`, but it pages all of the team responders instead of the Incident Commander(s). This is rarely used, since generally only the relevant team will get paged. However, sometimes we require an "all hands on deck" response, and need the ability to quickly page all the current on-calls.
+### `/ir page responders`
+This pages the on-call responders for every team instead of the Incident Commanders. This is rarely used, since generally only the relevant team will get paged. However, sometimes we require an "all hands on deck" response, and need the ability to quickly page all the current on-calls. If a team's page fails, the bot posts a warning that names the team.
 
 ![Paging Responders](../assets/img/chatops/ir_page_responders.png)
 
-### `!ir who <user>`
-Sometimes we may need to identify a specific individual to bring them onto a call. This command lists out the contact info for a specific user, and a message telling users how to page them.
+### `/ir who <target>`
+If `<target>` is a team name, this lists that team's current on-call. Otherwise it's treated as a user search — it lists the contact info for the matched person, along with a message telling users how to page them.
 
-![Identifying Users](../assets/img/chatops/ir_who_rich.png)
+For example, `/ir who hank` shows:
 
-### `!ir page <user>`
-This will page a specific person by username.
+![Identifying Users](../assets/img/chatops/ir_who_hank.png)
 
-![Paging a User](../assets/img/chatops/ir_page_rich.png)
+### `/ir page <team>`
+This pages the on-call responders for one team. Team names are not case-sensitive. If the page fails, the bot posts a warning that names the team.
 
-## Status
+### `/ir page <user>`
+This will page a specific person. If the bot is in the channel where you run the command, it also adds that person to the channel.
 
-Our `!status` commands look at our internal monitoring systems to determine the current system state, as reported by the systems themselves. This is the status our alerting tooling uses to automatically notify us of issues.
+For example, `/ir page hank` shows:
 
-### `!status`
-This will tell us the current overview of our system state. It will also alert us if it is unable to check for the status, since that could also be an indication of an issue. Typically though, it will hopefully show a status of `NORMAL`.
+![Paging a User](../assets/img/chatops/ir_page_hank.png)
 
-![Displaying Status](../assets/img/chatops/status.png)
+Pages sent with `/ir page <user>`, `/ir page <team>` and `/ir page responders` tell the person being paged who paged them and which channel the page came from.
 
-### `!status stalk`
-This does the same as the above, only it polls every 30s until we stop it (with `!status unstalk`). It will only report the status into the chat room if it has changed since the last time it checked. We have this running during an incident so we can easily see if our system is getting worse or recovering without having to manually check our monitoring.
+### `/ir help`
+This lists every `/ir` command. Only you can see the list.
 
-![Stalking Status](../assets/img/chatops/status_stalk.png)
+![Listing Commands](../assets/img/chatops/ir_help.png)

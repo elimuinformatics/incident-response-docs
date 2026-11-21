@@ -11,7 +11,6 @@ It's important for the rest of the command staff to be able to focus on the prob
 
 Your job as Scribe is to listen to the call and to watch the incident Slack room, keeping track of context and actions that need to be performed, documenting these in Slack as you go. **You should not be performing any remediations, checking graphs, or investigating logs.** Those tasks will be delegated to the subject matter experts (SME's) by the Incident Commander.
 
-
 ## Prerequisites
 Before you can be a Scribe, it is expected that you meet the following criteria. Don't worry if you don't meet them all yet, you can still continue with training!
 
@@ -44,13 +43,6 @@ The [Steps for Scribe](../during/during_an_incident.md/#steps-for-scribe) provid
 
 Here are some examples of phrases and patterns you should use during incident calls.
 
-### Status Stalking
-At the start of any major incident call, you should start our status stalking bot, so that it will post to the room an update automatically.
-
-> !status stalk
-
-This will provide the update and allow the IC to see the status without having to keep asking.
-
 ### Note Important Actions
 During a call, you will hear lots of discussion happening, you should not be documenting all of this in the chat room. You only want to document things which will be important for the final timeline. It's not always obvious what this might be, and it's usually a matter of judgement. You generally want to note any actions the IC has asked someone to perform, along with the result of any polling decisions.
 
@@ -69,7 +61,3 @@ The postmortem owner will find these after and raise tasks for them.
 When the IC ends the call, you should post a message into Slack to let everyone know the call is over, and that they should continue discussion elsewhere.
 
 > Call is over, thanks everyone. Follow up in Slack.
-
-Don't forget to also stop the status stalking.
-
-> !status unstalk

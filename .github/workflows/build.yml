@@ -1,0 +1,24 @@
+name: Build docs
+
+# Build the MkDocs site on every pull request so a broken page or a missing image fails the PR,
+# instead of failing the deploy after merge and leaving the live site on the old version.
+
+on:
+  pull_request:
+    branches: [master]
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.x'
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+      - name: Build
+        run: mkdocs build --strict
